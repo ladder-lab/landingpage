@@ -5,7 +5,9 @@ export default function Banner({ children }: { children?: React.ReactNode }) {
   return (
     <Box
       sx={{
-        backgroundImage: `url(${BackgroundImage})`
+        width: '100%',
+        backgroundImage: `url(${BackgroundImage})`,
+        backgroundSize: 'cover'
       }}
     >
       {children}
