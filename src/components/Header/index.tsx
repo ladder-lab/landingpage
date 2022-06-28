@@ -9,7 +9,8 @@ const StyledAppBar = styled(AppBar)({
   borderBottom: '1px solid #E8E8E8',
   justifyContent: 'space-between',
   flexDirection: 'row',
-  height: 109
+  height: 109,
+  boxShadow: 'none'
 })
 
 const StyledNavLink = styled(NavLink)({
@@ -51,7 +52,12 @@ export default function Header() {
       </Box>
       <Button
         variant="contained"
-        sx={{ width: 230, borderRadius: 0, background: 'linear-gradient(0deg, #FE1A5E, #FE1A5E), #D9D9D9;' }}
+        sx={{
+          width: 230,
+          borderRadius: 0,
+          background: 'linear-gradient(0deg, #FE1A5E, #FE1A5E), #D9D9D9;',
+          boxShadow: 'none'
+        }}
       >
         <Box display="flex" alignItems="center" gap={12}>
           LAUNCH APP

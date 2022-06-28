@@ -8,7 +8,7 @@ export default function Home() {
         <Box
           sx={{
             paddingTop: 190,
-            paddingBottom: 258,
+            paddingBottom: 196,
             display: 'flex',
             flexDirection: 'column',
             alignItems: ' center'
