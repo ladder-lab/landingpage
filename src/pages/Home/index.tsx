@@ -1,9 +1,14 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Grid } from '@mui/material'
 import Banner from 'components/Banner'
 import { Socials } from 'constants/index'
 import ExternalLink from 'components/ExternalLink'
 import Image from 'components/Image'
 import { ReactComponent as CoverImage } from 'assets/svg/cover.svg'
+import InfoCard from 'components/Card/InfoCard'
+import { ReactComponent as CardIcon1 } from 'assets/svg/card-icon1.svg'
+import { ReactComponent as CardIcon2 } from 'assets/svg/card-icon2.svg'
+import { ReactComponent as CardIcon3 } from 'assets/svg/card-icon3.svg'
+import { ReactComponent as CardIcon4 } from 'assets/svg/card-icon4.svg'
 
 export default function Home() {
   return (
@@ -28,8 +33,14 @@ export default function Home() {
           <SocialsSection />
         </Box>
       </Banner>
-      <Box display="flex" flexDirection="column" alignItems="center">
+      <Box display="flex" flexDirection="column" alignItems="center" padding="0px 45px">
         <CoverImage style={{ transform: 'translateY(-120px)' }} />
+        <Box display="flex" width="100%">
+          <Typography fontSize={40} fontWeight={700} mb={86}>
+            About
+          </Typography>
+        </Box>
+        <About />
       </Box>
     </>
   )
@@ -39,8 +50,6 @@ function SocialsSection() {
   return (
     <Box display="flex" gap={40} alignItems="center">
       {Object.keys(Socials).map((key) => {
-        console.log(key)
-        console.log(Socials[key as keyof typeof Socials])
         return (
           <ExternalLink href={Socials[key as keyof typeof Socials].link}>
             <Image
@@ -50,6 +59,41 @@ function SocialsSection() {
           </ExternalLink>
         )
       })}
+    </Box>
+  )
+}
+
+function About() {
+  return (
+    <Box width="100%">
+      <Box maxWidth={800}>
+        <Typography fontSize={40} fontWeight={700} mb={40}>
+          ERC-1155
+        </Typography>
+        <Typography fontSize={18} fontWeight={300}>
+          ERC-1155 is a token standard that enables the efficient transfer for fungible and non-fungible tokens in a
+          single transaction.
+        </Typography>
+
+        <Grid container columnSpacing={15} rowSpacing={26} mt={90}>
+          <Grid item xs={6}>
+            <InfoCard
+              text={'Multiple items stored in a single smart contract'}
+              icon={<CardIcon1 />}
+              type="upper-left"
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <InfoCard text={'Simple reclaim function'} icon={<CardIcon2 />} type="upper-right" />
+          </Grid>
+          <Grid item xs={6}>
+            <InfoCard text={'Infinite number of items'} icon={<CardIcon3 />} type="lower-left" />
+          </Grid>
+          <Grid item xs={6}>
+            <InfoCard text={'Single transaction with multiple recipients'} icon={<CardIcon4 />} type="lower-right" />
+          </Grid>
+        </Grid>
+      </Box>
     </Box>
   )
 }
