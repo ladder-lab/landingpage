@@ -23,7 +23,7 @@ const StyledNavLink = styled(NavLink)({
 
 export default function Header() {
   return (
-    <StyledAppBar>
+    <StyledAppBar position="absolute">
       <Box
         sx={{
           height: '100%',

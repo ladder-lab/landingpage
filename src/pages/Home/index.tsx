@@ -3,6 +3,7 @@ import Banner from 'components/Banner'
 import { Socials } from 'constants/index'
 import ExternalLink from 'components/ExternalLink'
 import Image from 'components/Image'
+import { ReactComponent as CoverImage } from 'assets/svg/cover.svg'
 
 export default function Home() {
   return (
@@ -27,6 +28,9 @@ export default function Home() {
           <SocialsSection />
         </Box>
       </Banner>
+      <Box display="flex" flexDirection="column" alignItems="center">
+        <CoverImage style={{ transform: 'translateY(-120px)' }} />
+      </Box>
     </>
   )
 }
