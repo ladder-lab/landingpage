@@ -42,6 +42,7 @@ export default function Home() {
         </Box>
         <About />
       </Box>
+      <Footer />
     </>
   )
 }
@@ -116,6 +117,34 @@ function About() {
           </Grid>
         </Grid>
       </Box>
+    </Box>
+  )
+}
+
+function Footer() {
+  return (
+    <Box padding="120px 0 80px" display="flex" alignItems="center" flexDirection="column">
+      <Typography fontSize={40} fontWeight={700} mb={45}>
+        Join Ladder community!
+      </Typography>
+      <Typography fontSize={28} fontWeight={700}>
+        Ladder community is an ecosystem of non-fungible and fungible users, developers
+      </Typography>
+      <Box display="flex" gap={31} alignItems="center" mt={63}>
+        {Object.keys(Socials).map((key) => {
+          return (
+            <ExternalLink href={Socials[key as keyof typeof Socials].link}>
+              <Image
+                src={Socials[key as keyof typeof Socials].logo1}
+                alt={`social-media-link-${Socials[key as keyof typeof Socials].title}-bg`}
+              />
+            </ExternalLink>
+          )
+        })}
+      </Box>
+      <Typography fontSize={16} fontWeight={400} sx={{ opacity: 0.8 }} mt={170}>
+        Copyright©2022 Ladder Dao
+      </Typography>
     </Box>
   )
 }
