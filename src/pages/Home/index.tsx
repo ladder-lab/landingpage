@@ -50,9 +50,9 @@ export default function Home() {
 function SocialsSection() {
   return (
     <Box display="flex" gap={40} alignItems="center">
-      {Object.keys(Socials).map((key) => {
+      {Object.keys(Socials).map((key, idx) => {
         return (
-          <ExternalLink href={Socials[key as keyof typeof Socials].link}>
+          <ExternalLink key={idx} href={Socials[key as keyof typeof Socials].link}>
             <Image
               src={Socials[key as keyof typeof Socials].logo1}
               alt={`social-media-link-${Socials[key as keyof typeof Socials].title}`}
@@ -131,9 +131,9 @@ function Footer() {
         Ladder community is an ecosystem of non-fungible and fungible users, developers
       </Typography>
       <Box display="flex" gap={31} alignItems="center" mt={63}>
-        {Object.keys(Socials).map((key) => {
+        {Object.keys(Socials).map((key, idx) => {
           return (
-            <ExternalLink href={Socials[key as keyof typeof Socials].link}>
+            <ExternalLink key={idx} href={Socials[key as keyof typeof Socials].link}>
               <Image
                 src={Socials[key as keyof typeof Socials].logo1}
                 alt={`social-media-link-${Socials[key as keyof typeof Socials].title}-bg`}
