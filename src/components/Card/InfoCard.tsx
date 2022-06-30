@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { Box, Typography } from '@mui/material'
 import { ReactComponent as PointArray } from 'assets/svg/point-array.svg'
 
@@ -14,12 +15,40 @@ export default function InfoCard({
   width?: number | string
   height?: number | string
 }) {
+  const borderRadius = useMemo(() => {
+    switch (type) {
+      case 'upper-left':
+        return '30px 0 0 0'
+      case 'upper-right':
+        return '0 30px 0 0'
+      case 'lower-left':
+        return '0 0 0 30px'
+      case 'lower-right':
+        return '0 0 30px 0'
+      case 'lower':
+        return '0 0 30px 30px'
+    }
+  }, [type])
+
+  const iconBorderRadius = useMemo(() => {
+    switch (type) {
+      case 'upper-left':
+        return '30px 0'
+      case 'upper-right':
+        return '0 30px'
+      case 'lower-left':
+        return '0 30px'
+      case 'lower-right':
+        return '30px 0'
+      case 'lower':
+        return '30px 0'
+    }
+  }, [type])
+
   return (
     <Box
       sx={{
-        borderRadius: `${type === 'upper-left' ? 30 : 0}px ${type === 'upper-right' ? 30 : 0}px ${
-          type === 'lower-right' ? 30 : 0
-        }px ${type === 'lower-left' ? 30 : 0}px`,
+        borderRadius,
         background: 'rgba(255, 255, 255, 0.26)',
         overflow: 'hidden',
         width: width || '100%',
@@ -32,14 +61,19 @@ export default function InfoCard({
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-        flexDirection={['upper-left', 'lower-left'].includes(type) ? 'row' : 'row-reverse'}
+        flexDirection={['upper-left', 'lower-left', 'lower'].includes(type) ? 'row' : 'row-reverse'}
       >
+        {type === 'lower' && (
+          <Typography fontSize={22} fontWeight={400} pl={20}>
+            {text}
+          </Typography>
+        )}
         <Box
           sx={{
             background: 'rgba(255, 255, 255, 0.26)',
             width: 90,
             height: 90,
-            borderRadius: ['upper-left', 'lower-right'].includes(type) ? '30px 0' : '0 30px',
+            borderRadius: iconBorderRadius,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'
@@ -47,14 +81,16 @@ export default function InfoCard({
         >
           {icon}
         </Box>
-        <PointArray style={{ margin: 20 }} />
+        {type !== 'lower' && <PointArray style={{ margin: 20 }} />}
       </Box>
 
-      <Box padding="24px 20px 36px">
-        <Typography fontSize={22} fontWeight={400}>
-          {text}
-        </Typography>
-      </Box>
+      {type !== 'lower' && (
+        <Box padding="24px 20px 36px">
+          <Typography fontSize={22} fontWeight={400}>
+            {text}
+          </Typography>
+        </Box>
+      )}
     </Box>
   )
 }

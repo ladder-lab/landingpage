@@ -94,6 +94,28 @@ function About() {
           </Grid>
         </Grid>
       </Box>
+
+      <Box maxWidth={800} mt={135}>
+        <Typography fontSize={40} fontWeight={700} mb={40}>
+          Ladder AMM
+        </Typography>
+        <Typography fontSize={18} fontWeight={300}>
+          Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike the traditional AMM where paired
+          assets are all erc20, Ladder AMM supports non-fungible asset ERC1155 as the pair option.
+        </Typography>
+
+        <Grid container columnSpacing={15} rowSpacing={26} mt={90}>
+          <Grid item xs={6}>
+            <InfoCard text={'Contribute liquidity as a holder'} icon={<CardIcon1 />} type="upper-left" />
+          </Grid>
+          <Grid item xs={6}>
+            <InfoCard text={'Smart Routing'} icon={<CardIcon2 />} type="upper-right" />
+          </Grid>
+          <Grid item xs={12}>
+            <InfoCard text={'Infinite number of items'} icon={<CardIcon3 />} type="lower" height={90} />
+          </Grid>
+        </Grid>
+      </Box>
     </Box>
   )
 }
