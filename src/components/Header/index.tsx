@@ -34,7 +34,9 @@ export default function Header() {
           padding: '37px 45px'
         }}
       >
-        <Ladder />
+        <NavLink to={routes.home}>
+          <Ladder />
+        </NavLink>
       </Box>
       <Box
         sx={{
