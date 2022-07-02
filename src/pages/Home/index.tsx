@@ -96,7 +96,7 @@ function Footer() {
           return (
             <ExternalLink key={idx} href={Socials[key as keyof typeof Socials].link}>
               <Image
-                src={Socials[key as keyof typeof Socials].logo1}
+                src={Socials[key as keyof typeof Socials].logo2}
                 alt={`social-media-link-${Socials[key as keyof typeof Socials].title}-bg`}
               />
             </ExternalLink>

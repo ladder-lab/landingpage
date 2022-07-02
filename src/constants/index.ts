@@ -1,9 +1,9 @@
 import TwitterLogo1 from 'assets/svg/twitter.svg'
-import TwitterLogo2 from 'assets/svg/twitter2.svg'
+import TwitterLogo2 from 'assets/image/twitter-colorful.png'
 import DiscordLogo1 from 'assets/svg/discord.svg'
-import DiscordLogo2 from 'assets/svg/discord2.svg'
+import DiscordLogo2 from 'assets/image/discord-colorful.png'
 import MediumLogo1 from 'assets/svg/medium.svg'
-import MediumLogo2 from 'assets/svg/medium2.svg'
+import MediumLogo2 from 'assets/image/medium-colorful.png'
 
 export const SocialLinks = {
   TWITTER: 'https://twitter.com',
