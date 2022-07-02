@@ -1,28 +1,17 @@
-import { Box, Typography, Grid } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import Banner from 'components/Banner'
 import { Socials } from 'constants/index'
 import ExternalLink from 'components/ExternalLink'
 import Image from 'components/Image'
 import { ReactComponent as CoverImage } from 'assets/svg/cover.svg'
-import InfoCard from 'components/Card/InfoCard'
-import { ReactComponent as CardIcon1 } from 'assets/svg/card-icon1.svg'
-import { ReactComponent as CardIcon2 } from 'assets/svg/card-icon2.svg'
-import { ReactComponent as CardIcon3 } from 'assets/svg/card-icon3.svg'
-import { ReactComponent as CardIcon4 } from 'assets/svg/card-icon4.svg'
-import { ReactComponent as CardIcon5 } from 'assets/svg/card-icon5.svg'
-import { ReactComponent as CardIcon6 } from 'assets/svg/card-icon6.svg'
-import { ReactComponent as CardIcon7 } from 'assets/svg/card-icon7.svg'
-import { ReactComponent as Figure1 } from 'assets/svg/figure1.svg'
-import { ReactComponent as Figure2 } from 'assets/svg/figure2.svg'
 import { ReactComponent as Figure3 } from 'assets/svg/figure3.svg'
-import bg1 from 'assets/image/bg1.png'
-import bg2 from 'assets/image/bg2.png'
 import { ReactComponent as Underline } from 'assets/svg/underline.svg'
 import ReadWhitepaper from 'components/Button/ReadWhitepaper'
+import { CompositeFigure1, CompositeFigure2, AboutCards1, AboutCards2 } from 'pages/About'
 
 export default function Home() {
   return (
-    <>
+    <Box position="relative">
       <Banner>
         <Box
           sx={{
@@ -51,7 +40,8 @@ export default function Home() {
         <About />
       </Box>
       <Footer />
-    </>
+      <Figure3 style={{ position: 'absolute', right: 0, bottom: 0 }} />
+    </Box>
   )
 }
 
@@ -92,7 +82,7 @@ function About() {
 
 function Footer() {
   return (
-    <Box padding="144px 0 80px" display="flex" alignItems="center" flexDirection="column" position="relative">
+    <Box padding="144px 0 80px" display="flex" alignItems="center" flexDirection="column">
       <Typography fontSize={40} fontWeight={700} mb={45}>
         Join Ladder community!
       </Typography>
@@ -114,7 +104,6 @@ function Footer() {
       <Typography fontSize={16} fontWeight={400} sx={{ opacity: 0.8 }} mt={170}>
         Copyright©2022 Ladder Dao
       </Typography>
-      <Figure3 style={{ position: 'absolute', right: 0, bottom: 0 }} />
     </Box>
   )
 }
@@ -131,30 +120,9 @@ function Section1() {
           </Typography>
         }
       />
-      <Box width="100%" display="flex" justifyContent="space-between">
-        <Grid container columnSpacing={15} rowSpacing={26} width={675} mt={90}>
-          <Grid item xs={6}>
-            <InfoCard
-              text={'Multiple items stored in a single smart contract'}
-              icon={<CardIcon1 />}
-              type="upper-left"
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <InfoCard text={'Simple reclaim function'} icon={<CardIcon2 />} type="upper-right" />
-          </Grid>
-          <Grid item xs={6}>
-            <InfoCard text={'Infinite number of items'} icon={<CardIcon3 />} type="lower-left" />
-          </Grid>
-          <Grid item xs={6}>
-            <InfoCard text={'Single transaction with multiple recipients'} icon={<CardIcon4 />} type="lower-right" />
-          </Grid>
-        </Grid>
-
-        <Box position="relative" display="flex" alignItems="center" sx={{ transform: 'translateX(-60px)' }}>
-          <Figure1 style={{ zIndex: 1 }} />
-          <Image src={bg1} style={{ position: 'absolute' }} />
-        </Box>
+      <Box width="100%" display="flex" alignItems="center" justifyContent="space-between" mt={60}>
+        <AboutCards1 sx={{ width: 680 }} />
+        <CompositeFigure1 sx={{ transform: 'translateX(-60px)' }} />
       </Box>
     </Box>
   )
@@ -175,22 +143,9 @@ function Section2() {
       />
 
       <Box display="flex" justifyContent="space-between" width="100%" alignItems="center" mt={90}>
-        <Box position="relative" display="flex" alignItems="center" sx={{ transform: 'translateX(-45px)' }}>
-          <Figure2 style={{ zIndex: 1 }} />
-          <Image src={bg2} style={{ position: 'absolute' }} />
-        </Box>
+        <CompositeFigure2 sx={{ transform: 'translateX(-45px)' }} />
 
-        <Grid container columnSpacing={15} rowSpacing={15} width={675}>
-          <Grid item xs={6}>
-            <InfoCard text={'Contribute liquidity as a holder'} icon={<CardIcon5 />} type="upper-left" />
-          </Grid>
-          <Grid item xs={6}>
-            <InfoCard text={'Smart Routing'} icon={<CardIcon6 />} type="upper-right" />
-          </Grid>
-          <Grid item xs={12}>
-            <InfoCard text={'Infinite number of items'} icon={<CardIcon7 />} type="lower" height={90} />
-          </Grid>
-        </Grid>
+        <AboutCards2 sx={{ width: 680 }} />
       </Box>
     </Box>
   )
