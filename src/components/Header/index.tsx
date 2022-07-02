@@ -46,9 +46,9 @@ export default function Header() {
         }}
       >
         <StyledNavLink to={routes.home}>Home</StyledNavLink>
-        <StyledNavLink to={routes.home}>About</StyledNavLink>
+        <StyledNavLink to={routes.about}>About</StyledNavLink>
         <StyledNavLink to={routes.home}>Docs</StyledNavLink>
-        <StyledNavLink to={routes.home}>Community</StyledNavLink>
+        <StyledNavLink to={routes.community}>Community</StyledNavLink>
       </Box>
       <Button
         variant="contained"

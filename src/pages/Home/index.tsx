@@ -18,6 +18,7 @@ import { ReactComponent as Figure3 } from 'assets/svg/figure3.svg'
 import bg1 from 'assets/image/bg1.png'
 import bg2 from 'assets/image/bg2.png'
 import { ReactComponent as Underline } from 'assets/svg/underline.svg'
+import ReadWhitepaper from 'components/Button/ReadWhitepaper'
 
 export default function Home() {
   return (
@@ -32,8 +33,11 @@ export default function Home() {
             alignItems: ' center'
           }}
         >
-          <Typography fontSize={42} color="#000000" width={1008}>
-            A financial infrastructure dedicated to NFT Swap, bringing fungible and non-fungible tokens together
+          <Typography fontSize={42} color="#000000" textAlign="center">
+            A financial infrastructure
+            <br /> dedicated to NFT Swap,
+            <br /> bringing fungible and non-fungible <br />
+            tokens together
           </Typography>
           <Typography fontSize={20} color="#000000" width={552} mt={28} mb={41}>
             Swap ERC-1155 instant AMM liquidity MIX liquidity between ERC-1155 and ERC-20 Build an economy around
@@ -71,9 +75,13 @@ function SocialsSection() {
 function About() {
   return (
     <Box width="100%" position="relative" padding="0 45px">
-      <Typography fontSize={40} fontWeight={700} mb={86}>
-        About
-      </Typography>
+      <Box display="flex" justifyContent="space-between" alignItems="center" mb={86}>
+        <Typography fontSize={40} fontWeight={700}>
+          About
+        </Typography>
+        <ReadWhitepaper />
+      </Box>
+
       <Box display="grid" gap={174}>
         <Section1 />
         <Section2 />
