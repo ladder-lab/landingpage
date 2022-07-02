@@ -9,6 +9,15 @@ import { ReactComponent as CardIcon1 } from 'assets/svg/card-icon1.svg'
 import { ReactComponent as CardIcon2 } from 'assets/svg/card-icon2.svg'
 import { ReactComponent as CardIcon3 } from 'assets/svg/card-icon3.svg'
 import { ReactComponent as CardIcon4 } from 'assets/svg/card-icon4.svg'
+import { ReactComponent as CardIcon5 } from 'assets/svg/card-icon5.svg'
+import { ReactComponent as CardIcon6 } from 'assets/svg/card-icon6.svg'
+import { ReactComponent as CardIcon7 } from 'assets/svg/card-icon7.svg'
+import { ReactComponent as Figure1 } from 'assets/svg/figure1.svg'
+import { ReactComponent as Figure2 } from 'assets/svg/figure2.svg'
+import { ReactComponent as Figure3 } from 'assets/svg/figure3.svg'
+import bg1 from 'assets/image/bg1.png'
+import bg2 from 'assets/image/bg2.png'
+import { ReactComponent as Underline } from 'assets/svg/underline.svg'
 
 export default function Home() {
   return (
@@ -33,13 +42,8 @@ export default function Home() {
           <SocialsSection />
         </Box>
       </Banner>
-      <Box display="flex" flexDirection="column" alignItems="center" padding="0px 45px">
+      <Box display="flex" flexDirection="column" alignItems="center">
         <CoverImage style={{ transform: 'translateY(-120px)' }} />
-        <Box display="flex" width="100%">
-          <Typography fontSize={40} fontWeight={700} mb={86}>
-            About
-          </Typography>
-        </Box>
         <About />
       </Box>
       <Footer />
@@ -66,56 +70,13 @@ function SocialsSection() {
 
 function About() {
   return (
-    <Box width="100%">
-      <Box maxWidth={800}>
-        <Typography fontSize={40} fontWeight={700} mb={40}>
-          ERC-1155
-        </Typography>
-        <Typography fontSize={18} fontWeight={300}>
-          ERC-1155 is a token standard that enables the efficient transfer for fungible and non-fungible tokens in a
-          single transaction.
-        </Typography>
-
-        <Grid container columnSpacing={15} rowSpacing={26} mt={90}>
-          <Grid item xs={6}>
-            <InfoCard
-              text={'Multiple items stored in a single smart contract'}
-              icon={<CardIcon1 />}
-              type="upper-left"
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <InfoCard text={'Simple reclaim function'} icon={<CardIcon2 />} type="upper-right" />
-          </Grid>
-          <Grid item xs={6}>
-            <InfoCard text={'Infinite number of items'} icon={<CardIcon3 />} type="lower-left" />
-          </Grid>
-          <Grid item xs={6}>
-            <InfoCard text={'Single transaction with multiple recipients'} icon={<CardIcon4 />} type="lower-right" />
-          </Grid>
-        </Grid>
-      </Box>
-
-      <Box maxWidth={800} mt={135}>
-        <Typography fontSize={40} fontWeight={700} mb={40}>
-          Ladder AMM
-        </Typography>
-        <Typography fontSize={18} fontWeight={300}>
-          Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike the traditional AMM where paired
-          assets are all erc20, Ladder AMM supports non-fungible asset ERC1155 as the pair option.
-        </Typography>
-
-        <Grid container columnSpacing={15} rowSpacing={26} mt={90}>
-          <Grid item xs={6}>
-            <InfoCard text={'Contribute liquidity as a holder'} icon={<CardIcon1 />} type="upper-left" />
-          </Grid>
-          <Grid item xs={6}>
-            <InfoCard text={'Smart Routing'} icon={<CardIcon2 />} type="upper-right" />
-          </Grid>
-          <Grid item xs={12}>
-            <InfoCard text={'Infinite number of items'} icon={<CardIcon3 />} type="lower" height={90} />
-          </Grid>
-        </Grid>
+    <Box width="100%" position="relative" padding="0 45px">
+      <Typography fontSize={40} fontWeight={700} mb={86}>
+        About
+      </Typography>
+      <Box display="grid" gap={174}>
+        <Section1 />
+        <Section2 />
       </Box>
     </Box>
   )
@@ -123,7 +84,7 @@ function About() {
 
 function Footer() {
   return (
-    <Box padding="120px 0 80px" display="flex" alignItems="center" flexDirection="column">
+    <Box padding="144px 0 80px" display="flex" alignItems="center" flexDirection="column" position="relative">
       <Typography fontSize={40} fontWeight={700} mb={45}>
         Join Ladder community!
       </Typography>
@@ -145,6 +106,99 @@ function Footer() {
       <Typography fontSize={16} fontWeight={400} sx={{ opacity: 0.8 }} mt={170}>
         Copyright©2022 Ladder Dao
       </Typography>
+      <Figure3 style={{ position: 'absolute', right: 0, bottom: 0 }} />
+    </Box>
+  )
+}
+
+function Section1() {
+  return (
+    <Box width="100%">
+      <SectionHeader
+        title={'ERC-1155'}
+        description={
+          <Typography fontSize={20} fontWeight={600}>
+            ERC-1155 is a token standard that enables the efficient transfer
+            <br /> for fungible and non-fungible tokens in a single transaction.
+          </Typography>
+        }
+      />
+      <Box width="100%" display="flex" justifyContent="space-between">
+        <Grid container columnSpacing={15} rowSpacing={26} width={675} mt={90}>
+          <Grid item xs={6}>
+            <InfoCard
+              text={'Multiple items stored in a single smart contract'}
+              icon={<CardIcon1 />}
+              type="upper-left"
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <InfoCard text={'Simple reclaim function'} icon={<CardIcon2 />} type="upper-right" />
+          </Grid>
+          <Grid item xs={6}>
+            <InfoCard text={'Infinite number of items'} icon={<CardIcon3 />} type="lower-left" />
+          </Grid>
+          <Grid item xs={6}>
+            <InfoCard text={'Single transaction with multiple recipients'} icon={<CardIcon4 />} type="lower-right" />
+          </Grid>
+        </Grid>
+
+        <Box position="relative" display="flex" alignItems="center" sx={{ transform: 'translateX(-60px)' }}>
+          <Figure1 style={{ zIndex: 1 }} />
+          <Image src={bg1} style={{ position: 'absolute' }} />
+        </Box>
+      </Box>
+    </Box>
+  )
+}
+
+function Section2() {
+  return (
+    <Box>
+      <SectionHeader
+        title={'Ladder AMM'}
+        description={
+          <Typography fontSize={20} fontWeight={600}>
+            Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens.
+            <br /> Unlike the traditional AMM where paired assets are all erc20, Ladder AMM <br />
+            supports non-fungible asset ERC1155 as the pair option.
+          </Typography>
+        }
+      />
+
+      <Box display="flex" justifyContent="space-between" width="100%" alignItems="center" mt={90}>
+        <Box position="relative" display="flex" alignItems="center" sx={{ transform: 'translateX(-45px)' }}>
+          <Figure2 style={{ zIndex: 1 }} />
+          <Image src={bg2} style={{ position: 'absolute' }} />
+        </Box>
+
+        <Grid container columnSpacing={15} rowSpacing={15} width={675}>
+          <Grid item xs={6}>
+            <InfoCard text={'Contribute liquidity as a holder'} icon={<CardIcon5 />} type="upper-left" />
+          </Grid>
+          <Grid item xs={6}>
+            <InfoCard text={'Smart Routing'} icon={<CardIcon6 />} type="upper-right" />
+          </Grid>
+          <Grid item xs={12}>
+            <InfoCard text={'Infinite number of items'} icon={<CardIcon7 />} type="lower" height={90} />
+          </Grid>
+        </Grid>
+      </Box>
+    </Box>
+  )
+}
+
+function SectionHeader({ title, description }: { title: string; description: JSX.Element }) {
+  return (
+    <Box display="flex" alignItems="flex-start" gap={17.82}>
+      <Box display="flex" alignItems="center">
+        <Typography fontSize={32} fontWeight={700} mr={12.82}>
+          {title}
+        </Typography>
+        <Underline />
+      </Box>
+
+      {description}
     </Box>
   )
 }
