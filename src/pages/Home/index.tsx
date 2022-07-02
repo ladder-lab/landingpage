@@ -8,6 +8,7 @@ import { ReactComponent as Figure3 } from 'assets/svg/figure3.svg'
 import { ReactComponent as Underline } from 'assets/svg/underline.svg'
 import ReadWhitepaper from 'components/Button/ReadWhitepaper'
 import { CompositeFigure1, CompositeFigure2, AboutCards1, AboutCards2 } from 'pages/About'
+import Footer from 'components/Footer'
 
 export default function Home() {
   return (
@@ -76,34 +77,6 @@ function About() {
         <Section1 />
         <Section2 />
       </Box>
-    </Box>
-  )
-}
-
-function Footer() {
-  return (
-    <Box padding="144px 0 80px" display="flex" alignItems="center" flexDirection="column">
-      <Typography fontSize={40} fontWeight={700} mb={45}>
-        Join Ladder community!
-      </Typography>
-      <Typography fontSize={28} fontWeight={700}>
-        Ladder community is an ecosystem of non-fungible and fungible users, developers
-      </Typography>
-      <Box display="flex" gap={31} alignItems="center" mt={63}>
-        {Object.keys(Socials).map((key, idx) => {
-          return (
-            <ExternalLink key={idx} href={Socials[key as keyof typeof Socials].link}>
-              <Image
-                src={Socials[key as keyof typeof Socials].logo2}
-                alt={`social-media-link-${Socials[key as keyof typeof Socials].title}-bg`}
-              />
-            </ExternalLink>
-          )
-        })}
-      </Box>
-      <Typography fontSize={16} fontWeight={400} sx={{ opacity: 0.8 }} mt={170}>
-        Copyright©2022 Ladder Dao
-      </Typography>
     </Box>
   )
 }
