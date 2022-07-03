@@ -55,7 +55,7 @@ const StyledExternalLink = styled(ExternalLink)({
 })
 
 export default function Header() {
-  const isDownSm = useBreakpoint('sm')
+  const isDownMd = useBreakpoint('md')
   const [menuOpen, setMenuOpen] = useState(false)
   const { pathname } = useLocation()
 
@@ -67,7 +67,7 @@ export default function Header() {
     setMenuOpen(false)
   }, [])
 
-  if (isDownSm) {
+  if (isDownMd) {
     return (
       <MobileHeader
         isOpen={menuOpen}
@@ -130,7 +130,7 @@ function MobileHeader({ isOpen, onDismiss, onClick }: { isOpen: boolean; onDismi
 }
 
 function BrandLogo() {
-  const isDownSm = useBreakpoint('sm')
+  const isDownMd = useBreakpoint('md')
 
   return (
     <Box
@@ -152,7 +152,7 @@ function BrandLogo() {
         }
       }}
     >
-      <NavLink to={routes.home}>{isDownSm ? <LadderSm /> : <Ladder />}</NavLink>
+      <NavLink to={routes.home}>{isDownMd ? <LadderSm /> : <Ladder />}</NavLink>
     </Box>
   )
 }
