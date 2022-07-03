@@ -10,7 +10,7 @@ import { ReactComponent as Figure5 } from 'assets/svg/figure5.svg'
 
 export default function Community() {
   return (
-    <Box position="relative">
+    <Box position="relative" overflow="hidden">
       <Banner>
         <Box
           sx={{
