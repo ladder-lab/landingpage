@@ -51,18 +51,19 @@ export default function Footer({ height, copyright }: { height?: string | number
           )
         })}
       </Box>
-      {copyright && <CopyWriting text={copyright} />}
+      {copyright && (
+        <CopyWriting
+          text={copyright}
+          sx={{ position: 'absolute', left: { xs: 16, md: 'auto' }, bottom: { xs: 47, md: 80 } }}
+        />
+      )}
     </Box>
   )
 }
 
-export function CopyWriting({ text }: { text: String }) {
+export function CopyWriting({ text, sx }: { text: String; sx?: SxProps }) {
   return (
-    <Typography
-      fontSize={16}
-      fontWeight={400}
-      sx={{ opacity: 0.8, position: 'absolute', left: { xs: 16, md: 'auto' }, bottom: { xs: 47, md: 80 } }}
-    >
+    <Typography fontSize={16} fontWeight={400} sx={{ opacity: 0.8, ...sx }}>
       {text}
     </Typography>
   )
