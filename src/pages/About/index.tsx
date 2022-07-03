@@ -80,7 +80,7 @@ export function CompositeFigure2({ sx }: { sx?: SxProps }) {
   return (
     <Box position="relative" display="flex" alignItems="center" sx={sx}>
       <Figure2 style={{ zIndex: 1 }} />
-      <Image src={bg2} style={{ position: 'absolute' }} />
+      <Image src={bg2} style={{ position: 'absolute', left: -45 }} />
     </Box>
   )
 }

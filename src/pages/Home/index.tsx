@@ -91,15 +91,23 @@ function SocialsSection() {
 
 function About() {
   return (
-    <Box width="100%" position="relative" padding="0 45px">
+    <Box
+      width="100%"
+      position="relative"
+      padding="0 45px"
+      sx={{
+        padding: {
+          xs: '45px 16px',
+          md: '0 45px'
+        }
+      }}
+    >
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={86}>
-        <Typography fontSize={40} fontWeight={700}>
-          About
-        </Typography>
+        <Typography sx={{ fontSize: { xs: 24, md: 40 }, fontWeight: 700 }}>About</Typography>
         <ReadWhitepaper />
       </Box>
 
-      <Box display="grid" gap={174}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 60, md: 174 }, width: '100%' }}>
         <Section1 />
         <Section2 />
       </Box>
@@ -119,9 +127,24 @@ function Section1() {
           </Typography>
         }
       />
-      <Box width="100%" display="flex" alignItems="center" justifyContent="space-between" mt={60}>
-        <AboutCards1 sx={{ width: 680 }} />
-        <CompositeFigure1 sx={{ transform: 'translateX(-60px)' }} />
+      <Box
+        sx={{
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexDirection: {
+            xs: 'column',
+            md: 'row'
+          },
+          mt: {
+            xs: 32,
+            md: 60
+          }
+        }}
+      >
+        <AboutCards1 sx={{ maxWidth: 680 }} />
+        <CompositeFigure1 sx={{ transform: { xs: 'scale(0.7)', md: 'translateX(-60px)' } }} />
       </Box>
     </Box>
   )
@@ -141,26 +164,48 @@ function Section2() {
         }
       />
 
-      <Box display="flex" justifyContent="space-between" width="100%" alignItems="center" mt={90}>
-        <CompositeFigure2 sx={{ transform: 'translateX(-45px)' }} />
+      <Box
+        sx={{
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexDirection: {
+            xs: 'column-reverse',
+            md: 'row'
+          },
+          mt: {
+            xs: 32,
+            md: 60
+          }
+        }}
+      >
+        <CompositeFigure2 sx={{ transform: { xs: 'scale(0.7)', md: 'translateX(-45px)' } }} />
 
-        <AboutCards2 sx={{ width: 680 }} />
+        <AboutCards2 sx={{ maxWidth: 680 }} />
       </Box>
     </Box>
   )
 }
 
 function SectionHeader({ title, description }: { title: string; description: JSX.Element }) {
-  return (
-    <Box display="flex" alignItems="flex-start" gap={17.82}>
-      <Box display="flex" alignItems="center">
-        <Typography fontSize={32} fontWeight={700} mr={12.82}>
-          {title}
-        </Typography>
-        <Underline />
-      </Box>
+  const isDownSm = useBreakpoint('sm')
 
-      {description}
+  return (
+    <Box
+      sx={{
+        width: '100%',
+        display: 'flex',
+        gap: 17.82,
+        flexDirection: { xs: 'column', md: 'row' },
+        alignItems: 'flex-start'
+      }}
+    >
+      <Box display="flex" alignItems="center">
+        <Typography sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mr: 12.82 }}>{title}</Typography>
+        {!isDownSm && <Underline />}
+      </Box>
+      <Typography sx={{ fontSize: { xs: 20, md: 16 }, fontWeight: 600 }}> {description}</Typography>
     </Box>
   )
 }
