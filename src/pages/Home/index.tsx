@@ -40,7 +40,8 @@ export default function Home() {
         <CoverImage style={{ transform: 'translateY(-120px)' }} />
         <About />
       </Box>
-      <Footer />
+      <Footer height={750} copyright="Copyright©2022 Ladder Dao" />
+
       <Figure3 style={{ position: 'absolute', right: 0, bottom: 0 }} />
     </Box>
   )
