@@ -1,11 +1,11 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { AppBar, Box, Button, styled, IconButton } from '@mui/material'
 import { ReactComponent as Ladder } from 'assets/svg/ladder.svg'
 import { ReactComponent as LadderSm } from 'assets/svg/ladder-sm.svg'
 import { ReactComponent as ArrowUpRight } from 'assets/svg/arrow-up-right.svg'
 import { ReactComponent as MenuIcon } from 'assets/svg/menu.svg'
 import { routes } from 'constants/routes'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import useBreakpoint from 'hooks/useBreakpoint'
 import ExternalLink from 'components/ExternalLink'
 import MobileMenu from './MobileMenu'
@@ -57,6 +57,11 @@ const StyledExternalLink = styled(ExternalLink)({
 export default function Header() {
   const isDownSm = useBreakpoint('sm')
   const [menuOpen, setMenuOpen] = useState(false)
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
 
   const handleMenuDismiss = useCallback(() => {
     setMenuOpen(false)
@@ -88,7 +93,9 @@ export default function Header() {
       >
         {Tabs.map(({ title, route, link }, idx) =>
           route ? (
-            <StyledNavLink to={route}>{title}</StyledNavLink>
+            <StyledNavLink key={idx} to={route}>
+              {title}
+            </StyledNavLink>
           ) : link ? (
             <StyledExternalLink key={idx} href={link}>
               {title}

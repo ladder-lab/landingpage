@@ -42,7 +42,9 @@ export default function MobileMenu({ isOpen, onDismiss }: { isOpen: boolean; onD
         <Box display="grid" gap={60}>
           {Tabs.map(({ title, route, link }, idx) =>
             route ? (
-              <StyledNavLink to={route}>{title}</StyledNavLink>
+              <StyledNavLink key={idx} to={route}>
+                {title}
+              </StyledNavLink>
             ) : link ? (
               <StyledExternalLink key={idx} href={link}>
                 {title}
