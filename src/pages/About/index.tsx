@@ -15,6 +15,7 @@ import { ReactComponent as CardIcon4 } from 'assets/svg/card-icon4.svg'
 import { ReactComponent as CardIcon5 } from 'assets/svg/card-icon5.svg'
 import { ReactComponent as CardIcon6 } from 'assets/svg/card-icon6.svg'
 import { ReactComponent as CardIcon7 } from 'assets/svg/card-icon7.svg'
+import useBreakpoint from 'hooks/useBreakpoint'
 
 export default function About() {
   return (
@@ -95,35 +96,68 @@ export function CompositeFigure3({ sx }: { sx?: SxProps }) {
 }
 
 export function AboutCards1({ sx }: { sx?: SxProps }) {
+  const isDownMd = useBreakpoint('md')
+
   return (
     <Grid container spacing={20} sx={sx}>
       <Grid item xs={6}>
-        <InfoCard text={'Multiple items stored in a single smart contract'} icon={<CardIcon1 />} type="upper-left" />
+        <InfoCard
+          text={'Multiple items stored in a single smart contract'}
+          icon={<CardIcon1 style={{ transform: isDownMd ? 'scale(0.7)' : 'none' }} />}
+          type="upper-left"
+        />
       </Grid>
       <Grid item xs={6}>
-        <InfoCard text={'Simple reclaim function'} icon={<CardIcon2 />} type="upper-right" />
+        <InfoCard
+          text={'Simple reclaim function'}
+          icon={<CardIcon2 style={{ transform: isDownMd ? 'scale(0.7)' : 'none' }} />}
+          type="upper-right"
+        />
       </Grid>
       <Grid item xs={6}>
-        <InfoCard text={'Infinite number of items'} icon={<CardIcon3 />} type="lower-left" />
+        <InfoCard
+          text={'Infinite number of items'}
+          icon={<CardIcon3 style={{ transform: isDownMd ? 'scale(0.7)' : 'none' }} />}
+          type="lower-left"
+        />
       </Grid>
       <Grid item xs={6}>
-        <InfoCard text={'Single transaction with multiple recipients'} icon={<CardIcon4 />} type="lower-right" />
+        <InfoCard
+          text={'Single transaction with multiple recipients'}
+          icon={<CardIcon4 style={{ transform: isDownMd ? 'scale(0.7)' : 'none' }} />}
+          type="lower-right"
+        />
       </Grid>
     </Grid>
   )
 }
 
 export function AboutCards2({ sx }: { sx?: SxProps }) {
+  const isDownMd = useBreakpoint('md')
+
   return (
     <Grid container spacing={20} sx={sx}>
       <Grid item xs={6}>
-        <InfoCard text={'Contribute liquidity as a holder'} icon={<CardIcon5 />} type="upper-left" />
+        <InfoCard
+          text={'Contribute liquidity as a holder'}
+          icon={<CardIcon5 style={{ transform: isDownMd ? 'scale(0.7)' : 'none' }} />}
+          type="upper-left"
+        />
       </Grid>
       <Grid item xs={6}>
-        <InfoCard text={'Smart Routing'} icon={<CardIcon6 />} type="upper-right" />
+        <InfoCard
+          text={'Smart Routing'}
+          icon={<CardIcon6 style={{ transform: isDownMd ? 'scale(0.7)' : 'none' }} />}
+          type="upper-right"
+        />
       </Grid>
       <Grid item xs={12}>
-        <InfoCard text={'Trading ERC1155 with defi infrastructure'} icon={<CardIcon7 />} type="lower" height={90} />
+        <InfoCard
+          text={'Trading ERC1155 with defi infrastructure'}
+          icon={<CardIcon7 style={{ transform: isDownMd ? 'scale(0.7)' : 'none' }} />}
+          type="lower"
+          height={isDownMd ? 72 : 90}
+        />
       </Grid>
     </Grid>
   )
