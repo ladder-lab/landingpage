@@ -1,3 +1,4 @@
+import { useState, useCallback } from 'react'
 import { AppBar, Box, Button, styled, IconButton } from '@mui/material'
 import { ReactComponent as Ladder } from 'assets/svg/ladder.svg'
 import { ReactComponent as LadderSm } from 'assets/svg/ladder-sm.svg'
@@ -7,6 +8,8 @@ import { routes } from 'constants/routes'
 import { NavLink } from 'react-router-dom'
 import useBreakpoint from 'hooks/useBreakpoint'
 import ExternalLink from 'components/ExternalLink'
+import MobileMenu from './MobileMenu'
+import { ReactComponent as CloseIcon } from 'assets/svg/close.svg'
 
 interface Tab {
   title: string
@@ -14,7 +17,7 @@ interface Tab {
   link?: string
 }
 
-const Tabs: Tab[] = [
+export const Tabs: Tab[] = [
   { title: 'Home', route: routes.home },
   { title: 'About', route: routes.about },
   { title: 'Docs', link: '/' },
@@ -53,9 +56,22 @@ const StyledExternalLink = styled(ExternalLink)({
 
 export default function Header() {
   const isDownSm = useBreakpoint('sm')
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const handleMenuDismiss = useCallback(() => {
+    setMenuOpen(false)
+  }, [])
 
   if (isDownSm) {
-    return mobileHeader
+    return (
+      <MobileHeader
+        isOpen={menuOpen}
+        onDismiss={handleMenuDismiss}
+        onClick={() => {
+          setMenuOpen((open) => !open)
+        }}
+      />
+    )
   }
 
   return (
@@ -85,21 +101,26 @@ export default function Header() {
   )
 }
 
-const mobileHeader = (
-  <StyledMobileAppBar position="absolute">
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        height: '100%'
-      }}
-    >
-      <BrandLogo />
-      <LaunchApp />
-      <MenuBtn />
-    </Box>
-  </StyledMobileAppBar>
-)
+function MobileHeader({ isOpen, onDismiss, onClick }: { isOpen: boolean; onDismiss: () => void; onClick: () => void }) {
+  return (
+    <>
+      <MobileMenu isOpen={isOpen} onDismiss={onDismiss} />
+      <StyledMobileAppBar position="absolute">
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            height: '100%'
+          }}
+        >
+          <BrandLogo />
+          <LaunchApp />
+          <MenuBtn isOpen={isOpen} onClick={onClick} />
+        </Box>
+      </StyledMobileAppBar>
+    </>
+  )
+}
 
 function BrandLogo() {
   const isDownSm = useBreakpoint('sm')
@@ -150,7 +171,7 @@ function LaunchApp() {
   )
 }
 
-function MenuBtn() {
+function MenuBtn({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) {
   return (
     <Box
       sx={{
@@ -163,9 +184,7 @@ function MenuBtn() {
         justifyContent: 'center'
       }}
     >
-      <IconButton>
-        <MenuIcon />
-      </IconButton>
+      <IconButton onClick={onClick}>{isOpen ? <CloseIcon /> : <MenuIcon />}</IconButton>
     </Box>
   )
 }
