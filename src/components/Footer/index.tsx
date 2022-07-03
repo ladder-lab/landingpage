@@ -30,7 +30,7 @@ export default function Footer({ height, copyright }: { height?: string | number
   )
 }
 
-function CopyWriting({ text, sx }: { text: string; sx: SxProps }) {
+export function CopyWriting({ text, sx }: { text: string; sx?: SxProps }) {
   return (
     <Typography fontSize={16} fontWeight={400} sx={{ opacity: 0.8, ...sx }}>
       {text}
