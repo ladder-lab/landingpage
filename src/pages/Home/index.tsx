@@ -12,7 +12,7 @@ import Footer from 'components/Footer'
 import useBreakpoint from 'hooks/useBreakpoint'
 
 export default function Home() {
-  const isDownsm = useBreakpoint('sm')
+  const isDownMd = useBreakpoint('md')
 
   return (
     <Box position="relative" overflow="hidden">
@@ -61,7 +61,7 @@ export default function Home() {
         </Box>
       </Banner>
       <Box display="flex" flexDirection="column" alignItems="center">
-        {!isDownsm && <CoverImage style={{ transform: 'translateY(-120px)' }} />}
+        {!isDownMd && <CoverImage style={{ transform: 'translateY(-120px)' }} />}
 
         <About />
       </Box>
@@ -128,7 +128,10 @@ function Section1() {
         sx={{
           width: '100%',
           display: 'flex',
-          alignItems: 'center',
+          alignItems: {
+            xs: 'center',
+            md: 'center'
+          },
           justifyContent: 'space-between',
           flexDirection: {
             xs: 'column',
@@ -141,7 +144,7 @@ function Section1() {
         }}
       >
         <AboutCards1 sx={{ maxWidth: 680 }} />
-        <CompositeFigure1 sx={{ transform: { xs: 'scale(0.7)', md: 'translateX(-60px)' } }} />
+        <CompositeFigure1 sx={{ transform: { xs: 'scale(0.7)', md: 'none' } }} />
       </Box>
     </Box>
   )
@@ -182,7 +185,7 @@ function Section2() {
 }
 
 function SectionHeader({ title, description }: { title: string; description: string }) {
-  const isDownSm = useBreakpoint('sm')
+  const isDownMd = useBreakpoint('md')
 
   return (
     <Box
@@ -196,7 +199,7 @@ function SectionHeader({ title, description }: { title: string; description: str
     >
       <Box display="flex" alignItems="center">
         <Typography sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mr: 12.82 }}>{title}</Typography>
-        {!isDownSm && <Underline />}
+        {!isDownMd && <Underline />}
       </Box>
       <Typography sx={{ fontSize: { xs: 20, md: 16 }, fontWeight: 600, maxWidth: 640 }}> {description}</Typography>
     </Box>
