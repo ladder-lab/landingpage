@@ -121,10 +121,7 @@ function Section1() {
       <SectionHeader
         title={'ERC-1155'}
         description={
-          <Typography fontSize={20} fontWeight={600}>
-            ERC-1155 is a token standard that enables the efficient transfer
-            <br /> for fungible and non-fungible tokens in a single transaction.
-          </Typography>
+          'ERC-1155 is a token standard that enables the efficient transfer for fungible and non-fungible tokens in a single transaction.'
         }
       />
       <Box
@@ -156,11 +153,7 @@ function Section2() {
       <SectionHeader
         title={'Ladder AMM'}
         description={
-          <Typography fontSize={20} fontWeight={600}>
-            Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens.
-            <br /> Unlike the traditional AMM where paired assets are all erc20, Ladder AMM <br />
-            supports non-fungible asset ERC1155 as the pair option.
-          </Typography>
+          'Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike the traditional AMM where paired assets are all erc20, Ladder AMM supports non-fungible asset ERC1155 as the pair option.'
         }
       />
 
@@ -188,7 +181,7 @@ function Section2() {
   )
 }
 
-function SectionHeader({ title, description }: { title: string; description: JSX.Element }) {
+function SectionHeader({ title, description }: { title: string; description: string }) {
   const isDownSm = useBreakpoint('sm')
 
   return (
@@ -205,7 +198,7 @@ function SectionHeader({ title, description }: { title: string; description: JSX
         <Typography sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mr: 12.82 }}>{title}</Typography>
         {!isDownSm && <Underline />}
       </Box>
-      <Typography sx={{ fontSize: { xs: 20, md: 16 }, fontWeight: 600 }}> {description}</Typography>
+      <Typography sx={{ fontSize: { xs: 20, md: 16 }, fontWeight: 600, maxWidth: 640 }}> {description}</Typography>
     </Box>
   )
 }
