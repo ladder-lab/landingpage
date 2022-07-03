@@ -9,27 +9,51 @@ import { ReactComponent as Underline } from 'assets/svg/underline.svg'
 import ReadWhitepaper from 'components/Button/ReadWhitepaper'
 import { CompositeFigure1, CompositeFigure2, AboutCards1, AboutCards2 } from 'pages/About'
 import Footer from 'components/Footer'
+import useBreakpoint from 'hooks/useBreakpoint'
 
 export default function Home() {
+  const isDownsm = useBreakpoint('sm')
+
   return (
-    <Box position="relative">
+    <Box position="relative" overflow="hidden">
       <Banner>
         <Box
           sx={{
-            paddingTop: 190,
-            paddingBottom: 196,
+            padding: {
+              xs: '153px 16px 44px',
+              md: '190px 0 196px'
+            },
             display: 'flex',
             flexDirection: 'column',
-            alignItems: ' center'
+            alignItems: { xs: 'flex-start', md: 'center' }
           }}
         >
-          <Typography fontSize={42} color="#000000" textAlign="center">
-            A financial infrastructure
-            <br /> dedicated to NFT Swap,
-            <br /> bringing fungible and non-fungible <br />
-            tokens together
+          <Typography
+            sx={{
+              fontSize: {
+                xs: 27,
+                md: 42
+              },
+              color: '#000000',
+              textAlign: {
+                xs: 'left',
+                md: 'center'
+              },
+              maxWidth: 880
+            }}
+          >
+            A financial infrastructure dedicated to NFT Swap, bringing fungible and non-fungible tokens together
           </Typography>
-          <Typography fontSize={20} color="#000000" width={552} mt={28} mb={41}>
+          <Typography
+            sx={{
+              fontSize: { xs: 16, md: 20 },
+              color: '#000000',
+              margin: {
+                xs: '16px 0 41px',
+                md: '28px 0 41px'
+              }
+            }}
+          >
             Swap ERC-1155 instant AMM liquidity MIX liquidity between ERC-1155 and ERC-20 Build an economy around
             ERC-1155
           </Typography>
@@ -37,7 +61,8 @@ export default function Home() {
         </Box>
       </Banner>
       <Box display="flex" flexDirection="column" alignItems="center">
-        <CoverImage style={{ transform: 'translateY(-120px)' }} />
+        {!isDownsm && <CoverImage style={{ transform: 'translateY(-120px)' }} />}
+
         <About />
       </Box>
       <Footer height={750} copyright="Copyright©2022 Ladder Dao" />
