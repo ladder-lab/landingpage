@@ -6,6 +6,20 @@ import { ReactComponent as MenuIcon } from 'assets/svg/menu.svg'
 import { routes } from 'constants/routes'
 import { NavLink } from 'react-router-dom'
 import useBreakpoint from 'hooks/useBreakpoint'
+import ExternalLink from 'components/ExternalLink'
+
+interface Tab {
+  title: string
+  route?: string
+  link?: string
+}
+
+const Tabs: Tab[] = [
+  { title: 'Home', route: routes.home },
+  { title: 'About', route: routes.about },
+  { title: 'Docs', link: '/' },
+  { title: 'Community', route: routes.community }
+]
 
 const StyledAppBar = styled(AppBar)({
   background: 'transparent',
@@ -32,6 +46,11 @@ const StyledNavLink = styled(NavLink)({
   fontWeight: 500
 })
 
+const StyledExternalLink = styled(ExternalLink)({
+  color: '#FFFFFF',
+  lineHeight: '109px'
+})
+
 export default function Header() {
   const isDownSm = useBreakpoint('sm')
 
@@ -51,10 +70,15 @@ export default function Header() {
           justifyContent: 'center'
         }}
       >
-        <StyledNavLink to={routes.home}>Home</StyledNavLink>
-        <StyledNavLink to={routes.about}>About</StyledNavLink>
-        <StyledNavLink to={routes.home}>Docs</StyledNavLink>
-        <StyledNavLink to={routes.community}>Community</StyledNavLink>
+        {Tabs.map(({ title, route, link }, idx) =>
+          route ? (
+            <StyledNavLink to={route}>{title}</StyledNavLink>
+          ) : link ? (
+            <StyledExternalLink key={idx} href={link}>
+              {title}
+            </StyledExternalLink>
+          ) : null
+        )}
       </Box>
       <LaunchApp />
     </StyledAppBar>
