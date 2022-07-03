@@ -7,8 +7,10 @@ import bg5 from 'assets/image/bg5.png'
 import bg6 from 'assets/image/bg6.png'
 import { ReactComponent as Figure4 } from 'assets/svg/figure4.svg'
 import { ReactComponent as Figure5 } from 'assets/svg/figure5.svg'
+import useBreakpoint from 'hooks/useBreakpoint'
 
 export default function Community() {
+  const isDownMd = useBreakpoint('md')
   return (
     <Box position="relative" overflow="hidden">
       <Banner>
@@ -26,12 +28,34 @@ export default function Community() {
           </Typography>
         </Box>
       </Banner>
-      <Footer height={885} />
-      <Image src={bg4} style={{ position: 'absolute', left: 0, bottom: 0 }} />
+      <Footer height={isDownMd ? 760 : 885} />
+
       <Image src={bg5} style={{ position: 'absolute', right: 0, bottom: 0 }} />
-      <Image src={bg6} style={{ position: 'absolute', left: 'calc(50% - 340px)', bottom: 0 }} />
-      <Figure4 style={{ zIndex: 1, position: 'absolute', left: 0, bottom: 15 }} />
-      <Figure5 style={{ zIndex: 1, position: 'absolute', right: 30, bottom: 30 }} />
+      <Image
+        src={bg6}
+        style={{
+          position: 'absolute',
+          left: isDownMd ? -300 : 'calc(50% - 340px)',
+          bottom: 0,
+          transform: isDownMd ? 'rotate(30deg) scale(0.7)' : 'none'
+        }}
+      />
+      {!isDownMd && (
+        <>
+          <Image src={bg4} style={{ position: 'absolute', left: 0, bottom: 0 }} />
+          <Figure4 style={{ zIndex: 1, position: 'absolute', left: 0, bottom: 15 }} />
+        </>
+      )}
+
+      <Figure5
+        style={{
+          zIndex: 1,
+          position: 'absolute',
+          right: isDownMd ? 0 : 30,
+          bottom: isDownMd ? 0 : 30,
+          transform: isDownMd ? 'scale(0.7)' : 'none'
+        }}
+      />
     </Box>
   )
 }
