@@ -18,6 +18,8 @@ import { ReactComponent as CardIcon7 } from 'assets/svg/card-icon7.svg'
 import useBreakpoint from 'hooks/useBreakpoint'
 
 export default function About() {
+  const isDownMd = useBreakpoint('md')
+
   return (
     <>
       <Banner>
@@ -36,32 +38,47 @@ export default function About() {
           <ReadWhitepaper />
         </Box>
       </Banner>
-      <Box padding="130px 45px 135px" display="grid" gap={135}>
-        <Box display="flex" justifyContent="space-between">
-          <Box width={800}>
-            <Typography fontSize={40} fontWeight={700} mb={40}>
+      <Box
+        sx={{
+          padding: { xs: '50px 16px', md: '130px 45px 135px' },
+          display: 'flex',
+          flexDirection: 'column',
+          gap: {
+            xs: 100,
+            md: 135
+          },
+          overflow: 'hidden'
+        }}
+      >
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row' } }}>
+          <Box maxWidth={800}>
+            <Typography sx={{ fontSize: { xs: 20, md: 40 }, fontWeight: 700, mb: { xs: 12, md: 40 } }}>
               ERC-1155
             </Typography>
-            <Typography mb={52} fontWeight={300} fontSize={18}>
+            <Typography sx={{ mb: { xs: 32, md: 52 }, fontWeight: 300, fontSize: 18 }}>
               ERC-1155 is a token standard that enables the efficient transfer for fungible and non-fungible tokens in a
               single transaction.
             </Typography>
             <AboutCards1 />
           </Box>
-          <CompositeFigure1 sx={{ transform: 'translateX(-60px)' }} />
+          <CompositeFigure1 sx={{ transform: { xs: 'scale(0.7)', md: 'translateX(-60px)' } }} />
         </Box>
-        <Box display="flex" justifyContent="space-between">
-          <Box width={800}>
-            <Typography fontSize={40} fontWeight={700} mb={40}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row' } }}>
+          <Box maxWidth={800}>
+            <Typography sx={{ fontSize: { xs: 20, md: 40 }, fontWeight: 700, mb: { xs: 12, md: 40 } }}>
               Ladder AMM
             </Typography>
-            <Typography mb={52} fontWeight={300} fontSize={18}>
+            <Typography sx={{ mb: { xs: 32, md: 52 }, fontWeight: 300, fontSize: 18 }}>
               Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike the traditional AMM where
               paired assets are all erc20, Ladder AMM supports non-fungible asset ERC1155 as the pair option.
             </Typography>
             <AboutCards2 />
           </Box>
-          <CompositeFigure3 sx={{ transform: 'translateX(40px)' }} />
+          {isDownMd ? (
+            <CompositeFigure2 sx={{ transform: { xs: 'scale(0.7) translateX(-60px)', md: 'translateX(-45px)' } }} />
+          ) : (
+            <CompositeFigure3 sx={{ transform: 'translateX(40px)' }} />
+          )}
         </Box>
       </Box>
     </>
