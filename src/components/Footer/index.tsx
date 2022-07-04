@@ -43,7 +43,16 @@ export default function Footer({ height, copyright }: { height?: string | number
       <Box display="flex" gap={31} alignItems="center" mt={63}>
         {Object.keys(Socials).map((key, idx) => {
           return (
-            <ExternalLink key={idx} href={Socials[key as keyof typeof Socials].link}>
+            <ExternalLink
+              key={idx}
+              href={Socials[key as keyof typeof Socials].link}
+              sx={{
+                transform: 'rotate3d(0)',
+                '&:hover': {
+                  transform: 'rotate3d(0,1,0,180deg)'
+                }
+              }}
+            >
               <Image
                 src={Socials[key as keyof typeof Socials].logo2}
                 alt={`social-media-link-${Socials[key as keyof typeof Socials].title}-bg`}
