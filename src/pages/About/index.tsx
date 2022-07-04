@@ -47,8 +47,8 @@ export default function About() {
           gap: {
             xs: 100,
             md: 135
-          }
-          // overflow: 'hidden'
+          },
+          overflow: 'hidden'
         }}
       >
         <Section1 />
@@ -82,8 +82,6 @@ function Section1() {
 }
 
 function Section2() {
-  const isDownMd = useBreakpoint('md')
-
   return (
     <Box
       sx={{
@@ -103,7 +101,7 @@ function Section2() {
         </Typography>
         <AboutCards2 />
       </Box>
-      {isDownMd ? <CompositeFigure2 /> : <CompositeFigure3 />}
+      <CompositeFigure3 />
     </Box>
   )
 }
@@ -137,10 +135,20 @@ export function CompositeFigure2({ sx }: { sx?: SxProps }) {
 }
 
 export function CompositeFigure3({ sx }: { sx?: SxProps }) {
+  const isDownMd = useBreakpoint('md')
   return (
     <Box position="relative" sx={sx}>
       <AnimatedSvg fileName="coins" />
-      <Image src={bg3} style={{ position: 'absolute', top: -220, right: -45, zIndex: -1 }} />
+      <Image
+        src={isDownMd ? bg2sm : bg3}
+        style={{
+          position: 'absolute',
+          top: isDownMd ? -100 : -220,
+          right: isDownMd ? 0 : -45,
+          left: isDownMd ? -45 : 'none',
+          zIndex: -1
+        }}
+      />
     </Box>
   )
 }
