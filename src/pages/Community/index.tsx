@@ -12,7 +12,7 @@ import useBreakpoint from 'hooks/useBreakpoint'
 export default function Community() {
   const isDownMd = useBreakpoint('md')
   return (
-    <Box position="relative" overflow="hidden">
+    <Box position="relative" overflow="hidden" minHeight={'100vh'}>
       <Banner>
         <Box
           sx={{
