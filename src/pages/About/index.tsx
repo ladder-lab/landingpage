@@ -76,8 +76,8 @@ function Section1() {
         </Typography>
         <AboutCards1 />
       </Box>
-      <Box sx={{ width: '100%', position: 'relative', height: 300 }}>
-        <CompositeFigure1 />
+      <Box sx={{ width: { xs: '100%', md: 550 }, position: 'relative', height: { xs: 300, sm: 550 } }}>
+        <CompositeFigure1 sx={{ right: 0, top: 36 }} />
       </Box>
     </Box>
   )
@@ -103,8 +103,8 @@ function Section2() {
         </Typography>
         <AboutCards2 />
       </Box>
-      <Box sx={{ width: '100%', position: 'relative', height: { xs: 300, md: 550 } }}>
-        <CompositeFigure3 />
+      <Box sx={{ width: { xs: '100%', md: 550 }, position: 'relative', height: { xs: 360, sm: 550 } }}>
+        <CompositeFigure3 sx={{ left: { xs: 0, md: 'none' }, right: { md: 0 }, top: 36 }} />
       </Box>
     </Box>
   )
