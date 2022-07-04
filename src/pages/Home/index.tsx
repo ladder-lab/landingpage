@@ -121,6 +121,11 @@ function SocialsSection() {
             <Image
               src={Socials[key as keyof typeof Socials].logo1}
               alt={`social-media-link-${Socials[key as keyof typeof Socials].title}`}
+              style={{
+                '&:hover': {
+                  opacity: 0.8
+                }
+              }}
             />
           </ExternalLink>
         )
