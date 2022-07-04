@@ -177,7 +177,7 @@ function Section1() {
           display: 'flex',
           alignItems: {
             xs: 'center',
-            md: 'center'
+            md: 'flex-start'
           },
           justifyContent: 'space-between',
           flexDirection: {
@@ -194,8 +194,10 @@ function Section1() {
           }
         }}
       >
-        <AboutCards1 sx={{ maxWidth: 680 }} />
-        <CompositeFigure1 />
+        <AboutCards1 sx={{ maxWidth: { md: 680 }, width: '100%' }} />
+        <Box sx={{ width: '100%', position: 'relative', height: { xs: 300, sm: 550 } }}>
+          <CompositeFigure1 sx={{ right: 0, top: 0 }} />
+        </Box>
       </Box>
     </Box>
   )
@@ -218,8 +220,8 @@ function Section2() {
           alignItems: 'center',
           justifyContent: 'space-between',
           flexDirection: {
-            xs: 'column-reverse',
-            md: 'row'
+            xs: 'column',
+            md: 'row-reverse'
           },
           mt: {
             xs: 32,
@@ -231,9 +233,10 @@ function Section2() {
           }
         }}
       >
-        <CompositeFigure2 />
-
-        <AboutCards2 sx={{ maxWidth: 680 }} />
+        <AboutCards2 sx={{ maxWidth: { md: 680 }, width: '100%' }} />
+        <Box sx={{ width: '100%', position: 'relative', height: { xs: 300, sm: 550 } }}>
+          <CompositeFigure2 />
+        </Box>
       </Box>
     </Box>
   )

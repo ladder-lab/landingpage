@@ -76,7 +76,9 @@ function Section1() {
         </Typography>
         <AboutCards1 />
       </Box>
-      <CompositeFigure1 />
+      <Box sx={{ width: '100%', position: 'relative', height: 300 }}>
+        <CompositeFigure1 />
+      </Box>
     </Box>
   )
 }
@@ -101,7 +103,9 @@ function Section2() {
         </Typography>
         <AboutCards2 />
       </Box>
-      <CompositeFigure3 />
+      <Box sx={{ width: '100%', position: 'relative', height: { xs: 300, md: 550 } }}>
+        <CompositeFigure3 />
+      </Box>
     </Box>
   )
 }
@@ -110,7 +114,7 @@ export function CompositeFigure1({ sx }: { sx?: SxProps }) {
   const isDownMd = useBreakpoint('md')
 
   return (
-    <Box position="relative" sx={sx}>
+    <Box position="absolute" sx={sx}>
       <AnimatedSvg fileName="levitate" />
       <Image
         src={isDownMd ? bg1sm : bg1}
@@ -124,7 +128,7 @@ export function CompositeFigure2({ sx }: { sx?: SxProps }) {
   const isDownMd = useBreakpoint('md')
 
   return (
-    <Box position="relative" sx={sx}>
+    <Box position="absolute" sx={sx}>
       <AnimatedSvg fileName="coins" />
       <Image
         src={isDownMd ? bg2sm : bg2}
@@ -137,7 +141,7 @@ export function CompositeFigure2({ sx }: { sx?: SxProps }) {
 export function CompositeFigure3({ sx }: { sx?: SxProps }) {
   const isDownMd = useBreakpoint('md')
   return (
-    <Box position="relative" sx={sx}>
+    <Box position="absolute" sx={sx}>
       <AnimatedSvg fileName="coins" />
       <Image
         src={isDownMd ? bg2sm : bg3}
