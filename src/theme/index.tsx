@@ -1,8 +1,4 @@
-import {
-  createTheme,
-  styled,
-  ThemeProvider as MuiThemeProvider
-} from '@mui/material/styles'
+import { createTheme, styled, ThemeProvider as MuiThemeProvider } from '@mui/material/styles'
 
 interface Height {
   header: string
@@ -84,6 +80,11 @@ export const theme = {
   spacing: (factor: number) => `${1 * factor}px`
 }
 
+const FONTS = {
+  title: 'Monument Extended, Helvetica, sans-serif',
+  content: 'Lato, Helvetica, sans-serif'
+}
+
 export const override: any = {
   MuiCssBaseline: {
     styleOverrides: {
@@ -92,14 +93,34 @@ export const override: any = {
         fontSize: 16
       },
       'html, input, textarea, button, body': {
-        fontFamily: 'Helvetica, sans-serif',
+        fontFamily: FONTS.content,
         fontDisplay: 'fallback'
       },
       '@supports (font-variation-settings: normal)': {
         'html, input, textarea, button, body': {
-          fontFamily: 'Helvetica, sans-serif',
+          fontFamily: FONTS.content,
           fontDisplay: 'fallback'
         }
+      }
+    }
+  },
+  MuiTypography: {
+    styleOverrides: {
+      h1: {
+        fontFamily: FONTS.title,
+        fontSize: 42,
+        fontWeight: 700
+      },
+      h2: {
+        fontFamily: FONTS.content,
+        fontStyle: 'italic',
+        fontSize: 42,
+        fontWeight: 300
+      },
+      h5: {
+        fontFamily: FONTS.title,
+        fontSize: 40,
+        fontWeight: 700
       }
     }
   }
@@ -131,7 +152,7 @@ const THEME = createTheme({
   },
   typography: {
     allVariants: {
-      fontFamily: 'Helvetica, sans-serif'
+      fontFamily: FONTS.content
     }
   }
 })
