@@ -1,5 +1,5 @@
 import { Typography, Box } from '@mui/material'
-import ReadWhitePaper from 'assets/image/readWhitePaper.png'
+import ReadWhitePaper from 'assets/image/readwhitepaper.png'
 import ExternalLink from 'components/ExternalLink'
 import Image from 'components/Image'
 
