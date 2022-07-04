@@ -41,8 +41,35 @@ export default function Home() {
               },
               maxWidth: 880
             }}
+            variant="h1"
           >
-            A financial infrastructure dedicated to NFT Swap, bringing fungible and non-fungible tokens together
+            A financial infrastructure dedicated to NFT Swap, bringing{' '}
+            <Typography
+              component="span"
+              variant="h2"
+              sx={{
+                fontSize: {
+                  xs: 27,
+                  md: 42
+                }
+              }}
+            >
+              fungible
+            </Typography>{' '}
+            and{' '}
+            <Typography
+              component="span"
+              variant="h2"
+              sx={{
+                fontSize: {
+                  xs: 27,
+                  md: 42
+                }
+              }}
+            >
+              non-fungible
+            </Typography>{' '}
+            tokens together
           </Typography>
           <Typography
             sx={{
@@ -103,7 +130,9 @@ function About() {
       }}
     >
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={86}>
-        <Typography sx={{ fontSize: { xs: 24, md: 40 }, fontWeight: 700 }}>About</Typography>
+        <Typography sx={{ fontSize: { xs: 24, md: 40 }, fontWeight: 700 }} variant="h5">
+          About
+        </Typography>
         <ReadWhitepaper />
       </Box>
 
@@ -198,10 +227,12 @@ function SectionHeader({ title, description }: { title: string; description: str
       }}
     >
       <Box display="flex" alignItems="center">
-        <Typography sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mr: 12.82 }}>{title}</Typography>
+        <Typography sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mr: 12.82 }} variant="h5">
+          {title}
+        </Typography>
         {!isDownMd && <Underline />}
       </Box>
-      <Typography sx={{ fontSize: { xs: 20, md: 16 }, fontWeight: 600, maxWidth: 640 }}> {description}</Typography>
+      <Typography sx={{ fontSize: { xs: 20, md: 16 }, fontWeight: 400, maxWidth: 640 }}> {description}</Typography>
     </Box>
   )
 }

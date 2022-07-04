@@ -17,7 +17,10 @@ export default function Footer({ height, copyright }: { height?: string | number
         height
       }}
     >
-      <Typography sx={{ fontSize: { xs: 24, md: 40 }, fontWeight: 700, mb: { xs: 32, md: 45 }, textAlign: 'center' }}>
+      <Typography
+        sx={{ fontSize: { xs: 24, md: 40 }, fontWeight: 700, mb: { xs: 32, md: 45 }, textAlign: 'center' }}
+        variant="h5"
+      >
         Join Ladder community!
       </Typography>
       <Typography
@@ -33,6 +36,7 @@ export default function Footer({ height, copyright }: { height?: string | number
             md: 880
           }
         }}
+        variant="h5"
       >
         Ladder community is an ecosystem of non-fungible and fungible users, developers
       </Typography>
