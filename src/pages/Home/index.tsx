@@ -205,7 +205,7 @@ function Section2() {
           }
         }}
       >
-        <CompositeFigure2 sx={{ transform: { xs: 'scale(0.7)', md: 'translateX(-45px)' } }} />
+        <CompositeFigure2 />
 
         <AboutCards2 sx={{ maxWidth: 680 }} />
       </Box>

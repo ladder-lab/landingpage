@@ -46,12 +46,18 @@ const StyledNavLink = styled(NavLink)({
   lineHeight: '109px',
   textDecoration: 'none',
   fontSize: 16,
-  fontWeight: 500
+  fontWeight: 500,
+  '&:hover': {
+    textDecoration: 'line-through'
+  }
 })
 
 const StyledExternalLink = styled(ExternalLink)({
   color: '#FFFFFF',
-  lineHeight: '109px'
+  lineHeight: '109px',
+  '&:hover': {
+    textDecoration: 'line-through'
+  }
 })
 
 export default function Header() {
@@ -147,8 +153,11 @@ function BrandLogo() {
           md: 230
         },
         background: {
-          xs: '#8A7392',
+          xs: '#00000026',
           md: 'transparent'
+        },
+        '&:hover': {
+          background: '#000000'
         }
       }}
     >

@@ -1,8 +1,6 @@
 import { Box, Typography, SxProps, Grid } from '@mui/material'
 import Banner from 'components/Banner'
 import ReadWhitepaper from 'components/Button/ReadWhitepaper'
-import { ReactComponent as Figure1 } from 'assets/svg/figure1.svg'
-import { ReactComponent as Figure2 } from 'assets/svg/figure2.svg'
 import bg1 from 'assets/image/bg1.png'
 import bg2 from 'assets/image/bg2.png'
 import bg3 from 'assets/image/bg3.png'
@@ -16,6 +14,7 @@ import { ReactComponent as CardIcon5 } from 'assets/svg/card-icon5.svg'
 import { ReactComponent as CardIcon6 } from 'assets/svg/card-icon6.svg'
 import { ReactComponent as CardIcon7 } from 'assets/svg/card-icon7.svg'
 import useBreakpoint from 'hooks/useBreakpoint'
+import AnimatedSvg from 'components/AnimatedSvg'
 
 export default function About() {
   const isDownMd = useBreakpoint('md')
@@ -32,7 +31,7 @@ export default function About() {
             alignItems: ' center'
           }}
         >
-          <Typography fontSize={42} color="#000000" mb={50}>
+          <Typography fontSize={42} color="#000000" mb={50} variant="h1">
             About
           </Typography>
           <ReadWhitepaper />
@@ -88,7 +87,7 @@ export default function About() {
 export function CompositeFigure1({ sx }: { sx?: SxProps }) {
   return (
     <Box position="relative" display="flex" alignItems="center" sx={sx}>
-      <Figure1 style={{ zIndex: 1 }} />
+      <AnimatedSvg fileName="levitate" />
       <Image src={bg1} style={{ position: 'absolute' }} />
     </Box>
   )
@@ -97,7 +96,7 @@ export function CompositeFigure1({ sx }: { sx?: SxProps }) {
 export function CompositeFigure2({ sx }: { sx?: SxProps }) {
   return (
     <Box position="relative" display="flex" alignItems="center" sx={sx}>
-      <Figure2 style={{ zIndex: 1 }} />
+      <AnimatedSvg fileName="coins" />
       <Image src={bg2} style={{ position: 'absolute', left: -45 }} />
     </Box>
   )
@@ -106,7 +105,7 @@ export function CompositeFigure2({ sx }: { sx?: SxProps }) {
 export function CompositeFigure3({ sx }: { sx?: SxProps }) {
   return (
     <Box position="relative" display="flex" alignItems="center" sx={sx}>
-      <Figure2 style={{ zIndex: 1 }} />
+      <AnimatedSvg fileName="coins" />
       <Image src={bg3} style={{ position: 'absolute' }} />
     </Box>
   )
