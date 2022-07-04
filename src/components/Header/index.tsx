@@ -178,7 +178,11 @@ function LaunchApp() {
         borderRadius: 0,
         background: 'linear-gradient(0deg, #FE1A5E, #FE1A5E), #D9D9D9;',
         boxShadow: 'none',
-        flexGrow: 1
+        flexGrow: 1,
+        '&:hover': {
+          boxShadow: 'none',
+          background: 'linear-gradient(0deg, #000000, #000000), #000000;'
+        }
       }}
       endIcon={<ArrowUpRight />}
     >

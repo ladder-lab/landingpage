@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { Box, Typography } from '@mui/material'
 import Banner from 'components/Banner'
 import { Socials } from 'constants/index'
@@ -10,9 +11,12 @@ import ReadWhitepaper from 'components/Button/ReadWhitepaper'
 import { CompositeFigure1, CompositeFigure2, AboutCards1, AboutCards2 } from 'pages/About'
 import Footer from 'components/Footer'
 import useBreakpoint from 'hooks/useBreakpoint'
+import { useInViewport } from 'hooks/useInViewport'
 
 export default function Home() {
   const isDownMd = useBreakpoint('md')
+  const figure3 = useRef(null)
+  const isFigure3InView = useInViewport(figure3, '180px')
 
   return (
     <Box position="relative" overflow="hidden">
@@ -94,7 +98,16 @@ export default function Home() {
       </Box>
       <Footer height={750} copyright="Copyright©2022 Ladder Dao" />
 
-      <Figure3 style={{ position: 'absolute', right: 0, bottom: 0 }} />
+      <Figure3
+        style={{
+          position: 'absolute',
+          right: 0,
+          bottom: 0,
+          transform: isFigure3InView ? 'translate(0%,0%)' : 'translate(100%,100%)',
+          transition: '0.5s'
+        }}
+        ref={figure3}
+      />
     </Box>
   )
 }
