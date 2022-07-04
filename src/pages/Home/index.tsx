@@ -187,11 +187,15 @@ function Section1() {
           mt: {
             xs: 32,
             md: 60
+          },
+          gap: {
+            xs: 60,
+            md: 0
           }
         }}
       >
         <AboutCards1 sx={{ maxWidth: 680 }} />
-        <CompositeFigure1 sx={{ transform: { xs: 'scale(0.7)', md: 'none' } }} />
+        <CompositeFigure1 />
       </Box>
     </Box>
   )
@@ -220,6 +224,10 @@ function Section2() {
           mt: {
             xs: 32,
             md: 60
+          },
+          gap: {
+            xs: 60,
+            md: 0
           }
         }}
       >
