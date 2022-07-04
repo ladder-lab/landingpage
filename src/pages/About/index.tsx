@@ -68,7 +68,7 @@ function Section1() {
         flexDirection: { xs: 'column', md: 'row' }
       }}
     >
-      <Box sx={{ maxWidth: 680, mb: { xs: 60, md: 0 } }}>
+      <Box sx={{ maxWidth: { md: 680, lg: 800 }, mb: { xs: 60, md: 0 } }}>
         <Typography sx={{ fontSize: { xs: 20, md: 40 }, fontWeight: 700, mb: { xs: 12, md: 40 } }}>ERC-1155</Typography>
         <Typography sx={{ mb: { xs: 32, md: 52 }, fontWeight: 300, fontSize: 18 }}>
           ERC-1155 is a token standard that enables the efficient transfer for fungible and non-fungible tokens in a
@@ -91,7 +91,7 @@ function Section2() {
         flexDirection: { xs: 'column', md: 'row' }
       }}
     >
-      <Box sx={{ maxWidth: 680 }}>
+      <Box sx={{ maxWidth: { md: 680, lg: 800 } }}>
         <Typography sx={{ fontSize: { xs: 20, md: 40 }, fontWeight: 700, mb: { xs: 12, md: 40 } }}>
           Ladder AMM
         </Typography>

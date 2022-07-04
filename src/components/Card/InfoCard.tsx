@@ -52,7 +52,7 @@ export default function InfoCard({
     <Box
       sx={{
         borderRadius,
-        background: 'rgba(255, 255, 255, 0.26)',
+        background: '#424242',
         overflow: 'hidden',
         width: width || '100%',
         height: {
