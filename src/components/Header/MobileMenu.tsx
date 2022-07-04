@@ -8,13 +8,19 @@ const StyledNavLink = styled(NavLink)({
   color: '#FFFFFF',
   textDecoration: 'none',
   fontSize: 28,
-  fontWeight: 500
+  fontWeight: 500,
+  '&:hover': {
+    textDecoration: 'line-through'
+  }
 })
 
 const StyledExternalLink = styled(ExternalLink)({
   color: '#FFFFFF',
   fontSize: 28,
-  fontWeight: 500
+  fontWeight: 500,
+  '&:hover': {
+    textDecoration: 'line-through'
+  }
 })
 
 export default function MobileMenu({ isOpen, onDismiss }: { isOpen: boolean; onDismiss: () => void }) {

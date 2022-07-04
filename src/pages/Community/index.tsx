@@ -23,7 +23,7 @@ export default function Community() {
             alignItems: ' center'
           }}
         >
-          <Typography fontSize={42} color="#000000" mb={50}>
+          <Typography fontSize={42} color="#000000" mb={50} variant="h1">
             Community
           </Typography>
         </Box>
