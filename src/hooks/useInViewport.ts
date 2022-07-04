@@ -15,7 +15,7 @@ export const useInViewport= (element:RefObject<HTMLElement>, rootMargin:string) 
 
     return () => {obj&&observer.unobserve(obj)};
     
-  }, []);
+  }, [element, rootMargin]);
 
   return isVisible;
 };
