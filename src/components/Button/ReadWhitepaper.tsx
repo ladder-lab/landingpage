@@ -9,6 +9,10 @@ export default function ReadWhitepaper() {
       href={'/'}
       sx={{
         position: 'relative',
+        transform: {
+          xs: 'scale(0.7)',
+          sm: 'none'
+        },
         '&:hover': {
           '& div': { transform: 'rotate3d(0,1,0,180deg)' }
         }
