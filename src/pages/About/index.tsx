@@ -115,7 +115,7 @@ export function CompositeFigure1({ sx }: { sx?: SxProps }) {
     <Box position="relative" sx={sx}>
       <AnimatedSvg fileName="levitate" />
       <Image
-        src={bg1}
+        src={isDownMd ? bg1sm : bg1}
         style={{ position: 'absolute', top: isDownMd ? -80 : -220, zIndex: -1, right: isDownMd ? -16 : -45 }}
       />
     </Box>
