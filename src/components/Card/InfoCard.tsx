@@ -70,7 +70,9 @@ export default function InfoCard({
         flexDirection={['upper-left', 'lower-left', 'lower'].includes(type) ? 'row' : 'row-reverse'}
       >
         {type === 'lower' && (
-          <Typography sx={{ fontSize: { xs: 16, md: 22 }, fontWeight: 400, pl: 20 }}>{text}</Typography>
+          <Typography sx={{ fontSize: { xs: 16, md: 18, lg: 22 }, fontWeight: 400, pl: 20, lineHeight: 1.2 }}>
+            {text}
+          </Typography>
         )}
         <Box
           sx={{
@@ -93,8 +95,10 @@ export default function InfoCard({
       </Box>
 
       {type !== 'lower' && (
-        <Box sx={{ padding: { xs: '28px 16px 28px', md: '24px 20px 36px' } }}>
-          <Typography sx={{ fontSize: { xs: 16, md: 22 }, fontWeight: 400 }}>{text}</Typography>
+        <Box height="100%" sx={{ padding: { xs: '28px 16px 28px', md: '24px 20px 36px' } }}>
+          <Typography sx={{ fontSize: { xs: 16, md: 18, lg: 22 }, fontWeight: 400, lineHeight: 1.2 }}>
+            {text}
+          </Typography>
         </Box>
       )}
     </Box>
