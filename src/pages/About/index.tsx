@@ -159,7 +159,7 @@ export function AboutCards1({ sx }: { sx?: SxProps }) {
   const isDownMd = useBreakpoint('md')
 
   return (
-    <Grid container spacing={20} sx={sx}>
+    <Grid container spacing={isDownMd ? 10 : 20} sx={sx}>
       <Grid item xs={6}>
         <InfoCard
           text={'Multiple items stored in a single smart contract'}
