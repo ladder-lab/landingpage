@@ -19,8 +19,6 @@ import useBreakpoint from 'hooks/useBreakpoint'
 import AnimatedSvg from 'components/AnimatedSvg'
 
 export default function About() {
-  const isDownMd = useBreakpoint('md')
-
   return (
     <>
       <Banner>
