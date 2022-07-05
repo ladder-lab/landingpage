@@ -196,7 +196,7 @@ export function AboutCards2({ sx }: { sx?: SxProps }) {
   const isDownMd = useBreakpoint('md')
 
   return (
-    <Grid container spacing={20} sx={sx}>
+    <Grid container spacing={isDownMd ? 10 : 20} sx={sx}>
       <Grid item xs={6}>
         <InfoCard
           text={'Contribute liquidity as a holder'}
