@@ -147,7 +147,7 @@ function About() {
         }
       }}
     >
-      <Box display="flex" justifyContent="space-between" alignItems="center" mb={86}>
+      <Box display="flex" justifyContent="space-between" alignItems="center" sx={{ mb: { xs: 48, md: 86 } }}>
         <Typography sx={{ fontSize: { xs: 24, md: 40 }, fontWeight: 700 }} variant="h5">
           About
         </Typography>
