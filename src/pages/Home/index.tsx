@@ -261,7 +261,7 @@ function SectionHeader({ title, description }: { title: string; description: str
         </Typography>
         {!isDownMd && <Underline />}
       </Box>
-      <Typography sx={{ fontSize: { xs: 20, md: 16 }, fontWeight: 400, maxWidth: 640 }}> {description}</Typography>
+      <Typography sx={{ fontSize: { xs: 20, md: 20 }, fontWeight: 400, maxWidth: 640 }}> {description}</Typography>
     </Box>
   )
 }
