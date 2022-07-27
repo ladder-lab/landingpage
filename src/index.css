@@ -29,8 +29,16 @@
 
 @font-face {
   font-family: 'Monument Extended';
+  src: local('Monument Extended Ultrabold'), local('Monument-Extended-Ultrabold'),
+    url('./assets/fonts/MonumentExtended-Ultrabold.otf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Monument Extended';
   src: local('Monument Extended Regular'), local('Monument-Extended-Regular'),
     url('./assets/fonts/MonumentExtended-Regular.otf') format('truetype');
-  font-weight: 700;
+  font-weight: 300;
   font-style: normal;
 }

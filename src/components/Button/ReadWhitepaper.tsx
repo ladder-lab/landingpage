@@ -9,10 +9,7 @@ export default function ReadWhitepaper() {
       href={'/'}
       sx={{
         position: 'relative',
-        transform: {
-          xs: 'scale(0.7)',
-          sm: 'none'
-        },
+        width: { xs: 175, md: 220 },
         '&:hover': {
           '& div': { transform: 'rotate3d(0,1,0,180deg)' }
         }
@@ -21,16 +18,24 @@ export default function ReadWhitepaper() {
       <Typography
         fontSize={20}
         color="#000000"
-        fontWeight={600}
-        style={{ position: 'absolute', zIndex: 2, top: '45%', left: '50%', transform: 'translate(-50%,-50%)' }}
+        fontWeight={50}
+        sx={{
+          position: 'absolute',
+          zIndex: 2,
+          top: '45%',
+          left: '50%',
+          transform: 'translate(-50%,-50%)',
+          width: 'fit-content'
+        }}
       >
         Read Whitepaper
       </Typography>
-      <Box>
+      <Box width="100%">
         <Image
           src={ReadWhitePaper}
           alt={`read-whitepaper`}
-          style={{ transform: 'scale(0.66)', transformOrigin: '50% 50%' }}
+          style={{ width: '100%' }}
+          // style={{ transform: 'scale(0.66)', transformOrigin: '50% 50%' }}
         />
       </Box>
     </ExternalLink>

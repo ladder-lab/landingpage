@@ -147,7 +147,7 @@ function About() {
         }
       }}
     >
-      <Box display="flex" justifyContent="space-between" alignItems="center" mb={86}>
+      <Box display="flex" justifyContent="space-between" alignItems="center" sx={{ mb: { xs: 48, md: 86 } }}>
         <Typography sx={{ fontSize: { xs: 24, md: 40 }, fontWeight: 700 }} variant="h5">
           About
         </Typography>
@@ -261,7 +261,7 @@ function SectionHeader({ title, description }: { title: string; description: str
         </Typography>
         {!isDownMd && <Underline />}
       </Box>
-      <Typography sx={{ fontSize: { xs: 20, md: 16 }, fontWeight: 400, maxWidth: 640 }}> {description}</Typography>
+      <Typography sx={{ fontSize: { xs: 20, md: 20 }, fontWeight: 400, maxWidth: 640 }}> {description}</Typography>
     </Box>
   )
 }
