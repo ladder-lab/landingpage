@@ -56,7 +56,7 @@ export const theme = {
     },
     text: {
       primary: '#FFFFFF',
-      secondary: '#FFFFFF',
+      secondary: '#DFDFDF',
       disabled: '#DDE3ED'
     },
     action: {

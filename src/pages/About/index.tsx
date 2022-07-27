@@ -1,4 +1,4 @@
-import { Box, Typography, SxProps, Grid } from '@mui/material'
+import { Box, Typography, SxProps, Grid, styled } from '@mui/material'
 import Banner from 'components/Banner'
 import ReadWhitepaper from 'components/Button/ReadWhitepaper'
 import bg1 from 'assets/image/bg1.png'
@@ -17,6 +17,27 @@ import { ReactComponent as CardIcon6 } from 'assets/svg/card-icon6.svg'
 import { ReactComponent as CardIcon7 } from 'assets/svg/card-icon7.svg'
 import useBreakpoint from 'hooks/useBreakpoint'
 import AnimatedSvg from 'components/AnimatedSvg'
+
+const Header = styled(Typography)(({ theme }) => ({
+  fontWeight: 700,
+  fontSize: 40,
+  lineHeight: 1.41,
+  letterSpacing: '0.06em',
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 20
+  }
+}))
+
+const SubHeader = styled(Typography)(({ theme }) => ({
+  fontWeight: 300,
+  fontSize: 18,
+  lineHeight: 1.7,
+  letterSpacing: '0.06em',
+  color: theme.palette.text.secondary,
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 16
+  }
+}))
 
 export default function About() {
   return (
@@ -67,13 +88,18 @@ function Section1() {
       }}
     >
       <Box sx={{ maxWidth: { md: 680, lg: 800 }, mb: { xs: 60, md: 0 } }}>
-        <Typography variant="h1" sx={{ fontSize: { xs: 20, md: 40 }, fontWeight: 700, mb: { xs: 12, md: 40 } }}>
+        <Header variant="h1" sx={{ mb: { xs: 12, md: 40 } }}>
           ERC-1155
-        </Typography>
-        <Typography variant="h5" sx={{ mb: { xs: 32, md: 52 }, fontWeight: 300, fontSize: 18 }}>
+        </Header>
+        <SubHeader
+          variant="h5"
+          sx={{
+            mb: { xs: 32, md: 52 }
+          }}
+        >
           ERC-1155 is a token standard that enables the efficient transfer for fungible and non-fungible tokens in a
           single transaction.
-        </Typography>
+        </SubHeader>
         <AboutCards1 />
       </Box>
       <Box sx={{ width: { xs: '100%', md: 550 }, position: 'relative', height: { xs: 300, sm: 550 } }}>
@@ -94,13 +120,13 @@ function Section2() {
       }}
     >
       <Box sx={{ maxWidth: { md: 680, lg: 800 } }}>
-        <Typography variant="h1" sx={{ fontSize: { xs: 20, md: 40 }, fontWeight: 700, mb: { xs: 12, md: 40 } }}>
+        <Header variant="h1" sx={{ mb: { xs: 12, md: 40 } }}>
           Ladder AMM
-        </Typography>
-        <Typography variant="h5" sx={{ mb: { xs: 32, md: 52 }, fontWeight: 300, fontSize: 18 }}>
+        </Header>
+        <SubHeader variant="h5" sx={{ mb: { xs: 32, md: 52 } }}>
           Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike the traditional AMM where paired
           assets are all erc20, Ladder AMM supports non-fungible asset ERC1155 as the pair option.
-        </Typography>
+        </SubHeader>
         <AboutCards2 />
       </Box>
       <Box sx={{ width: { xs: '100%', md: 550 }, position: 'relative', height: { xs: 360, sm: 550 } }}>
