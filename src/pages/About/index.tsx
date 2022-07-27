@@ -67,8 +67,10 @@ function Section1() {
       }}
     >
       <Box sx={{ maxWidth: { md: 680, lg: 800 }, mb: { xs: 60, md: 0 } }}>
-        <Typography sx={{ fontSize: { xs: 20, md: 40 }, fontWeight: 700, mb: { xs: 12, md: 40 } }}>ERC-1155</Typography>
-        <Typography sx={{ mb: { xs: 32, md: 52 }, fontWeight: 300, fontSize: 18 }}>
+        <Typography variant="h1" sx={{ fontSize: { xs: 20, md: 40 }, fontWeight: 700, mb: { xs: 12, md: 40 } }}>
+          ERC-1155
+        </Typography>
+        <Typography variant="h5" sx={{ mb: { xs: 32, md: 52 }, fontWeight: 300, fontSize: 18 }}>
           ERC-1155 is a token standard that enables the efficient transfer for fungible and non-fungible tokens in a
           single transaction.
         </Typography>
@@ -92,10 +94,10 @@ function Section2() {
       }}
     >
       <Box sx={{ maxWidth: { md: 680, lg: 800 } }}>
-        <Typography sx={{ fontSize: { xs: 20, md: 40 }, fontWeight: 700, mb: { xs: 12, md: 40 } }}>
+        <Typography variant="h1" sx={{ fontSize: { xs: 20, md: 40 }, fontWeight: 700, mb: { xs: 12, md: 40 } }}>
           Ladder AMM
         </Typography>
-        <Typography sx={{ mb: { xs: 32, md: 52 }, fontWeight: 300, fontSize: 18 }}>
+        <Typography variant="h5" sx={{ mb: { xs: 32, md: 52 }, fontWeight: 300, fontSize: 18 }}>
           Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike the traditional AMM where paired
           assets are all erc20, Ladder AMM supports non-fungible asset ERC1155 as the pair option.
         </Typography>
