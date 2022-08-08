@@ -6,9 +6,9 @@ import MediumLogo1 from 'assets/svg/medium.svg'
 import MediumLogo2 from 'assets/image/medium-colorful.png'
 
 export const SocialLinks = {
-  TWITTER: 'https://twitter.com',
-  DISCORD: 'https://discord.com',
-  MEDIUM: 'https://medium.com'
+  TWITTER: 'https://twitter.com/Laddertop_NFT',
+  DISCORD: 'https://discord.gg/WcwN4GSB',
+  MEDIUM: 'https://medium.com/@ladder_top'
 }
 
 export const Socials: {
