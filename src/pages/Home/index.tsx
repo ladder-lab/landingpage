@@ -47,46 +47,26 @@ export default function Home() {
             }}
             variant="h1"
           >
-            A financial infrastructure dedicated to NFT Swap, bringing{' '}
-            <Typography
-              component="span"
-              variant="h2"
-              sx={{
-                fontSize: {
-                  xs: 27,
-                  md: 42
-                }
-              }}
-            >
-              fungible
-            </Typography>{' '}
-            and{' '}
-            <Typography
-              component="span"
-              variant="h2"
-              sx={{
-                fontSize: {
-                  xs: 27,
-                  md: 42
-                }
-              }}
-            >
-              non-fungible
-            </Typography>{' '}
-            tokens together
+            Providing Liquidity
+            {!isDownMd && <br />} for your NFT swaps
           </Typography>
           <Typography
             sx={{
               fontSize: { xs: 16, md: 20 },
               color: '#000000',
+              textAlign: {
+                xs: 'left',
+                md: 'center'
+              },
               margin: {
                 xs: '16px 0 41px',
                 md: '28px 0 41px'
               }
             }}
           >
-            Swap ERC-1155 instant AMM liquidity MIX liquidity between ERC-1155 and ERC-20 Build an economy around
-            ERC-1155
+            Swap ERC-1155 instant AMM liquidity MIX liquidity between
+            {!isDownMd && <br />}
+            ERC-1155 and ERC-20 Build an economy around ERC-1155
           </Typography>
           <SocialsSection />
         </Box>
