@@ -4,11 +4,14 @@ import DiscordLogo1 from 'assets/svg/discord.svg'
 import DiscordLogo2 from 'assets/image/discord-colorful.png'
 import MediumLogo1 from 'assets/svg/medium.svg'
 import MediumLogo2 from 'assets/image/medium-colorful.png'
+import TelegramLogo1 from 'assets/svg/telegram.svg'
+import TelegramLogo2 from 'assets/image/telegram-colorful.png'
 
 export const SocialLinks = {
   TWITTER: 'https://twitter.com/Laddertop_NFT',
   DISCORD: 'https://discord.gg/WcwN4GSB',
-  MEDIUM: 'https://medium.com/@ladder_top'
+  MEDIUM: 'https://medium.com/@ladder_top',
+  TELEGRAM: 'https://t.me/+CQuxqoqD7GIxZTY1'
 }
 
 export const Socials: {
@@ -36,5 +39,11 @@ export const Socials: {
     logo1: MediumLogo1,
     logo2: MediumLogo2,
     link: SocialLinks.MEDIUM
+  },
+  TELEGRAM: {
+    title: 'telegram',
+    logo1: TelegramLogo1,
+    logo2: TelegramLogo2,
+    link: SocialLinks.TELEGRAM
   }
 }
