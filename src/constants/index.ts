@@ -14,6 +14,8 @@ export const SocialLinks = {
   TELEGRAM: 'https://t.me/+CQuxqoqD7GIxZTY1'
 }
 
+export const DocLink='/'
+
 export const Socials: {
   [key: string]: {
     title: string
