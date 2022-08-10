@@ -58,7 +58,7 @@ export default function MobileMenu({ isOpen, onDismiss }: { isOpen: boolean; onD
             ) : null
           )}
         </Box>
-        <CopyWriting text="Copyright©2022 Ladder Dao" />
+        <CopyWriting text="Copyright©2022 Ladder DAO" />
       </Box>
     </Drawer>
   )
