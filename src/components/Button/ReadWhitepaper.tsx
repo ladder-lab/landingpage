@@ -2,11 +2,12 @@ import { Typography, Box } from '@mui/material'
 import ReadWhitePaper from 'assets/image/read_white_paper1.png'
 import ExternalLink from 'components/ExternalLink'
 import Image from 'components/Image'
+import { DocLink } from 'constants/index'
 
 export default function ReadWhitepaper() {
   return (
     <ExternalLink
-      href={'/'}
+      href={DocLink}
       sx={{
         position: 'relative',
         transform: {
@@ -24,7 +25,7 @@ export default function ReadWhitepaper() {
         fontWeight={600}
         style={{ position: 'absolute', zIndex: 2, top: '45%', left: '50%', transform: 'translate(-50%,-50%)' }}
       >
-        Read Whitepaper
+        Read Docs
       </Typography>
       <Box>
         <Image

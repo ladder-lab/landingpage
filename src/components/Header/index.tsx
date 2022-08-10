@@ -10,6 +10,7 @@ import useBreakpoint from 'hooks/useBreakpoint'
 import ExternalLink from 'components/ExternalLink'
 import MobileMenu from './MobileMenu'
 import { ReactComponent as CloseIcon } from 'assets/svg/close.svg'
+import { DocLink } from 'constants/index'
 
 interface Tab {
   title: string
@@ -20,7 +21,7 @@ interface Tab {
 export const Tabs: Tab[] = [
   { title: 'Home', route: routes.home },
   { title: 'About', route: routes.about },
-  { title: 'Docs', link: '/' },
+  { title: 'Docs', link: DocLink },
   { title: 'Community', route: routes.community }
 ]
 
