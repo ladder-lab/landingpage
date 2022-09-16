@@ -64,7 +64,7 @@ export default function Home() {
               }
             }}
           >
-            Swap ERC-1155 instant AMM liquidity MIX liquidity between
+            Swap ERC-1155 instant AMM liquidity mix liquidity between
             {!isDownMd && <br />}
             ERC-1155 and ERC-20 Build an economy around ERC-1155
           </Typography>
