@@ -64,9 +64,9 @@ export default function Home() {
               }
             }}
           >
-            Swap ERC-1155 instant AMM liquidity mix liquidity between
+            Swap NFT instant AMM liquidity mix liquidity between
             {!isDownMd && <br />}
-            ERC-1155 and ERC-20 Build an economy around ERC-1155
+            NFT and ERC-20 Build an economy around NFT
           </Typography>
           <SocialsSection />
         </Box>
