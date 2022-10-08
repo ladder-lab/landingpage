@@ -65,8 +65,7 @@ export default function Home() {
             }}
           >
             Swap NFT instant AMM liquidity mix liquidity between
-            {!isDownMd && <br />}
-            NFT and ERC-20 Build an economy around NFT
+            {!isDownMd && <br />} NFT and ERC-20 Build an economy around NFT
           </Typography>
           <SocialsSection />
         </Box>
