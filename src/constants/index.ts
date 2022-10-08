@@ -9,7 +9,7 @@ import TelegramLogo2 from 'assets/image/telegram-colorful.png'
 
 export const SocialLinks = {
   TWITTER: 'https://twitter.com/Laddertop_NFT',
-  DISCORD: 'https://discord.gg/KWgkFMt9qZ',
+  DISCORD: 'https://discord.gg/FjXpN8wYBq',
   MEDIUM: 'https://medium.com/@ladder_top',
   TELEGRAM: 'https://t.me/+CQuxqoqD7GIxZTY1'
 }
