@@ -169,26 +169,28 @@ function BrandLogo() {
 
 function LaunchApp() {
   return (
-    <Button
-      variant="contained"
-      sx={{
-        height: '100%',
-        width: {
-          md: 230
-        },
-        borderRadius: 0,
-        background: 'linear-gradient(0deg, #FE1A5E, #FE1A5E), #D9D9D9;',
-        boxShadow: 'none',
-        flexGrow: 1,
-        '&:hover': {
+    <ExternalLink href="https://test.ladder.top/swap">
+      <Button
+        variant="contained"
+        sx={{
+          height: '100%',
+          width: {
+            md: 230
+          },
+          borderRadius: 0,
+          background: 'linear-gradient(0deg, #FE1A5E, #FE1A5E), #D9D9D9;',
           boxShadow: 'none',
-          background: 'linear-gradient(0deg, #000000, #000000), #000000;'
-        }
-      }}
-      endIcon={<ArrowUpRight />}
-    >
-      LAUNCH APP
-    </Button>
+          flexGrow: 1,
+          '&:hover': {
+            boxShadow: 'none',
+            background: 'linear-gradient(0deg, #000000, #000000), #000000;'
+          }
+        }}
+        endIcon={<ArrowUpRight />}
+      >
+        Launch Testnet
+      </Button>
+    </ExternalLink>
   )
 }
 
