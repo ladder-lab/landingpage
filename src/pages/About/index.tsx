@@ -49,10 +49,35 @@ export default function About() {
           overflow: 'hidden'
         }}
       >
+        <Section0 />
         <Section1 />
         <Section2 />
       </Box>
     </>
+  )
+}
+
+function Section0() {
+  return (
+    <Box
+      sx={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'space-between',
+        flexDirection: { xs: 'column', md: 'row' }
+      }}
+    >
+      <Box sx={{ maxWidth: { md: 680, lg: 800 }, mb: { xs: 60, md: 0 } }}>
+        <Typography sx={{ fontSize: { xs: 20, md: 40 }, fontWeight: 700, mb: { xs: 12, md: 40 } }}>ERC-721</Typography>
+        <Typography sx={{ mb: { xs: 32, md: 52 }, fontWeight: 300, fontSize: 18 }}>
+          ERC-721 is the token standard that gave birth to NFTs - unique tokens to be managed, owned and traded.
+        </Typography>
+        <AboutCards1 />
+      </Box>
+      <Box sx={{ width: { xs: '100%', md: 550 }, position: 'relative', height: { xs: 300, sm: 550 } }}>
+        <CompositeFigure0 sx={{ right: 0, top: 36 }} />
+      </Box>
+    </Box>
   )
 }
 
@@ -113,7 +138,21 @@ export function CompositeFigure1({ sx }: { sx?: SxProps }) {
 
   return (
     <Box position="absolute" sx={sx}>
-      <AnimatedSvg fileName="levitate" />
+      <AnimatedSvg fileName="levitate" sx={{ mr: 'auto' }} />
+      <Image
+        src={isDownMd ? bg1sm : bg1}
+        style={{ position: 'absolute', top: isDownMd ? -80 : -220, zIndex: -1, right: isDownMd ? -16 : -45 }}
+      />
+    </Box>
+  )
+}
+
+export function CompositeFigure0({ sx }: { sx?: SxProps }) {
+  const isDownMd = useBreakpoint('md')
+
+  return (
+    <Box position="absolute" sx={sx} height="100%" width="100%">
+      <AnimatedSvg fileName="erc721" height="100%" />
       <Image
         src={isDownMd ? bg1sm : bg1}
         style={{ position: 'absolute', top: isDownMd ? -80 : -220, zIndex: -1, right: isDownMd ? -16 : -45 }}
@@ -152,6 +191,46 @@ export function CompositeFigure3({ sx }: { sx?: SxProps }) {
         }}
       />
     </Box>
+  )
+}
+export function AboutCards0({ sx }: { sx?: SxProps }) {
+  const isDownMd = useBreakpoint('md')
+
+  return (
+    <Grid container spacing={isDownMd ? 10 : 20} sx={sx}>
+      <Grid item xs={6}>
+        <InfoCard
+          height={isDownMd ? 200 : 280}
+          icon={<CardIcon4 style={{ transform: isDownMd ? 'scale(0.7)' : 'none' }} />}
+          text={'NFTs are distinguishable and ownership of each one must be tracked separately'}
+          type="upper-left"
+        />
+      </Grid>
+      <Grid item xs={6}>
+        <InfoCard
+          height={isDownMd ? 200 : 280}
+          text={'Tokenize anything that is unique and verify proof of ownership'}
+          icon={<CardIcon2 style={{ transform: isDownMd ? 'scale(0.7)' : 'none' }} />}
+          type="upper-right"
+        />
+      </Grid>
+      <Grid item xs={6}>
+        <InfoCard
+          height={isDownMd ? 200 : 280}
+          text={'NFTs represent digital objects that can be moved between different platforms and protocols'}
+          icon={<CardIcon1 style={{ transform: isDownMd ? 'scale(0.7)' : 'none' }} />}
+          type="lower-left"
+        />
+      </Grid>
+      <Grid item xs={6}>
+        <InfoCard
+          height={isDownMd ? 200 : 280}
+          text={'Giving rise to new business models with novel use cases'}
+          icon={<CardIcon3 style={{ transform: isDownMd ? 'scale(0.7)' : 'none' }} />}
+          type="lower-right"
+        />
+      </Grid>
+    </Grid>
   )
 }
 
