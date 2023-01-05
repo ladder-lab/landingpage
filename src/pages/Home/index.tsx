@@ -8,7 +8,14 @@ import { ReactComponent as CoverImage } from 'assets/svg/cover.svg'
 import { ReactComponent as Figure3 } from 'assets/svg/figure3.svg'
 import { ReactComponent as Underline } from 'assets/svg/underline.svg'
 import ReadWhitepaper from 'components/Button/ReadWhitepaper'
-import { CompositeFigure1, CompositeFigure2, AboutCards1, AboutCards2 } from 'pages/About'
+import {
+  CompositeFigure0,
+  CompositeFigure1,
+  CompositeFigure2,
+  AboutCards1,
+  AboutCards2,
+  AboutCards0
+} from 'pages/About'
 import Footer from 'components/Footer'
 import useBreakpoint from 'hooks/useBreakpoint'
 import { useInViewport } from 'hooks/useInViewport'
@@ -134,8 +141,51 @@ function About() {
       </Box>
 
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 60, md: 174 }, width: '100%' }}>
+        <Section0 />
         <Section1 />
         <Section2 />
+      </Box>
+    </Box>
+  )
+}
+
+function Section0() {
+  return (
+    <Box width="100%">
+      <SectionHeader
+        title={'ERC-721'}
+        description={
+          'ERC-721 is the token standard that gave birth to NFTs - unique tokens to be managed, owned and traded.'
+        }
+      />
+      <Box
+        sx={{
+          width: '100%',
+          display: 'flex',
+          alignItems: {
+            xs: 'center',
+            md: 'flex-start'
+          },
+          justifyContent: 'space-between',
+          flexDirection: {
+            xs: 'column',
+            md: 'row'
+          },
+          mt: {
+            xs: 32,
+            md: 60
+          },
+          gap: {
+            xs: 60,
+            md: 0
+          }
+        }}
+      >
+        {' '}
+        <AboutCards0 sx={{ maxWidth: { md: 680 }, width: '100%' }} />
+        <Box sx={{ width: '100%', position: 'relative', height: { xs: 300, sm: 550 } }}>
+          <CompositeFigure0 sx={{ right: 0, top: 0 }} />
+        </Box>
       </Box>
     </Box>
   )
