@@ -122,7 +122,7 @@ function Section2() {
         </Typography>
         <Typography sx={{ mb: { xs: 32, md: 52 }, fontWeight: 300, fontSize: 18 }}>
           Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike the traditional AMM where paired
-          assets are all erc20, Ladder AMM supports non-fungible asset ERC1155 as the pair option.
+          assets are all ERC-20, Ladder AMM supports non-fungible asset like ERC-721 & ERC-1155 as the pair option.
         </Typography>
         <AboutCards2 />
       </Box>

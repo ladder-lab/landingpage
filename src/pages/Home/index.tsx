@@ -238,7 +238,7 @@ function Section2() {
       <SectionHeader
         title={'Ladder AMM'}
         description={
-          'Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike the traditional AMM where paired assets are all erc20, Ladder AMM supports non-fungible asset ERC1155 as the pair option.'
+          'Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike the traditional AMM where paired assets are all ERC-20, Ladder AMM supports non-fungible asset like ERC-721 & ERC-1155 as the pair option.'
         }
       />
 
