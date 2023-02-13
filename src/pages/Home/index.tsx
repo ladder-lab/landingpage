@@ -158,18 +158,16 @@ function Section0() {
           'ERC-721 is the token standard that gave birth to NFTs - unique tokens to be managed, owned and traded.'
         }
       />
+
       <Box
         sx={{
           width: '100%',
           display: 'flex',
-          alignItems: {
-            xs: 'center',
-            md: 'flex-start'
-          },
+          alignItems: 'center',
           justifyContent: 'space-between',
           flexDirection: {
             xs: 'column',
-            md: 'row'
+            md: 'row-reverse'
           },
           mt: {
             xs: 32,
@@ -181,7 +179,6 @@ function Section0() {
           }
         }}
       >
-        {' '}
         <AboutCards0 sx={{ maxWidth: { md: 680 }, width: '100%' }} />
         <Box sx={{ width: '100%', position: 'relative', height: { xs: 300, sm: 550 } }}>
           <CompositeFigure0 sx={{ right: 0, top: 0 }} />
@@ -290,7 +287,10 @@ function SectionHeader({ title, description }: { title: string; description: str
         </Typography>
         {!isDownMd && <Underline />}
       </Box>
-      <Typography sx={{ fontSize: { xs: 20, md: 16 }, fontWeight: 400, maxWidth: 640 }}> {description}</Typography>
+      <Typography sx={{ fontSize: { xs: 16, md: 20 }, fontWeight: 400, maxWidth: 640 }} variant="h5">
+        {' '}
+        {description}
+      </Typography>
     </Box>
   )
 }
