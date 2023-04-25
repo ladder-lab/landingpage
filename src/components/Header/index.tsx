@@ -169,7 +169,7 @@ function BrandLogo() {
 
 function LaunchApp() {
   return (
-    <ExternalLink href="https://test.ladder.top/monopoly">
+    <ExternalLink href="https://test.ladder.top/round3">
       <Button
         variant="contained"
         sx={{
