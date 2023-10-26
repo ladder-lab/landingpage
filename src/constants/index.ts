@@ -8,10 +8,10 @@ import TelegramLogo1 from 'assets/svg/telegram.svg'
 import TelegramLogo2 from 'assets/image/telegram-colorful.png'
 
 export const SocialLinks = {
-  TWITTER: 'https://twitter.com/Laddertop_NFT',
+  TWITTER: 'https://twitter.com/Ladder_NFT',
   DISCORD: 'https://discord.gg/FjXpN8wYBq',
   MEDIUM: 'https://medium.com/@ladder_top',
-  TELEGRAM: 'https://t.me/+CQuxqoqD7GIxZTY1'
+  TELEGRAM: 'https://t.me/LadderAMM'
 }
 
 export const DocLink='/'
