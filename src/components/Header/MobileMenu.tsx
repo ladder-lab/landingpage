@@ -24,6 +24,7 @@ const StyledExternalLink = styled(ExternalLink)({
 })
 
 export default function MobileMenu({ isOpen, onDismiss }: { isOpen: boolean; onDismiss: () => void }) {
+  const Year = new Date(Date.now()).getFullYear()
   return (
     <Drawer
       open={isOpen}
@@ -58,7 +59,7 @@ export default function MobileMenu({ isOpen, onDismiss }: { isOpen: boolean; onD
             ) : null
           )}
         </Box>
-        <CopyWriting text="Copyright©2022 Ladder DAO" />
+        <CopyWriting text={`Copyright©${Year || '2023'} Ladder DAO`} />
       </Box>
     </Drawer>
   )

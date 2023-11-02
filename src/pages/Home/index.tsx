@@ -24,6 +24,7 @@ export default function Home() {
   const isDownMd = useBreakpoint('md')
   const figure3 = useRef(null)
   const isFigure3InView = useInViewport(figure3, '180px')
+  const Year = new Date(Date.now()).getFullYear()
 
   return (
     <Box position="relative" overflow="hidden">
@@ -82,7 +83,7 @@ export default function Home() {
 
         <About />
       </Box>
-      <Footer height={750} copyright="Copyright©2022 Ladder Dao" />
+      <Footer height={750} copyright={`Copyright©${Year || '2023'} Ladder Dao`} />
 
       <Figure3
         style={{
