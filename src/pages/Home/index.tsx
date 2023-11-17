@@ -18,12 +18,12 @@ import { ReactComponent as Section4CardIcon3 } from 'assets/svg/section4-card-ic
 import { ReactComponent as Section4CardIcon4 } from 'assets/svg/section4-card-icon4.svg'
 import { ReactComponent as Section4CardIcon5 } from 'assets/svg/section4-card-icon5.svg'
 import { ReactComponent as Section4CardIcon6 } from 'assets/svg/section4-card-icon6.svg'
-import section0__right_bg from 'assets/image/section0-right-bg.png'
+import { ReactComponent as Section0CardIcon } from 'assets/svg/section-right-bg.svg'
 import { ReactComponent as ArrowRight } from 'assets/svg/arrow-right.svg'
 // import ReadWhitepaper from 'components/Button/ReadWhitepaper'
 // import { CompositeFigure2, AboutCards2 } from 'pages/About'
 import Footer from 'components/Footer'
-import useBreakpoint from 'hooks/useBreakpoint'
+// import useBreakpoint from 'hooks/useBreakpoint'
 // import useBreakpoint from 'hooks/useBreakpoint'
 // import { useInViewport } from 'hooks/useInViewport'
 
@@ -149,8 +149,6 @@ function About() {
 }
 
 function Section0() {
-  const isDownMd = useBreakpoint('md')
-
   return (
     <Box
       sx={{
@@ -211,7 +209,7 @@ function Section0() {
           </Button>
         </ExternalLink>
       </Box>
-      <Image src={section0__right_bg} height={isDownMd ? 300 : 370} width={isDownMd ? '100%' : 420} />
+      <Section0CardIcon />
     </Box>
   )
 }
