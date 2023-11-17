@@ -20,7 +20,10 @@ export default function Community() {
             paddingBottom: 80,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: ' center'
+            alignItems: ' center',
+            position: 'relative',
+            zIndex: 99,
+            background: 'transparent'
           }}
         >
           <Typography fontSize={42} color="#000000" mb={50} variant="h1">
@@ -28,7 +31,7 @@ export default function Community() {
           </Typography>
         </Box>
       </Banner>
-      <Footer height={isDownMd ? 760 : 360} />
+      <Footer height={850} />
 
       <Image src={bg5} style={{ position: 'absolute', right: 0, bottom: 0 }} />
       <Image
