@@ -34,3 +34,14 @@
   font-weight: 700;
   font-style: normal;
 }
+
+#gradient-canvas {
+  width:100%;
+  height:100%;
+  position: absolute;
+  --gradient-color-1: #FFE9EA; 
+  --gradient-color-2: #84B7FF; 
+  --gradient-color-3: #C7B7FF;  
+  --gradient-color-4: #97F5DE;
+  z-index:0;
+}

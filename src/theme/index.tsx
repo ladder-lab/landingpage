@@ -51,11 +51,11 @@ export const theme = {
       main: '#31B047'
     },
     background: {
-      default: '#000000',
+      default: '#fff',
       paper: 'rgba(255, 255, 255, 0.26)'
     },
     text: {
-      primary: '#FFFFFF',
+      primary: '#000',
       secondary: '#FFFFFF',
       disabled: '#DDE3ED'
     },

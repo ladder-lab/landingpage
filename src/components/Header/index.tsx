@@ -2,7 +2,6 @@ import { useState, useCallback, useEffect } from 'react'
 import { AppBar, Box, Button, styled, IconButton } from '@mui/material'
 import { ReactComponent as Ladder } from 'assets/svg/ladder.svg'
 import { ReactComponent as LadderSm } from 'assets/svg/ladder-sm.svg'
-import { ReactComponent as ArrowUpRight } from 'assets/svg/arrow-up-right.svg'
 import { ReactComponent as MenuIcon } from 'assets/svg/menu.svg'
 import { routes } from 'constants/routes'
 import { NavLink, useLocation } from 'react-router-dom'
@@ -26,11 +25,9 @@ export const Tabs: Tab[] = [
 ]
 
 const StyledAppBar = styled(AppBar)({
+  padding: '38px 30px 0',
   background: 'transparent',
-  borderBottom: '1px solid #E8E8E8',
-  justifyContent: 'space-between',
   flexDirection: 'row',
-  height: 109,
   boxShadow: 'none'
 })
 
@@ -43,19 +40,25 @@ const StyledMobileAppBar = styled(AppBar)({
 })
 
 const StyledNavLink = styled(NavLink)({
-  color: '#FFFFFF',
-  lineHeight: '109px',
   textDecoration: 'none',
-  fontSize: 16,
-  fontWeight: 500,
+  color: '#252525',
+  fontFamily: 'Sora',
+  fontSize: '16px',
+  fontWeight: '400',
+  textTransform: 'capitalize',
+  lineHeight: '43px',
   '&:hover': {
     textDecoration: 'line-through'
   }
 })
 
 const StyledExternalLink = styled(ExternalLink)({
-  color: '#FFFFFF',
-  lineHeight: '109px',
+  color: '#252525',
+  fontFamily: 'Sora',
+  fontSize: '16px',
+  fontWeight: '400',
+  textTransform: 'capitalize',
+  lineHeight: '43px',
   '&:hover': {
     textDecoration: 'line-through'
   }
@@ -88,29 +91,48 @@ export default function Header() {
 
   return (
     <StyledAppBar position="absolute">
-      <BrandLogo />
       <Box
-        sx={{
-          width: '100%',
+        style={{
           display: 'flex',
-          aligmItems: 'center',
-          gap: 100,
-          justifyContent: 'center'
+          justifyContent: 'space-between',
+          width: '100%',
+          borderRadius: '100px',
+          background: 'rgba(255,255,255,0.5)',
+          height: '72px',
+          alignItems: 'center',
+          padding: '0 28px 0 34px'
         }}
       >
-        {Tabs.map(({ title, route, link }, idx) =>
-          route ? (
-            <StyledNavLink key={idx} to={route}>
-              {title}
-            </StyledNavLink>
-          ) : link ? (
-            <StyledExternalLink key={idx} href={link}>
-              {title}
-            </StyledExternalLink>
-          ) : null
-        )}
+        <BrandLogo />
+        <Box
+          sx={{
+            display: 'flex',
+            gap: '120px'
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              aligmItems: 'center',
+              gap: 96,
+              justifyContent: 'center'
+            }}
+          >
+            {Tabs.map(({ title, route, link }, idx) =>
+              route ? (
+                <StyledNavLink key={idx} to={route}>
+                  {title}
+                </StyledNavLink>
+              ) : link ? (
+                <StyledExternalLink key={idx} href={link}>
+                  {title}
+                </StyledExternalLink>
+              ) : null
+            )}
+          </Box>
+          <LaunchApp />
+        </Box>
       </Box>
-      <LaunchApp />
     </StyledAppBar>
   )
 }
@@ -124,7 +146,8 @@ function MobileHeader({ isOpen, onDismiss, onClick }: { isOpen: boolean; onDismi
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            height: '100%'
+            height: '100%',
+            alignItems: 'center'
           }}
         >
           <BrandLogo />
@@ -141,25 +164,11 @@ function BrandLogo() {
 
   return (
     <Box
-      width={80}
       sx={{
         height: '100%',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        borderRight: '1px solid #E8E8E8',
-        padding: '37px 45px',
-        width: {
-          xs: 80,
-          md: 230
-        },
-        background: {
-          xs: '#00000026',
-          md: 'transparent'
-        },
-        '&:hover': {
-          background: '#000000'
-        }
+        justifyContent: 'center'
       }}
     >
       <NavLink to={routes.home}>{isDownMd ? <LadderSm /> : <Ladder />}</NavLink>
@@ -173,20 +182,23 @@ function LaunchApp() {
       <Button
         variant="contained"
         sx={{
-          height: '100%',
-          width: {
-            md: 230
-          },
-          borderRadius: 0,
-          background: 'linear-gradient(0deg, #FE1A5E, #FE1A5E), #D9D9D9;',
-          boxShadow: 'none',
-          flexGrow: 1,
+          height: '43px',
+          display: 'inline-flex',
+          padding: '0 23px',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '4px',
+          borderRadius: '200px',
+          background: '#252525',
+          color: '#FFF',
+          fontFamily: 'Poppins',
+          fontSize: '16px',
+          fontWeight: '600',
+          textTransform: 'uppercase',
           '&:hover': {
-            boxShadow: 'none',
-            background: 'linear-gradient(0deg, #000000, #000000), #000000;'
+            boxShadow: 'none'
           }
         }}
-        endIcon={<ArrowUpRight />}
       >
         Launch Testnet
       </Button>

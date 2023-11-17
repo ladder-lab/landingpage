@@ -28,7 +28,7 @@ export default function Community() {
           </Typography>
         </Box>
       </Banner>
-      <Footer height={isDownMd ? 760 : 885} />
+      <Footer height={isDownMd ? 760 : 360} />
 
       <Image src={bg5} style={{ position: 'absolute', right: 0, bottom: 0 }} />
       <Image
