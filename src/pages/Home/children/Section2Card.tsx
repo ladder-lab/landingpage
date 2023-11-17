@@ -2,16 +2,18 @@ import { ReactComponent as Section2CardIcon4 } from 'assets/svg/section2-card-ic
 import { ReactComponent as Section2CardIcon1 } from 'assets/svg/section2-card-icon1.svg'
 import { ReactComponent as Section2CardIcon2 } from 'assets/svg/section2-card-icon2.svg'
 import { ReactComponent as Section2CardIcon3 } from 'assets/svg/section2-card-icon3.svg'
-import { Box, Stack, Typography } from '@mui/material'
-import styled from '@emotion/styled'
+import { Box, Stack, Typography, styled } from '@mui/material'
 
-const CardTitle = styled(Typography)(() => ({
+const CardTitle = styled(Typography)(({ theme }) => ({
   color: '#252525',
   fontFamily: 'Sora',
-  fontSize: '32px',
+  fontSize: 32,
   fontWeight: '600',
   letterSpacing: '-1.28px',
-  textTransform: 'capitalize'
+  textTransform: 'capitalize',
+  [theme.breakpoints.down('md')]: {
+    fontSize: 24
+  }
 }))
 
 export function Section2Card() {
@@ -19,10 +21,19 @@ export function Section2Card() {
     <Box
       sx={{
         display: { xs: 'grid', md: 'flex' },
-        gap: '32px'
+        gap: '32px',
+        width: '100%'
       }}
     >
-      <Stack spacing={32}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 32,
+          width: '100%',
+          maxWidth: { xs: 'auto', md: 831 }
+        }}
+      >
         <Card1
           Icon={<Section2CardIcon1 />}
           title="For Users"
@@ -52,7 +63,7 @@ export function Section2Card() {
             </>
           }
         />
-      </Stack>
+      </Box>
       <Card2 />
     </Box>
   )
@@ -62,8 +73,9 @@ function Card1({ Icon, title, children }: { Icon: JSX.Element; title: string; ch
   return (
     <Box
       sx={{
-        width: { xs: '100%', md: 831 },
-        height: { xs: 'auto', md: 310 },
+        width: '100',
+        minHeight: { xs: 'auto', md: 310 },
+        height: '100%',
         borderRadius: '24px',
         background: '#F9F9FA',
         padding: '20px 32px 30px'
@@ -110,10 +122,11 @@ function Card2() {
       </Box>
 
       <Box
-        style={{
+        sx={{
           position: 'absolute',
           bottom: '-6px',
-          right: '0'
+          right: '0',
+          opacity: { xs: 0.6, md: 1 }
         }}
       >
         <Section2CardIcon4 />
@@ -129,7 +142,7 @@ function RowLabel({ label, text }: { label: string; text?: string }) {
         sx={{
           color: '#333',
           fontFamily: 'Poppins',
-          fontSize: '18px',
+          fontSize: { xs: 16, md: 18 },
           fontWeight: '400',
           letterSpacing: '-0.72px'
         }}

@@ -1,44 +1,37 @@
 // import { useRef } from 'react'
-import { Box, Typography, Button, Stack } from '@mui/material'
+import { Box, Typography, Button, Stack, styled } from '@mui/material'
 import Banner from 'components/Banner'
 import { Socials } from 'constants/index'
 import ExternalLink from 'components/ExternalLink'
 import Image from 'components/Image'
 import { ReactComponent as Section3CardIcon1 } from 'assets/svg/section3-card-icon1.svg'
-import { ReactComponent as Section4CardIcon1 } from 'assets/svg/section4-card-icon1.svg'
-import { ReactComponent as Section4CardIcon2 } from 'assets/svg/section4-card-icon2.svg'
-import { ReactComponent as Section4CardIcon3 } from 'assets/svg/section4-card-icon3.svg'
-import { ReactComponent as Section4CardIcon4 } from 'assets/svg/section4-card-icon4.svg'
-import { ReactComponent as Section4CardIcon5 } from 'assets/svg/section4-card-icon5.svg'
-import { ReactComponent as Section4CardIcon6 } from 'assets/svg/section4-card-icon6.svg'
 import { ReactComponent as Section1CardIcon } from 'assets/svg/section-right-bg.svg'
 import { ReactComponent as ArrowRight } from 'assets/svg/arrow-right.svg'
 // import ReadWhitepaper from 'components/Button/ReadWhitepaper'
 // import { CompositeFigure2, AboutCards2 } from 'pages/About'
 import Footer from 'components/Footer'
 import { Section2Card } from './children/Section2Card'
-import styled from '@emotion/styled'
-import { Section4Card } from './children/Section4Card'
-// import useBreakpoint from 'hooks/useBreakpoint'
-// import useBreakpoint from 'hooks/useBreakpoint'
+import { Section4Cards } from './children/Section4Card'
+import useBreakpoint from 'hooks/useBreakpoint'
 // import { useInViewport } from 'hooks/useInViewport'
 
-const SectionTitle = styled(Typography)(() => ({
+const SectionTitle = styled(Typography)(({ theme }) => ({
   color: '#252525',
   fontFamily: 'Sora',
-  fontSize: '52px',
+  fontSize: 52,
   fontWeight: '600',
   textAlign: 'center',
   letterSpacing: '-2.08px',
-  textTransform: 'capitalize'
+  [theme.breakpoints.down('md')]: {
+    fontSize: 36
+  }
 }))
 
 const Section3TextStyle = styled(Typography)(() => ({
   color: '#CDCBCB',
   fontFamily: 'Poppins',
   fontSize: '16px',
-  fontWeight: '400',
-  maxWidth: '507px'
+  fontWeight: '400'
 }))
 
 export default function Home() {
@@ -223,7 +216,15 @@ function Section1() {
           </Button>
         </ExternalLink>
       </Box>
-      <Section1CardIcon />
+      <Box
+        sx={{
+          svg: {
+            width: { xs: '100%', md: 'auto' }
+          }
+        }}
+      >
+        <Section1CardIcon />
+      </Box>
     </Box>
   )
 }
@@ -238,7 +239,7 @@ function Section2() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '0 64px',
+        padding: { xs: '16px', md: '0 64px' },
         gap: '40px'
       }}
     >
@@ -262,12 +263,13 @@ function Section2() {
 }
 
 function Section3() {
+  const isDownMd = useBreakpoint('md')
   return (
     <Box
       sx={{
         width: '100%',
         height: { xs: 'auto', md: 681 },
-        borderRadius: '64px',
+        borderRadius: { xs: '32px', md: '64px' },
         background: '#000',
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
@@ -275,10 +277,13 @@ function Section3() {
         mt: { xs: 30, md: 80 },
         justifyContent: 'space-between',
         gap: { xs: '20px', md: 0 },
-        padding: { xs: '20px', md: '125px 160px 125px 96px' }
+        padding: { xs: '20px', md: '125px 160px 125px 96px' },
+        svg: {
+          width: { xs: '100%', md: 'auto' }
+        }
       }}
     >
-      <Stack spacing={45}>
+      <Stack spacing={isDownMd ? 30 : 45}>
         <Stack spacing={10}>
           <Typography
             sx={{
@@ -290,26 +295,23 @@ function Section3() {
           >
             How does Ladder work?
           </Typography>
-          <Typography
+          <SectionTitle
             sx={{
               color: '#FFF',
-              fontFamily: 'Sora',
-              fontSize: '52px',
-              fontWeight: '600',
-              letterSpacing: '-2.08px',
-              lineHeight: '65px',
-              maxWidth: '533px'
+              lineHeight: { xs: 'auto', md: '65px' },
+              maxWidth: '533px',
+              textAlign: 'left'
             }}
           >
             Unlock the <tr /> true potential of NFTs
-          </Typography>
+          </SectionTitle>
         </Stack>
         <Stack spacing={28}>
-          <Section3TextStyle>
+          <Section3TextStyle maxWidth={507}>
             Ladder is an AMM protocol for NFTs, which means that users buy from or sell into liquidity pools instead of
             directly trading between themselves. One can see it as Uniswap for NFTs with a profound GameFi focus.
           </Section3TextStyle>
-          <Section3TextStyle>
+          <Section3TextStyle maxWidth={507}>
             Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike the traditional AMM where
             paired assets are all ERC-20, Ladder AMM supports non-fungible asset like ERC-721 & ERC-1155 as the pair
             option.
@@ -329,57 +331,12 @@ function Section4() {
         flexDirection: 'column',
         alignItems: 'center',
         padding: { xs: '16px', md: '95px 64px 128px' },
-        gap: '58px'
+        gap: { xs: '36px', md: '58px' }
       }}
     >
       <SectionTitle maxWidth={'507px'}>Our values</SectionTitle>
       <Box sx={{ width: '100%', display: 'flex', flexWrap: 'wrap', gap: '24px', justifyContent: 'center' }}>
-        <Section4Card
-          Icon={<Section4CardIcon1 />}
-          label="Verifiable Ownership"
-          text={`NFTs are the backbone of decentralized digital ownership.`}
-        />
-        <Section4Card
-          Icon={<Section4CardIcon2 />}
-          label="Code is Law!"
-          text={`Swaps are executed instantly and price is adjusted by the AMM smart contract.`}
-        />
-
-        <Section4Card
-          Icon={<Section4CardIcon3 />}
-          label="Instant Liquidity"
-          text={`Listing waiting times are reduced to 0, as demand and offer are satisfied instantaneously.`}
-        />
-        <Section4Card
-          Icon={<Section4CardIcon4 />}
-          label="Stable Economies"
-          text={`NFTs' innate illiquidity (and undercutting) can no longer impact the stability of in-game economies`}
-        />
-
-        <Section4Card
-          Icon={<Section4CardIcon5 />}
-          label={
-            <Typography
-              sx={{
-                color: '#252525',
-                fontFamily: 'Sora',
-                fontSize: '30px',
-                fontWeight: '600',
-                lineHeight: '32px'
-              }}
-            >
-              Additional <tr />
-              Revenue Streams
-            </Typography>
-          }
-          text={`Holders no longer need to exit their positions for profit, as they can stake their assets for protocol fee
-          shares.`}
-        />
-        <Section4Card
-          Icon={<Section4CardIcon6 />}
-          label="Interoperability"
-          text={`Seamlessly trade across different games within our ecosystem without the need to switch marketplaces`}
-        />
+        <Section4Cards />
       </Box>
     </Box>
   )
