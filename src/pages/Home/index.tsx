@@ -4,13 +4,6 @@ import Banner from 'components/Banner'
 import { Socials } from 'constants/index'
 import ExternalLink from 'components/ExternalLink'
 import Image from 'components/Image'
-// import { ReactComponent as CoverImage } from 'assets/svg/cover.svg'
-// import { ReactComponent as Figure3 } from 'assets/svg/figure3.svg'
-// import { ReactComponent as Underline } from 'assets/svg/underline.svg'
-import { ReactComponent as Section2CardIcon4 } from 'assets/svg/section2-card-icon4.svg'
-import { ReactComponent as Section2CardIcon1 } from 'assets/svg/section2-card-icon1.svg'
-import { ReactComponent as Section2CardIcon2 } from 'assets/svg/section2-card-icon2.svg'
-import { ReactComponent as Section2CardIcon3 } from 'assets/svg/section2-card-icon3.svg'
 import { ReactComponent as Section3CardIcon1 } from 'assets/svg/section3-card-icon1.svg'
 import { ReactComponent as Section4CardIcon1 } from 'assets/svg/section4-card-icon1.svg'
 import { ReactComponent as Section4CardIcon2 } from 'assets/svg/section4-card-icon2.svg'
@@ -18,14 +11,35 @@ import { ReactComponent as Section4CardIcon3 } from 'assets/svg/section4-card-ic
 import { ReactComponent as Section4CardIcon4 } from 'assets/svg/section4-card-icon4.svg'
 import { ReactComponent as Section4CardIcon5 } from 'assets/svg/section4-card-icon5.svg'
 import { ReactComponent as Section4CardIcon6 } from 'assets/svg/section4-card-icon6.svg'
-import { ReactComponent as Section0CardIcon } from 'assets/svg/section-right-bg.svg'
+import { ReactComponent as Section1CardIcon } from 'assets/svg/section-right-bg.svg'
 import { ReactComponent as ArrowRight } from 'assets/svg/arrow-right.svg'
 // import ReadWhitepaper from 'components/Button/ReadWhitepaper'
 // import { CompositeFigure2, AboutCards2 } from 'pages/About'
 import Footer from 'components/Footer'
+import { Section2Card } from './children/Section2Card'
+import styled from '@emotion/styled'
+import { Section4Card } from './children/Section4Card'
 // import useBreakpoint from 'hooks/useBreakpoint'
 // import useBreakpoint from 'hooks/useBreakpoint'
 // import { useInViewport } from 'hooks/useInViewport'
+
+const SectionTitle = styled(Typography)(() => ({
+  color: '#252525',
+  fontFamily: 'Sora',
+  fontSize: '52px',
+  fontWeight: '600',
+  textAlign: 'center',
+  letterSpacing: '-2.08px',
+  textTransform: 'capitalize'
+}))
+
+const Section3TextStyle = styled(Typography)(() => ({
+  color: '#CDCBCB',
+  fontFamily: 'Poppins',
+  fontSize: '16px',
+  fontWeight: '400',
+  maxWidth: '507px'
+}))
 
 export default function Home() {
   // const isDownMd = useBreakpoint('md')
@@ -140,15 +154,15 @@ function About() {
         background: '#fff'
       }}
     >
-      <Section0 />
       <Section1 />
       <Section2 />
       <Section3 />
+      <Section4 />
     </Box>
   )
 }
 
-function Section0() {
+function Section1() {
   return (
     <Box
       sx={{
@@ -172,7 +186,7 @@ function Section0() {
             maxWidth: 735
           }}
         >
-          {`Ladder is a decentralized automated market maker protocol (AMM) that uses liquidity pools to provide instant swaps for NFTs. While Ladder targets primarily the GameFi niche, we support every major token standard (i.e. ERC-721, ERC-1155, ERC-3525, ERC-20, etc.).`}
+          {`Ladder is a decentralized automated market maker protocol (AMM) that uses liquidity pools to provide instant swaps for NFTs.While Ladder targets primarily the GameFi niche, we support every major token standard (i.e. ERC-721, ERC-1155, ERC-3525, ERC-20, etc.).`}
         </Typography>
         <Typography
           sx={{
@@ -209,12 +223,12 @@ function Section0() {
           </Button>
         </ExternalLink>
       </Box>
-      <Section0CardIcon />
+      <Section1CardIcon />
     </Box>
   )
 }
 
-function Section1() {
+function Section2() {
   return (
     <Box
       width="100%"
@@ -240,26 +254,14 @@ function Section1() {
         >
           Value Proposition
         </Typography>
-        <Typography
-          sx={{
-            color: '#252525',
-            fontFamily: 'Sora',
-            fontSize: '52px',
-            fontWeight: '600',
-            textAlign: 'center',
-            letterSpacing: '-2.08px',
-            maxWidth: '632px'
-          }}
-        >
-          Level up your web3 game with ladder
-        </Typography>
+        <SectionTitle maxWidth={'632px'}>Level up your web3 game with ladder</SectionTitle>
       </Box>
-      <Section1Card1 />
+      <Section2Card />
     </Box>
   )
 }
 
-function Section2() {
+function Section3() {
   return (
     <Box
       sx={{
@@ -303,38 +305,22 @@ function Section2() {
           </Typography>
         </Stack>
         <Stack spacing={28}>
-          <Typography
-            sx={{
-              color: '#CDCBCB',
-              fontFamily: 'Poppins',
-              fontSize: '16px',
-              fontWeight: '400',
-              maxWidth: '507px'
-            }}
-          >
+          <Section3TextStyle>
             Ladder is an AMM protocol for NFTs, which means that users buy from or sell into liquidity pools instead of
             directly trading between themselves. One can see it as Uniswap for NFTs with a profound GameFi focus.
-          </Typography>
-          <Typography
-            sx={{
-              color: '#CDCBCB',
-              fontFamily: 'Poppins',
-              fontSize: '16px',
-              fontWeight: '400',
-              maxWidth: '507px'
-            }}
-          >
+          </Section3TextStyle>
+          <Section3TextStyle>
             Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike the traditional AMM where
             paired assets are all ERC-20, Ladder AMM supports non-fungible asset like ERC-721 & ERC-1155 as the pair
             option.
-          </Typography>
+          </Section3TextStyle>
         </Stack>
       </Stack>
       <Section3CardIcon1 />
     </Box>
   )
 }
-function Section3() {
+function Section4() {
   return (
     <Box
       sx={{
@@ -346,184 +332,33 @@ function Section3() {
         gap: '58px'
       }}
     >
-      <Typography
-        sx={{
-          color: '#252525',
-          fontFamily: 'Sora',
-          fontSize: '52px',
-          fontWeight: '600',
-          maxWidth: '507px',
-          textAlign: 'center',
-          letterSpacing: '-2.08px',
-          textTransform: 'capitalize'
-        }}
-      >
-        Our values
-      </Typography>
+      <SectionTitle maxWidth={'507px'}>Our values</SectionTitle>
       <Box sx={{ width: '100%', display: 'flex', flexWrap: 'wrap', gap: '24px', justifyContent: 'center' }}>
-        <Box
-          sx={{
-            width: 422,
-            height: 300,
-            borderRadius: '24px',
-            background: '#F9F9FA',
-            padding: '48px 25px 44px 24px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '32px'
-          }}
-        >
-          <Section4CardIcon1 />
-          <Stack spacing={18}>
-            <Typography
-              sx={{
-                color: '#252525',
-                fontFamily: 'Sora',
-                fontSize: '30px',
-                fontWeight: '600',
-                lineHeight: '34px'
-              }}
-            >
-              Verifiable Ownership
-            </Typography>
-            <Typography
-              sx={{
-                color: '#444',
-                fontFamily: 'Poppins',
-                fontSize: '16px',
-                fontWeight: '400'
-              }}
-            >
-              NFTs are the backbone of decentralized digital ownership.
-            </Typography>
-          </Stack>
-        </Box>
-        <Box
-          sx={{
-            width: 422,
-            height: 300,
-            borderRadius: '24px',
-            background: '#F9F9FA',
-            padding: '48px 25px 44px 24px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '32px'
-          }}
-        >
-          <Section4CardIcon2 />
-          <Stack spacing={18}>
-            <Typography
-              sx={{
-                color: '#252525',
-                fontFamily: 'Sora',
-                fontSize: '30px',
-                fontWeight: '600',
-                lineHeight: '34px'
-              }}
-            >
-              Code is Law!
-            </Typography>
-            <Typography
-              sx={{
-                color: '#444',
-                fontFamily: 'Poppins',
-                fontSize: '16px',
-                fontWeight: '400'
-              }}
-            >
-              Swaps are executed instantly and price is adjusted by the AMM smart contract.
-            </Typography>
-          </Stack>
-        </Box>
-        <Box
-          sx={{
-            width: 422,
-            height: 300,
-            borderRadius: '24px',
-            background: '#F9F9FA',
-            padding: '48px 25px 44px 24px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '32px'
-          }}
-        >
-          <Section4CardIcon3 />
-          <Stack spacing={18}>
-            <Typography
-              sx={{
-                color: '#252525',
-                fontFamily: 'Sora',
-                fontSize: '30px',
-                fontWeight: '600',
-                lineHeight: '34px'
-              }}
-            >
-              Instant Liquidity
-            </Typography>
-            <Typography
-              sx={{
-                color: '#444',
-                fontFamily: 'Poppins',
-                fontSize: '16px',
-                fontWeight: '400'
-              }}
-            >
-              Listing waiting times are reduced to 0, as demand and offer are satisfied instantaneously.
-            </Typography>
-          </Stack>
-        </Box>
-        <Box
-          sx={{
-            width: 422,
-            height: 300,
-            borderRadius: '24px',
-            background: '#F9F9FA',
-            padding: '48px 25px 44px 24px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '32px'
-          }}
-        >
-          <Section4CardIcon4 />
-          <Stack spacing={18}>
-            <Typography
-              sx={{
-                color: '#252525',
-                fontFamily: 'Sora',
-                fontSize: '30px',
-                fontWeight: '600',
-                lineHeight: '34px'
-              }}
-            >
-              Stable Economies
-            </Typography>
-            <Typography
-              sx={{
-                color: '#444',
-                fontFamily: 'Poppins',
-                fontSize: '16px',
-                fontWeight: '400'
-              }}
-            >
-              NFTs' innate illiquidity (and undercutting) can no longer impact the stability of in-game economies.
-            </Typography>
-          </Stack>
-        </Box>
+        <Section4Card
+          Icon={<Section4CardIcon1 />}
+          label="Verifiable Ownership"
+          text={`NFTs are the backbone of decentralized digital ownership.`}
+        />
+        <Section4Card
+          Icon={<Section4CardIcon2 />}
+          label="Code is Law!"
+          text={`Swaps are executed instantly and price is adjusted by the AMM smart contract.`}
+        />
 
-        <Box
-          sx={{
-            width: 422,
-            height: 300,
-            borderRadius: '24px',
-            background: '#F9F9FA',
-            padding: '38px 25px 44px 24px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '19px'
-          }}
-        >
-          <Section4CardIcon5 />
-          <Stack spacing={12}>
+        <Section4Card
+          Icon={<Section4CardIcon3 />}
+          label="Instant Liquidity"
+          text={`Listing waiting times are reduced to 0, as demand and offer are satisfied instantaneously.`}
+        />
+        <Section4Card
+          Icon={<Section4CardIcon4 />}
+          label="Stable Economies"
+          text={`NFTs' innate illiquidity (and undercutting) can no longer impact the stability of in-game economies`}
+        />
+
+        <Section4Card
+          Icon={<Section4CardIcon5 />}
+          label={
             <Typography
               sx={{
                 color: '#252525',
@@ -536,57 +371,15 @@ function Section3() {
               Additional <tr />
               Revenue Streams
             </Typography>
-            <Typography
-              sx={{
-                color: '#444',
-                fontFamily: 'Poppins',
-                fontSize: '16px',
-                fontWeight: '400'
-              }}
-            >
-              Holders no longer need to exit their positions for profit, as they can stake their assets for protocol fee
-              shares.
-            </Typography>
-          </Stack>
-        </Box>
-
-        <Box
-          sx={{
-            width: 422,
-            height: 300,
-            borderRadius: '24px',
-            background: '#F9F9FA',
-            padding: '38px 25px 44px 24px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '42px'
-          }}
-        >
-          <Section4CardIcon6 />
-          <Stack spacing={18}>
-            <Typography
-              sx={{
-                color: '#252525',
-                fontFamily: 'Sora',
-                fontSize: '30px',
-                fontWeight: '600',
-                lineHeight: '34px'
-              }}
-            >
-              Interoperability
-            </Typography>
-            <Typography
-              sx={{
-                color: '#444',
-                fontFamily: 'Poppins',
-                fontSize: '16px',
-                fontWeight: '400'
-              }}
-            >
-              Seamlessly trade across different games within our ecosystem without the need to switch marketplaces.
-            </Typography>
-          </Stack>
-        </Box>
+          }
+          text={`Holders no longer need to exit their positions for profit, as they can stake their assets for protocol fee
+          shares.`}
+        />
+        <Section4Card
+          Icon={<Section4CardIcon6 />}
+          label="Interoperability"
+          text={`Seamlessly trade across different games within our ecosystem without the need to switch marketplaces`}
+        />
       </Box>
     </Box>
   )
@@ -618,206 +411,3 @@ function Section3() {
 //     </Box>
 //   )
 // }
-
-function Section1Card1() {
-  return (
-    <Box
-      sx={{
-        display: { xs: 'grid', md: 'flex' },
-        gap: '32px'
-      }}
-    >
-      <Stack spacing={32}>
-        <Box
-          sx={{
-            width: { xs: '100%', md: 831 },
-            height: { xs: 'auto', md: 310 },
-            borderRadius: '24px',
-            background: '#F9F9FA',
-            padding: '20px 32px 30px'
-          }}
-        >
-          <Stack spacing={2}>
-            <Section2CardIcon1 />
-            <Stack spacing={10}>
-              <Typography
-                sx={{
-                  color: '#252525',
-                  fontFamily: 'Sora',
-                  fontSize: '32px',
-                  fontWeight: '600',
-                  letterSpacing: '-1.28px',
-                  textTransform: 'capitalize'
-                }}
-              >
-                For Users
-              </Typography>
-              <Stack spacing={5}>
-                <Typography
-                  sx={{
-                    color: '#333',
-                    fontFamily: 'Poppins',
-                    fontSize: '18px',
-                    fontWeight: '400',
-                    letterSpacing: '-0.72px'
-                  }}
-                >
-                  &bull; &nbsp; <b style={{ fontWeight: 600 }}>Instant Liquidity:</b> no more waiting for buyers.
-                </Typography>
-                <Typography
-                  sx={{
-                    color: '#333',
-                    fontFamily: 'Poppins',
-                    fontSize: '18px',
-                    fontWeight: '400',
-                    letterSpacing: '-0.72px'
-                  }}
-                >
-                  &bull; &nbsp; <b style={{ fontWeight: 600 }}>Low Commissions:</b> starting from 0.3%.
-                </Typography>
-                <Typography
-                  sx={{
-                    color: '#333',
-                    fontFamily: 'Poppins',
-                    fontSize: '18px',
-                    fontWeight: '400',
-                    letterSpacing: '-0.72px'
-                  }}
-                >
-                  &bull; &nbsp; <b style={{ fontWeight: 600 }}>Minimal Slippage:</b> no more volatility.
-                </Typography>
-              </Stack>
-            </Stack>
-          </Stack>
-        </Box>
-        <Box
-          sx={{
-            width: { xs: '100%', md: 831 },
-            height: { xs: 'auto', md: 310 },
-            borderRadius: '24px',
-            background: '#F9F9FA',
-            padding: '20px 32px 30px'
-          }}
-        >
-          <Stack spacing={2}>
-            <Section2CardIcon2 />
-            <Stack spacing={10}>
-              <Typography
-                sx={{
-                  color: '#252525',
-                  fontFamily: 'Sora',
-                  fontSize: '32px',
-                  fontWeight: '600',
-                  letterSpacing: '-1.28px',
-                  textTransform: 'capitalize'
-                }}
-              >
-                For Builders
-              </Typography>
-              <Stack spacing={5}>
-                <Typography
-                  sx={{
-                    color: '#333',
-                    fontFamily: 'Poppins',
-                    fontSize: '18px',
-                    fontWeight: '400',
-                    letterSpacing: '-0.72px'
-                  }}
-                >
-                  &bull; &nbsp; <b style={{ fontWeight: 600 }}> Additional Revenue Stream:</b>
-                  {` >50% protocol revenues return to liquidity providers.`}
-                </Typography>
-                <Typography
-                  sx={{
-                    color: '#333',
-                    fontFamily: 'Poppins',
-                    fontSize: '18px',
-                    fontWeight: '400',
-                    letterSpacing: '-0.72px'
-                  }}
-                >
-                  &bull; &nbsp; <b style={{ fontWeight: 600 }}> Predictable Price Action:</b> sustainable in-game
-                  economies.
-                </Typography>
-                <Typography
-                  sx={{
-                    color: '#333',
-                    fontFamily: 'Poppins',
-                    fontSize: '18px',
-                    fontWeight: '400',
-                    letterSpacing: '-0.72px'
-                  }}
-                >
-                  &bull; &nbsp; <b style={{ fontWeight: 600 }}>eferral Programs (e.g. SBT):</b> reward and incentivise
-                  your community!
-                </Typography>
-              </Stack>
-            </Stack>
-          </Stack>
-        </Box>
-      </Stack>
-      <Box
-        sx={{
-          width: { xs: '100%', md: 449 },
-          height: { xs: '310px', md: '652px' },
-          borderRadius: '24px',
-          background: '#F3F3F3',
-          padding: '32px',
-          position: 'relative',
-          overflow: 'hidden'
-        }}
-      >
-        <Section2CardIcon3 />
-        <Stack spacing={13}>
-          <Typography
-            sx={{
-              color: '#252525',
-              fontFamily: 'Sora',
-              fontSize: '32px',
-              fontWeight: '600',
-              letterSpacing: '-1.28px',
-              textTransform: 'capitalize'
-            }}
-          >
-            For Both
-          </Typography>
-          <Stack spacing={5} maxWidth={322}>
-            <Typography
-              sx={{
-                color: '#333',
-                fontFamily: 'Poppins',
-                fontSize: '18px',
-                fontWeight: '400',
-                letterSpacing: '-0.72px'
-              }}
-            >
-              &bull; &nbsp; <b style={{ fontWeight: 600 }}> Seamless Trading: </b>
-              {`direct game integration of Ladder AMM widget.`}
-            </Typography>
-            <Typography
-              sx={{
-                color: '#333',
-                fontFamily: 'Poppins',
-                fontSize: '18px',
-                fontWeight: '400',
-                letterSpacing: '-0.72px'
-              }}
-            >
-              &bull; &nbsp; <b style={{ fontWeight: 600 }}> 1-Click Swaps.</b>
-            </Typography>
-          </Stack>
-        </Stack>
-
-        <Box
-          style={{
-            position: 'absolute',
-            bottom: '-6px',
-            right: '0'
-          }}
-        >
-          <Section2CardIcon4 />
-        </Box>
-      </Box>
-    </Box>
-  )
-}
