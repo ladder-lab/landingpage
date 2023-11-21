@@ -6,6 +6,7 @@ import ExternalLink from 'components/ExternalLink'
 import Image from 'components/Image'
 import { ReactComponent as Section3CardIcon1 } from 'assets/svg/section3-card-icon1.svg'
 import { ReactComponent as Section1CardIcon } from 'assets/svg/section-right-bg.svg'
+import Section3Bg from 'assets/image/section3-bg.png'
 import { ReactComponent as ArrowRight } from 'assets/svg/arrow-right.svg'
 // import ReadWhitepaper from 'components/Button/ReadWhitepaper'
 // import { CompositeFigure2, AboutCards2 } from 'pages/About'
@@ -21,14 +22,16 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
   fontSize: 52,
   fontWeight: '600',
   textAlign: 'center',
+  lineHeight: '66px',
   letterSpacing: '-2.08px',
   [theme.breakpoints.down('md')]: {
-    fontSize: 36
+    fontSize: 36,
+    lineHeight: 'normal'
   }
 }))
 
 const Section3TextStyle = styled(Typography)(() => ({
-  color: '#CDCBCB',
+  color: '#444',
   fontFamily: 'Poppins',
   fontSize: '16px',
   fontWeight: '400'
@@ -62,7 +65,6 @@ export default function Home() {
                 xs: 27,
                 md: 82
               },
-
               fontFamily: 'Sora',
               fontWeight: '600',
               letterSpacing: { xs: 0, md: '-3.28px' },
@@ -162,7 +164,7 @@ function Section1() {
         width: '100%',
         maxWidth: { xs: 'aut', md: '1440px' },
         margin: 'auto',
-        padding: { xs: '16px', md: '72px 64px 110px 64px' },
+        padding: { xs: '16px', md: '72px 64px 95px 64px' },
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
         alignItems: { xs: 'center', md: 'unset' },
@@ -179,7 +181,11 @@ function Section1() {
             maxWidth: 735
           }}
         >
-          {`Ladder is a decentralized automated market maker protocol (AMM) that uses liquidity pools to provide instant swaps for NFTs.While Ladder targets primarily the GameFi niche, we support every major token standard (i.e. ERC-721, ERC-1155, ERC-3525, ERC-20, etc.).`}
+          Ladder is a decentralized automated market maker protocol (AMM) that uses liquidity pools to provide instant
+          swaps for NFTs.
+          <br />
+          While Ladder targets primarily the GameFi niche, we support every major token standard (i.e. ERC-721,
+          ERC-1155, ERC-3525, ERC-20, etc.).
         </Typography>
         <Typography
           sx={{
@@ -192,7 +198,7 @@ function Section1() {
             mb: 45
           }}
         >
-          {`For projects and holders alike, Ladder unlocks new avenues of monetization for in-game assets.`}{' '}
+          For projects and holders alike, Ladder unlocks new avenues of monetization for in-game assets.{' '}
         </Typography>
         <ExternalLink href="https://test.ladder.top/airdrop">
           <Button
@@ -231,34 +237,33 @@ function Section1() {
 
 function Section2() {
   return (
-    <Box
+    <Stack
+      spacing={{ xs: 30, md: 48 }}
       width="100%"
       sx={{
         maxWidth: '1440px',
         margin: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
-        padding: { xs: '16px', md: '0 64px' },
-        gap: '40px'
+        padding: { xs: '16px', md: '0 64px' }
       }}
     >
-      <Box>
+      <Stack spacing={6}>
         <Typography
           sx={{
             color: '#333',
             fontFamily: 'Sora',
-            fontSize: '16px',
+            fontSize: { xs: 18, md: '26px' },
             fontWeight: '400',
-            textAlign: 'center'
+            textAlign: 'center',
+            lineHeight: { xs: 'normal', md: '24px' }
           }}
         >
           Value Proposition
         </Typography>
         <SectionTitle maxWidth={'632px'}>Level up your web3 game with ladder</SectionTitle>
-      </Box>
+      </Stack>
       <Section2Card />
-    </Box>
+    </Stack>
   )
 }
 
@@ -268,26 +273,29 @@ function Section3() {
     <Box
       sx={{
         width: '100%',
-        height: { xs: 'auto', md: 681 },
-        borderRadius: { xs: '32px', md: '64px' },
-        background: '#000',
+        height: { xs: 'auto', md: 660 },
+
+        // borderRadius: { xs: '32px', md: '64px' },
+        // background: '#000',
+        backgroundImage: `url(${Section3Bg})`,
+        backgroundSize: '100% 100%',
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
         alignItems: { xs: 'center', md: 'unset' },
-        mt: { xs: 30, md: 80 },
+        mt: { xs: 30, md: 140 },
         justifyContent: 'space-between',
         gap: { xs: '20px', md: 0 },
-        padding: { xs: '20px', md: '125px 160px 125px 96px' },
+        padding: { xs: '20px', md: '110px 150px 115px 65px' },
         svg: {
           width: { xs: '100%', md: 'auto' }
         }
       }}
     >
       <Stack spacing={isDownMd ? 30 : 45}>
-        <Stack spacing={10}>
+        <Stack spacing={14}>
           <Typography
             sx={{
-              color: '#FFF',
+              color: '#252525',
               fontFamily: 'Sora',
               fontSize: '16px',
               fontWeight: '400'
@@ -297,8 +305,7 @@ function Section3() {
           </Typography>
           <SectionTitle
             sx={{
-              color: '#FFF',
-              lineHeight: { xs: 'auto', md: '65px' },
+              color: '#252525',
               maxWidth: '533px',
               textAlign: 'left'
             }}
@@ -309,12 +316,11 @@ function Section3() {
         <Stack spacing={28}>
           <Section3TextStyle maxWidth={507}>
             Ladder is an AMM protocol for NFTs, which means that users buy from or sell into liquidity pools instead of
-            directly trading between themselves. One can see it as Uniswap for NFTs with a profound GameFi focus.
+            trading peer-to-peer. One can think of it as the Uniswap for NFTs, with a profound GameFi focus.
           </Section3TextStyle>
-          <Section3TextStyle maxWidth={507}>
-            Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike the traditional AMM where
-            paired assets are all ERC-20, Ladder AMM supports non-fungible asset like ERC-721 & ERC-1155 as the pair
-            option.
+          <Section3TextStyle maxWidth={534}>
+            Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike a traditional AMM where paired
+            assets are all ERC-20, Ladder AMM supports non-fungible asset like ERC-721 & ERC-1155 as the pair option.
           </Section3TextStyle>
         </Stack>
       </Stack>
@@ -324,21 +330,19 @@ function Section3() {
 }
 function Section4() {
   return (
-    <Box
+    <Stack
+      spacing={{ xs: '36px', md: '58px' }}
       sx={{
         width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
-        padding: { xs: '16px', md: '95px 64px 128px' },
-        gap: { xs: '36px', md: '58px' }
+        padding: { xs: '16px', md: '118px 64px 135px' }
       }}
     >
       <SectionTitle maxWidth={'507px'}>Our values</SectionTitle>
       <Box sx={{ width: '100%', display: 'flex', flexWrap: 'wrap', gap: '24px', justifyContent: 'center' }}>
         <Section4Cards />
       </Box>
-    </Box>
+    </Stack>
   )
 }
 

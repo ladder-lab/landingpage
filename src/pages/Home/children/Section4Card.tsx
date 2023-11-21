@@ -1,10 +1,17 @@
 import { Box, Stack, Typography, styled } from '@mui/material'
-import { ReactComponent as Section4CardIcon1 } from 'assets/svg/section4-card-icon1.svg'
-import { ReactComponent as Section4CardIcon2 } from 'assets/svg/section4-card-icon2.svg'
-import { ReactComponent as Section4CardIcon3 } from 'assets/svg/section4-card-icon3.svg'
-import { ReactComponent as Section4CardIcon4 } from 'assets/svg/section4-card-icon4.svg'
-import { ReactComponent as Section4CardIcon5 } from 'assets/svg/section4-card-icon5.svg'
-import { ReactComponent as Section4CardIcon6 } from 'assets/svg/section4-card-icon6.svg'
+// import { ReactComponent as Section4CardIcon1 } from 'assets/svg/section4-card-icon1.svg'
+// import { ReactComponent as Section4CardIcon2 } from 'assets/svg/section4-card-icon2.svg'
+// import { ReactComponent as Section4CardIcon3 } from 'assets/svg/section4-card-icon3.svg'
+// import { ReactComponent as Section4CardIcon4 } from 'assets/svg/section4-card-icon4.svg'
+// import { ReactComponent as Section4CardIcon5 } from 'assets/svg/section4-card-icon5.svg'
+// import { ReactComponent as Section4CardIcon6 } from 'assets/svg/section4-card-icon6.svg'
+import Section4CardIcon1 from 'assets/image/section4-card-icon1.png'
+import Section4CardIcon2 from 'assets/image/section4-card-icon2.png'
+import Section4CardIcon3 from 'assets/image/section4-card-icon3.png'
+import Section4CardIcon4 from 'assets/image/section4-card-icon4.png'
+import Section4CardIcon5 from 'assets/image/section4-card-icon5.png'
+import Section4CardIcon6 from 'assets/image/section4-card-icon6.png'
+import Image from 'components/Image'
 
 interface CardPops {
   Icon: JSX.Element
@@ -13,6 +20,15 @@ interface CardPops {
   isDiff?: boolean
   isEndEle?: boolean
 }
+
+const ImagesStyle = styled(Image)(({ theme }) => ({
+  width: 48,
+  height: 48,
+  [theme.breakpoints.down('md')]: {
+    width: 40,
+    height: 40
+  }
+}))
 
 const IconsStyle = styled(Box)(({ theme }) => ({
   svg: {
@@ -31,16 +47,16 @@ const CardList: CardPops[] = [
   {
     Icon: (
       <IconsStyle mb={{ xs: 16, md: 32 }}>
-        <Section4CardIcon1 />
+        <ImagesStyle src={Section4CardIcon1} />
       </IconsStyle>
     ),
     label: 'Verifiable Ownership',
-    text: `NFTs are the backbone of decentralized digital ownership.`
+    text: `NFTs are the backbone of decentralised digital ownership.`
   },
   {
     Icon: (
       <IconsStyle mb={{ xs: 16, md: 32 }}>
-        <Section4CardIcon2 />
+        <ImagesStyle src={Section4CardIcon2} />
       </IconsStyle>
     ),
     label: 'Code is Law!',
@@ -50,7 +66,7 @@ const CardList: CardPops[] = [
   {
     Icon: (
       <IconsStyle mb={{ xs: 16, md: 32 }}>
-        <Section4CardIcon3 />
+        <ImagesStyle src={Section4CardIcon3} />
       </IconsStyle>
     ),
     label: 'Instant Liquidity',
@@ -59,17 +75,16 @@ const CardList: CardPops[] = [
   {
     Icon: (
       <IconsStyle mb={{ xs: 16, md: 32 }}>
-        <Section4CardIcon4 />
+        <ImagesStyle src={Section4CardIcon4} />
       </IconsStyle>
     ),
     label: 'Stable Economies',
-    text: `NFTs' innate illiquidity (and undercutting) can no longer impact the stability of in-game economies`
+    text: `NFTs' innate illiquidity (and undercutting) can no longer impact the stability of in-game economies.`
   },
-
   {
     Icon: (
       <IconsStyle mb={{ xs: 16, md: 19 }}>
-        <Section4CardIcon5 />
+        <ImagesStyle src={Section4CardIcon5} />
       </IconsStyle>
     ),
     label: (
@@ -86,18 +101,17 @@ const CardList: CardPops[] = [
         Revenue Streams
       </Typography>
     ),
-    text: `Holders no longer need to exit their positions for profit, as they can stake their assets for protocol fee
-shares.`,
+    text: `Holders no longer need to exit their positions for profit, as they can stake their assets for protocol fee shares.`,
     isDiff: true
   },
   {
     Icon: (
       <IconsStyle mb={{ xs: 16, md: 42 }}>
-        <Section4CardIcon6 />
+        <ImagesStyle src={Section4CardIcon6} />
       </IconsStyle>
     ),
     label: 'Interoperability',
-    text: `Seamlessly trade across different games within our ecosystem without the need to switch marketplaces`,
+    text: `Seamlessly trade across different games within our ecosystem without the need to switch marketplaces.`,
     isDiff: true,
     isEndEle: true
   }

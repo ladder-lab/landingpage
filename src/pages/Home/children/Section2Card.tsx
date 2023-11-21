@@ -1,18 +1,21 @@
-import { ReactComponent as Section2CardIcon4 } from 'assets/svg/section2-card-icon4.svg'
+// import { ReactComponent as Section2CardIcon4 } from 'assets/svg/section2-card-icon4.svg'
 import { ReactComponent as Section2CardIcon1 } from 'assets/svg/section2-card-icon1.svg'
 import { ReactComponent as Section2CardIcon2 } from 'assets/svg/section2-card-icon2.svg'
 import { ReactComponent as Section2CardIcon3 } from 'assets/svg/section2-card-icon3.svg'
 import { Box, Stack, Typography, styled } from '@mui/material'
+import useBreakpoint from 'hooks/useBreakpoint'
 
 const CardTitle = styled(Typography)(({ theme }) => ({
   color: '#252525',
   fontFamily: 'Sora',
-  fontSize: 32,
+  fontSize: 30,
   fontWeight: '600',
-  letterSpacing: '-1.28px',
+  letterSpacing: '-1.2px',
+  lineHeight: '38px',
   textTransform: 'capitalize',
   [theme.breakpoints.down('md')]: {
-    fontSize: 24
+    fontSize: 24,
+    lineHeight: 'normal'
   }
 }))
 
@@ -20,18 +23,16 @@ export function Section2Card() {
   return (
     <Box
       sx={{
-        display: { xs: 'grid', md: 'flex' },
-        gap: '32px',
+        display: 'grid',
+        gap: '24px',
         width: '100%'
       }}
     >
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 32,
-          width: '100%',
-          maxWidth: { xs: 'auto', md: 831 }
+          display: { xs: 'grid', md: 'flex' },
+          gap: 24,
+          width: '100%'
         }}
       >
         <Card1
@@ -39,9 +40,9 @@ export function Section2Card() {
           title="For Users"
           children={
             <>
-              <RowLabel label={'Instant Liquidity:'} text={`no more waiting for buyers.`} />
-              <RowLabel label={'Low Commissions: '} text="starting from 0.3%." />
-              <RowLabel label={'Minimal Slippage:'} text="no more volatility." />
+              <RowLabel label={'Instant Liquidity:'} text={`no more waiting for buyers.`} lineHeight="36px" />
+              <RowLabel label={'Low Commissions:'} text="starting from 0.3%." lineHeight="36px" />
+              <RowLabel label={'Minimal Slippage:'} text="Negligible buy & sell price variance" lineHeight="36px" />
             </>
           }
         />
@@ -51,14 +52,15 @@ export function Section2Card() {
           children={
             <>
               <RowLabel
-                label={'Additional Revenue Stream:'}
-                text={` >50% protocol revenues return to liquidity providers.`}
+                label={'Earn on Volumes:'}
+                text={`Over 50% of protocol revenues returned to liquidity providers`}
+                lineHeight="29px"
               />
-              <RowLabel label={'Predictable Price Action:'} text="sustainable in-game economies." />
+              <RowLabel label={'Smooth Price Action:'} text="Benefits balanced in-game economies" lineHeight="29px" />
               <RowLabel
-                label={'eferral Programs (e.g. SBT):'}
-                text="reward and incentivise your
-              community!"
+                label={'Referral Program:'}
+                text="Reward and incentivize partners' communities"
+                lineHeight="29px"
               />
             </>
           }
@@ -70,72 +72,65 @@ export function Section2Card() {
 }
 
 function Card1({ Icon, title, children }: { Icon: JSX.Element; title: string; children: JSX.Element }) {
+  const IsDownMd = useBreakpoint('md')
+
   return (
     <Box
       sx={{
-        width: '100',
-        minHeight: { xs: 'auto', md: 310 },
+        width: { xs: 'auto', md: 644 },
+        minHeight: { xs: 'auto', md: 300 },
         height: '100%',
         borderRadius: '24px',
         background: '#F9F9FA',
-        padding: '20px 32px 30px'
+        padding: { xs: 16, md: '31px 30px 35px' },
+        display: 'flex',
+        justifyContent: 'space-between'
       }}
     >
-      <Stack spacing={2}>
-        {Icon}
-        <Stack spacing={10}>
-          <CardTitle> {title}</CardTitle>
-          <Stack spacing={5}>{children}</Stack>
-        </Stack>
+      <Stack spacing={20}>
+        <CardTitle> {title}</CardTitle>
+        <Stack maxWidth={{ xs: 'auto', md: 470 }}>{children}</Stack>
       </Stack>
+      {!IsDownMd && Icon}
     </Box>
   )
 }
 
 function Card2() {
+  const IsDownMd = useBreakpoint('md')
   return (
     <Box
       sx={{
-        width: { xs: '100%', md: 449 },
-        height: { xs: '310px', md: '652px' },
+        width: '100%',
+        height: { xs: 'auto', md: 190 },
         borderRadius: '24px',
-        background: '#F3F3F3',
-        padding: '32px',
-        position: 'relative',
-        overflow: 'hidden'
+        background: '#F9F9FA',
+        padding: { xs: 16, md: 30 },
+        display: 'flex',
+        justifyContent: 'space-between'
       }}
     >
-      <Box
-        sx={{
-          position: 'absolute',
-          zIndex: 99
-        }}
-      >
-        <Section2CardIcon3 />
-        <Stack spacing={13}>
-          <CardTitle>For Both</CardTitle>
-          <Stack spacing={5} maxWidth={322}>
-            <RowLabel label={` Seamless Trading: `} text={`direct game integration of Ladder AMM widget.`} />
-            <RowLabel label={` 1-Click Swaps.`} />
-          </Stack>
+      <Stack spacing={13}>
+        <CardTitle>For Both</CardTitle>
+        <Stack>
+          <RowLabel
+            label={`Convenient User Journey:`}
+            text={`Trade in-game assets without leaving the game or opening a marketplace`}
+            lineHeight="32px"
+          />
+          <RowLabel
+            label={`1-Click Trade:`}
+            text="In comparison to 3+ clicks at other marketplaces, trading with AMM becomes seamless"
+            lineHeight="32px"
+          />
         </Stack>
-      </Box>
-
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: '-6px',
-          right: '0',
-          opacity: { xs: 0.6, md: 1 }
-        }}
-      >
-        <Section2CardIcon4 />
-      </Box>
+      </Stack>
+      {!IsDownMd && <Section2CardIcon3 />}
     </Box>
   )
 }
 
-function RowLabel({ label, text }: { label: string; text?: string }) {
+function RowLabel({ label, text, lineHeight }: { label: string; text?: string; lineHeight?: string }) {
   return (
     <>
       <Typography
@@ -144,10 +139,11 @@ function RowLabel({ label, text }: { label: string; text?: string }) {
           fontFamily: 'Poppins',
           fontSize: { xs: 16, md: 18 },
           fontWeight: '400',
-          letterSpacing: '-0.72px'
+          letterSpacing: '-0.72px',
+          lineHeight: { xs: 'normal', md: lineHeight || 'normal' }
         }}
       >
-        &bull; &nbsp; <b style={{ fontWeight: 600 }}>{label}</b> {text}
+        &bull; &nbsp; <b style={{ fontWeight: 700 }}>{label}</b> {text}
       </Typography>
     </>
   )
