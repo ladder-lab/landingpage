@@ -18,7 +18,7 @@ interface Tab {
 }
 
 export const Tabs: Tab[] = [
-  { title: 'Home', route: routes.home },
+  // { title: 'Home', route: routes.home },
   { title: 'About', route: routes.about },
   { title: 'Docs', link: DocLink },
   { title: 'Community', route: routes.community }
@@ -92,45 +92,54 @@ export default function Header() {
   return (
     <StyledAppBar position="absolute">
       <Box
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
+        sx={{
+          maxWidth: '1440px',
           width: '100%',
-          borderRadius: '100px',
-          background: 'rgba(255,255,255,0.5)',
-          height: '72px',
-          alignItems: 'center',
-          padding: '0 28px 0 34px'
+          margin: 'auto',
+          padding: '0 64px'
         }}
       >
-        <BrandLogo />
         <Box
-          sx={{
+          style={{
             display: 'flex',
-            gap: '120px'
+            justifyContent: 'space-between',
+            width: '100%',
+            borderRadius: '100px',
+            background: 'rgba(255,255,255,0.5)',
+            height: '72px',
+            alignItems: 'center',
+            padding: '0 28px 0 34px'
           }}
         >
+          <BrandLogo />
           <Box
             sx={{
               display: 'flex',
-              aligmItems: 'center',
-              gap: 96,
-              justifyContent: 'center'
+              gap: '120px'
             }}
           >
-            {Tabs.map(({ title, route, link }, idx) =>
-              route ? (
-                <StyledNavLink key={idx} to={route}>
-                  {title}
-                </StyledNavLink>
-              ) : link ? (
-                <StyledExternalLink key={idx} href={link}>
-                  {title}
-                </StyledExternalLink>
-              ) : null
-            )}
+            <Box
+              sx={{
+                display: 'flex',
+                aligmItems: 'center',
+                gap: 96,
+                justifyContent: 'center'
+              }}
+            >
+              {Tabs.map(({ title, route, link }, idx) =>
+                route ? (
+                  <StyledNavLink key={idx} to={route}>
+                    {title}
+                  </StyledNavLink>
+                ) : link ? (
+                  <StyledExternalLink key={idx} href={link}>
+                    {title}
+                  </StyledExternalLink>
+                ) : null
+              )}
+            </Box>
+            <LaunchApp />
           </Box>
-          <LaunchApp />
         </Box>
       </Box>
     </StyledAppBar>

@@ -139,7 +139,7 @@ function Section4Card({ Icon, label, text, isDiff, isEndEle }: CardPops) {
   return (
     <Box
       sx={{
-        width: { xs: '100%', md: 422 },
+        width: { xs: '100%', md: 420 },
         height: { xs: '230px', md: 300 },
         borderRadius: '24px',
         background: '#F9F9FA',

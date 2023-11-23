@@ -48,6 +48,8 @@ export default function Home() {
       <Banner>
         <Box
           sx={{
+            maxWidth: '1440px',
+            margin: 'auto',
             padding: {
               xs: '153px 16px 44px',
               md: '358px 64px 80px'
@@ -275,75 +277,97 @@ function Section3() {
       sx={{
         width: '100%',
         height: { xs: 'auto', md: 660 },
-
-        // borderRadius: { xs: '32px', md: '64px' },
-        // background: '#000',
         backgroundImage: `url(${Section3Bg})`,
         backgroundSize: '100% 100%',
-        display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
-        alignItems: { xs: 'center', md: 'unset' },
-        mt: { xs: 30, md: 140 },
-        justifyContent: 'space-between',
-        gap: { xs: '20px', md: 0 },
-        padding: { xs: '20px', md: '110px 150px 115px 65px' },
-        svg: {
-          width: { xs: '100%', md: 'auto' }
-        }
+        mt: { xs: 30, md: 140 }
       }}
     >
-      <Stack spacing={isDownMd ? 30 : 45}>
-        <Stack spacing={14}>
-          <Typography
-            sx={{
-              color: '#252525',
-              fontFamily: 'Sora',
-              fontSize: '16px',
-              fontWeight: '400'
-            }}
-          >
-            How does Ladder work?
-          </Typography>
-          <SectionTitle
-            sx={{
-              color: '#252525',
-              maxWidth: '533px',
-              textAlign: 'left'
-            }}
-          >
-            Unlock the <tr /> true potential of NFTs
-          </SectionTitle>
+      <Box
+        sx={{
+          maxWidth: '1440px',
+          margin: 'auto',
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          alignItems: { xs: 'center', md: 'unset' },
+          justifyContent: 'space-between',
+          gap: { xs: '20px', md: 0 },
+          padding: { xs: '20px', md: '110px 150px 115px 65px' },
+          svg: {
+            width: { xs: '100%', md: 'auto' }
+          }
+        }}
+      >
+        <Stack spacing={isDownMd ? 30 : 45}>
+          <Stack spacing={14}>
+            <Typography
+              sx={{
+                color: '#252525',
+                fontFamily: 'Sora',
+                fontSize: '16px',
+                fontWeight: '400'
+              }}
+            >
+              How does Ladder work?
+            </Typography>
+            <SectionTitle
+              sx={{
+                color: '#252525',
+                maxWidth: '533px',
+                textAlign: 'left'
+              }}
+            >
+              Unlock the <tr /> true potential of NFTs
+            </SectionTitle>
+          </Stack>
+          <Stack spacing={28}>
+            <Section3TextStyle maxWidth={507}>
+              Ladder is an AMM protocol for NFTs, which means that users buy from or sell into liquidity pools instead
+              of trading peer-to-peer. One can think of it as the Uniswap for NFTs, with a profound GameFi focus.
+            </Section3TextStyle>
+            <Section3TextStyle maxWidth={534}>
+              Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike a traditional AMM where
+              paired assets are all ERC-20, Ladder AMM supports non-fungible asset like ERC-721 & ERC-1155 as the pair
+              option.
+            </Section3TextStyle>
+          </Stack>
         </Stack>
-        <Stack spacing={28}>
-          <Section3TextStyle maxWidth={507}>
-            Ladder is an AMM protocol for NFTs, which means that users buy from or sell into liquidity pools instead of
-            trading peer-to-peer. One can think of it as the Uniswap for NFTs, with a profound GameFi focus.
-          </Section3TextStyle>
-          <Section3TextStyle maxWidth={534}>
-            Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike a traditional AMM where paired
-            assets are all ERC-20, Ladder AMM supports non-fungible asset like ERC-721 & ERC-1155 as the pair option.
-          </Section3TextStyle>
-        </Stack>
-      </Stack>
-      <Section3CardIcon1 />
+        <Section3CardIcon1 />
+      </Box>
     </Box>
   )
 }
 function Section4() {
   return (
-    <Stack
-      spacing={{ xs: '36px', md: '58px' }}
+    <Box
       sx={{
-        width: '100%',
-        alignItems: 'center',
-        padding: { xs: '16px', md: '118px 64px 135px' }
+        width: '100%'
       }}
     >
-      <SectionTitle maxWidth={'507px'}>Our values</SectionTitle>
-      <Box sx={{ width: '100%', display: 'flex', flexWrap: 'wrap', gap: '24px', justifyContent: 'center' }}>
-        <Section4Cards />
-      </Box>
-    </Stack>
+      <Stack
+        spacing={{ xs: '36px', md: '58px' }}
+        sx={{
+          width: '100%',
+          maxWidth: '1440px',
+          margin: 'auto',
+          alignItems: 'center',
+          padding: { xs: '16px', md: '118px 64px 135px' }
+        }}
+      >
+        <SectionTitle maxWidth={'507px'}>Our values</SectionTitle>
+        <Box
+          sx={{
+            width: '100%',
+            margin: 'auto',
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '24px',
+            justifyContent: 'center'
+          }}
+        >
+          <Section4Cards />
+        </Box>
+      </Stack>
+    </Box>
   )
 }
 
