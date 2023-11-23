@@ -189,7 +189,7 @@ function Section1() {
         </Typography>
         <Typography
           sx={{
-            color: '#444',
+            color: '#252525',
             fontFamily: 'Poppins',
             fontSize: '18px',
             fontWeight: '400',
@@ -212,6 +212,7 @@ function Section1() {
               borderRadius: '200px',
               background: '#252525',
               height: '46px',
+              fontFamily: 'Sora',
               '&:hover': {
                 boxShadow: 'none'
               }

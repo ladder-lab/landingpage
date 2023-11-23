@@ -40,9 +40,24 @@ export function Section2Card() {
           title="For Users"
           children={
             <>
-              <RowLabel label={'Instant Liquidity:'} text={`no more waiting for buyers.`} lineHeight="36px" />
-              <RowLabel label={'Low Commissions:'} text="starting from 0.3%." lineHeight="36px" />
-              <RowLabel label={'Minimal Slippage:'} text="Negligible buy & sell price variance" lineHeight="36px" />
+              <RowLabel
+                label={'Instant Liquidity:'}
+                text={`no more waiting for buyers.`}
+                lineHeight="36px"
+                BoldFontWeight={'600'}
+              />
+              <RowLabel
+                label={'Low Commissions:'}
+                text="starting from 0.3%."
+                lineHeight="36px"
+                BoldFontWeight={'600'}
+              />
+              <RowLabel
+                label={'Minimal Slippage:'}
+                text="Negligible buy & sell price variance"
+                lineHeight="36px"
+                BoldFontWeight={'600'}
+              />
             </>
           }
         />
@@ -130,7 +145,17 @@ function Card2() {
   )
 }
 
-function RowLabel({ label, text, lineHeight }: { label: string; text?: string; lineHeight?: string }) {
+function RowLabel({
+  label,
+  text,
+  lineHeight,
+  BoldFontWeight
+}: {
+  label: string
+  text?: string
+  lineHeight?: string
+  BoldFontWeight?: string
+}) {
   return (
     <>
       <Typography
@@ -143,7 +168,7 @@ function RowLabel({ label, text, lineHeight }: { label: string; text?: string; l
           lineHeight: { xs: 'normal', md: lineHeight || 'normal' }
         }}
       >
-        &bull; &nbsp; <b style={{ fontWeight: 700 }}>{label}</b> {text}
+        &bull; &nbsp; <b style={{ fontWeight: BoldFontWeight || 700 }}>{label}</b> {text}
       </Typography>
     </>
   )

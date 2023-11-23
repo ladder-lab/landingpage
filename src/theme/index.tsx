@@ -81,8 +81,10 @@ export const theme = {
 }
 
 const FONTS = {
-  title: 'Monument Extended, Helvetica, sans-serif',
-  content: 'Lato, Helvetica, sans-serif'
+  // title: 'Monument Extended, Helvetica, sans-serif',
+  // content: 'Lato, Helvetica, sans-serif',
+  title: 'Sora',
+  content: 'Poppins'
 }
 
 export const override: any = {
