@@ -96,7 +96,7 @@ export default function Header() {
           maxWidth: '1440px',
           width: '100%',
           margin: 'auto',
-          padding: '0 64px'
+          padding: '0 30px'
         }}
       >
         <Box
