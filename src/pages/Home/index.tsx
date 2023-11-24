@@ -202,7 +202,7 @@ function Section1() {
         >
           For projects and holders alike, Ladder unlocks new avenues of monetization for in-game assets.{' '}
         </Typography>
-        <ExternalLink href="https://test.ladder.top/airdrop">
+        <ExternalLink href="https://ladder-alltoken.netlify.app/swap">
           <Button
             variant="contained"
             sx={{
@@ -241,6 +241,7 @@ function Section1() {
 function Section2() {
   return (
     <Stack
+      id="about"
       spacing={{ xs: 30, md: 48 }}
       width="100%"
       sx={{
@@ -274,6 +275,7 @@ function Section3() {
   const isDownMd = useBreakpoint('md')
   return (
     <Box
+      id="tech"
       sx={{
         width: '100%',
         height: { xs: 'auto', md: 660 },
@@ -336,9 +338,11 @@ function Section3() {
     </Box>
   )
 }
+
 function Section4() {
   return (
     <Box
+      id="values"
       sx={{
         width: '100%'
       }}
@@ -353,7 +357,7 @@ function Section4() {
           padding: { xs: '16px', md: '118px 64px 135px' }
         }}
       >
-        <SectionTitle maxWidth={'507px'}>Our values</SectionTitle>
+        <SectionTitle maxWidth={'507px'}>Our Values</SectionTitle>
         <Box
           sx={{
             width: '100%',

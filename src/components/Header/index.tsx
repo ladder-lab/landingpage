@@ -19,11 +19,13 @@ interface Tab {
 
 export const Tabs: Tab[] = [
   // { title: 'Home', route: routes.home },
+  // { title: 'About', route: routes.about },
   // { title: 'Docs', link: DocLink },
-  { title: 'About', route: routes.about },
-  { title: 'Tech', route: routes.home },
-  { title: 'Values', route: routes.home },
-  { title: 'Community', route: routes.community }
+  // { title: 'Community', route: routes.community },
+  { title: 'About', route: '#about' },
+  { title: 'Tech', route: '#tech' },
+  { title: 'Values', route: '#values' },
+  { title: 'Community', route: '#community' }
 ]
 
 const StyledAppBar = styled(AppBar)({
@@ -41,7 +43,7 @@ const StyledMobileAppBar = styled(AppBar)({
   width: '100%'
 })
 
-const StyledNavLink = styled(NavLink)({
+const StyledNavLink = styled('a')({
   textDecoration: 'none',
   color: '#252525',
   fontFamily: 'Sora',
@@ -130,7 +132,7 @@ export default function Header() {
             >
               {Tabs.map(({ title, route, link }, idx) =>
                 route ? (
-                  <StyledNavLink key={idx} to={route}>
+                  <StyledNavLink key={idx} href={route}>
                     {title}
                   </StyledNavLink>
                 ) : link ? (

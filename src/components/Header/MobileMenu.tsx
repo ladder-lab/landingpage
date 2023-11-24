@@ -1,10 +1,10 @@
 import { Drawer, Box, styled } from '@mui/material'
 import { Tabs } from '.'
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 import ExternalLink from 'components/ExternalLink'
 import { CopyWriting } from 'components/Footer'
 
-const StyledNavLink = styled(NavLink)({
+const StyledNavLink = styled('a')({
   color: '#FFFFFF',
   textDecoration: 'none',
   fontSize: 28,
@@ -49,7 +49,7 @@ export default function MobileMenu({ isOpen, onDismiss }: { isOpen: boolean; onD
         <Box display="grid" gap={60}>
           {Tabs.map(({ title, route, link }, idx) =>
             route ? (
-              <StyledNavLink key={idx} to={route}>
+              <StyledNavLink key={idx} href={route} onClick={onDismiss}>
                 {title}
               </StyledNavLink>
             ) : link ? (

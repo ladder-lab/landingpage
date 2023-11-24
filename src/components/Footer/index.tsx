@@ -10,6 +10,7 @@ export default function Footer({ height, copyright }: { height?: string | number
 
   return (
     <Box
+      id="community"
       sx={{
         height,
         overflow: 'hidden',
