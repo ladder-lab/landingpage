@@ -33,9 +33,9 @@ export default function MobileMenu({ isOpen, onDismiss }: { isOpen: boolean; onD
       BackdropProps={{ sx: { backgroundColor: 'transparent' } }}
       PaperProps={{
         sx: {
-          top: 88,
+          top: 67,
           background: '#000000',
-          height: 'calc(100% - 88px)',
+          height: 'calc(100% - 67px)',
           padding: '60px 0'
         }
       }}

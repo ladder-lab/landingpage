@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import { AppBar, Box, Button, styled, IconButton } from '@mui/material'
+import { AppBar, Box, Button, styled, IconButton, useTheme } from '@mui/material'
 import { ReactComponent as Ladder } from 'assets/svg/ladder.svg'
 import { ReactComponent as LadderSm } from 'assets/svg/ladder-sm.svg'
 import { ReactComponent as MenuIcon } from 'assets/svg/menu.svg'
@@ -36,11 +36,12 @@ const StyledAppBar = styled(AppBar)({
 })
 
 const StyledMobileAppBar = styled(AppBar)({
-  background: 'transparent',
-  borderBottom: '1px solid #E8E8E8',
-  height: 88,
+  background: 'rgba(255,255,255,0.5)',
+  // borderBottom: '1px solid #E8E8E8',
+  height: 67,
   boxShadow: 'none',
-  width: '100%'
+  width: '100%',
+  padding: '0 16px'
 })
 
 const StyledNavLink = styled('a')({
@@ -164,8 +165,10 @@ function MobileHeader({ isOpen, onDismiss, onClick }: { isOpen: boolean; onDismi
           }}
         >
           <BrandLogo />
-          <LaunchApp />
-          <MenuBtn isOpen={isOpen} onClick={onClick} />
+          <Box display={'flex'} gap={20}>
+            <LaunchApp />
+            <MenuBtn isOpen={isOpen} onClick={onClick} />
+          </Box>
         </Box>
       </StyledMobileAppBar>
     </>
@@ -181,7 +184,10 @@ function BrandLogo() {
         height: '100%',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        a: {
+          display: 'flex'
+        }
       }}
     >
       <NavLink to={routes.home}>{isDownMd ? <LadderSm /> : <Ladder />}</NavLink>
@@ -190,6 +196,7 @@ function BrandLogo() {
 }
 
 function LaunchApp() {
+  const theme = useTheme()
   return (
     <ExternalLink href="https://test.ladder.top/airdrop">
       <Button
@@ -208,8 +215,20 @@ function LaunchApp() {
           fontSize: '16px',
           fontWeight: '600',
           textTransform: 'uppercase',
+          border: '1px solid #252525',
           '&:hover': {
-            boxShadow: 'none'
+            boxShadow: 'none',
+            background: '#fff',
+            color: '#252525'
+          },
+          [theme.breakpoints.down('md')]: {
+            height: 32,
+            width: '130px',
+            borderRadius: '148px',
+            fontSize: '11.848px',
+            padding: '0',
+            fontFamily: 'Sora',
+            textTransform: 'capitalize'
           }
         }}
       >
@@ -223,16 +242,19 @@ function MenuBtn({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) 
   return (
     <Box
       sx={{
-        borderLeft: '1px solid #E8E8E8',
-        width: 80,
+        // borderLeft: '1px solid #E8E8E8',
+        // width: 80,
         height: '100%',
-        background: '#3BBDAC',
+        // background: '#3BBDAC',
+        background: 'transparent',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
       }}
     >
-      <IconButton onClick={onClick}>{isOpen ? <CloseIcon /> : <MenuIcon />}</IconButton>
+      <IconButton sx={{ padding: 0 }} onClick={onClick}>
+        {isOpen ? <CloseIcon /> : <MenuIcon />}
+      </IconButton>
     </Box>
   )
 }
