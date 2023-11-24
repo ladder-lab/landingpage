@@ -99,7 +99,12 @@ function Card1({ Icon, title, children }: { Icon: JSX.Element; title: string; ch
         background: '#F9F9FA',
         padding: { xs: 16, md: '31px 30px 35px' },
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        cursor: 'pointer',
+        ':hover': {
+          background: '#FFF',
+          boxShadow: '0px 12px 40px 0px #DCDCDC'
+        }
       }}
     >
       <Stack spacing={20}>
@@ -122,7 +127,12 @@ function Card2() {
         background: '#F9F9FA',
         padding: { xs: 16, md: 30 },
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        cursor: 'pointer',
+        ':hover': {
+          background: '#FFF',
+          boxShadow: '0px 12px 40px 0px #DCDCDC'
+        }
       }}
     >
       <Stack spacing={13}>

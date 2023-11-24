@@ -214,7 +214,7 @@ function LaunchApp() {
           fontFamily: 'Poppins',
           fontSize: '16px',
           fontWeight: '600',
-          textTransform: 'uppercase',
+          textTransform: 'capitalize',
           border: '1px solid #252525',
           '&:hover': {
             boxShadow: 'none',
@@ -227,8 +227,7 @@ function LaunchApp() {
             borderRadius: '148px',
             fontSize: '11.848px',
             padding: '0',
-            fontFamily: 'Sora',
-            textTransform: 'capitalize'
+            fontFamily: 'Sora'
           }
         }}
       >

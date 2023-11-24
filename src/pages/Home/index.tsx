@@ -207,16 +207,28 @@ function Section1() {
             variant="contained"
             sx={{
               display: 'inline-flex',
-              padding: '0 26px',
-              justifyContent: 'center',
+              paddingLeft: '25px',
               alignItems: 'center',
               gap: '11px',
               borderRadius: '200px',
               background: '#252525',
               height: '46px',
               fontFamily: 'Sora',
+              width: 175,
+              border: '1px solid #000',
+              textTransform: 'capitalize',
+              fontWeight: '600',
+              fontSize: '16px',
               '&:hover': {
-                boxShadow: 'none'
+                boxShadow: 'none',
+                background: '#fff',
+                color: '#252525',
+                gap: '19px',
+                svg: {
+                  path: {
+                    fill: '#000'
+                  }
+                }
               }
             }}
             endIcon={<ArrowRight />}

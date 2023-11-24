@@ -145,7 +145,12 @@ function Section4Card({ Icon, label, text, isDiff, isEndEle }: CardPops) {
         background: '#F9F9FA',
         padding: { xs: '16px', md: isDiff ? '38px 36px 44px 24px' : '48px 36px 44px 24px' },
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        cursor: 'pointer',
+        ':hover': {
+          background: '#FFF',
+          boxShadow: '0px 12px 40px 0px #DCDCDC'
+        }
       }}
     >
       {Icon}
