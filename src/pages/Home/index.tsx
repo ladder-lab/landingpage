@@ -5,8 +5,8 @@ import { Socials } from 'constants/index'
 import ExternalLink from 'components/ExternalLink'
 import Image from 'components/Image'
 import { ReactComponent as Section3CardIcon1 } from 'assets/svg/section3-card-icon1.svg'
-import { ReactComponent as Section1CardIcon } from 'assets/svg/section1-right-bg.svg'
-import { ReactComponent as Section1CardHoverIcon } from 'assets/svg/section1-right-hover-bg.svg'
+import Section1CardIcon from 'assets/svg/section1-right-bg.svg'
+import Section1CardHoverIcon from 'assets/svg/section1-right-hover-bg.svg'
 import Section3Bg from 'assets/image/section3-bg.png'
 import { ReactComponent as ArrowRight } from 'assets/svg/arrow-right.svg'
 // import ReadWhitepaper from 'components/Button/ReadWhitepaper'
@@ -70,15 +70,18 @@ const HoverSvg = styled(Box)(() => ({
   maxHeight: '300px',
   borderRadius: '16.889px',
   filter: 'drop-shadow(0px 9px 18.5px rgba(0, 0, 0, 0.10))',
-  svg: {
-    width: { xs: '100%', md: 'auto' }
-  },
   '.hover-svg': {
     display: 'none'
   },
+  img: {
+    width: '100%'
+  },
   ':hover': {
+    img: {
+      width: '100% !important'
+    },
     '.hover-svg': {
-      display: 'block'
+      display: 'inline-block'
     },
     '.default-svg': {
       display: 'none'
@@ -260,12 +263,8 @@ function Section1() {
         </ExternalLink>
       </Box>
       <HoverSvg>
-        <Box className="hover-svg">
-          <Section1CardHoverIcon />
-        </Box>
-        <Box className="default-svg">
-          <Section1CardIcon />
-        </Box>
+        <Image src={Section1CardIcon} alt="png" className="default-svg" />
+        <Image src={Section1CardHoverIcon} alt="png" className="hover-svg" />
       </HoverSvg>
     </Box>
   )
