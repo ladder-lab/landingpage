@@ -92,7 +92,8 @@ function Card1({ Icon, title, children }: { Icon: JSX.Element; title: string; ch
   return (
     <Box
       sx={{
-        width: { xs: 'auto', md: 644 },
+        maxWidth: { xs: 'auto', md: 644 },
+        width: '100%',
         minHeight: { xs: 'auto', md: 300 },
         height: '100%',
         borderRadius: '24px',

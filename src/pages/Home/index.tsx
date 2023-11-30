@@ -5,7 +5,8 @@ import { Socials } from 'constants/index'
 import ExternalLink from 'components/ExternalLink'
 import Image from 'components/Image'
 import { ReactComponent as Section3CardIcon1 } from 'assets/svg/section3-card-icon1.svg'
-import { ReactComponent as Section1CardIcon } from 'assets/svg/section-right-bg.svg'
+import { ReactComponent as Section1CardIcon } from 'assets/svg/section1-right-bg.svg'
+import { ReactComponent as Section1CardHoverIcon } from 'assets/svg/section1-right-hover-bg.svg'
 import Section3Bg from 'assets/image/section3-bg.png'
 import { ReactComponent as ArrowRight } from 'assets/svg/arrow-right.svg'
 // import ReadWhitepaper from 'components/Button/ReadWhitepaper'
@@ -35,6 +36,54 @@ const Section3TextStyle = styled(Typography)(() => ({
   fontFamily: 'Poppins',
   fontSize: '16px',
   fontWeight: '400'
+}))
+
+const ButtonStyle = styled(Button)(() => ({
+  display: 'inline-flex',
+  paddingLeft: '25px',
+  alignItems: 'center',
+  gap: '11px',
+  borderRadius: '200px',
+  background: '#252525',
+  height: '46px',
+  fontFamily: 'Sora',
+  width: 175,
+  border: '1px solid #000',
+  textTransform: 'capitalize',
+  fontWeight: '600',
+  fontSize: '16px',
+  '&:hover': {
+    boxShadow: 'none',
+    background: '#fff',
+    color: '#252525',
+    gap: '19px',
+    svg: {
+      path: {
+        fill: '#000'
+      }
+    }
+  }
+}))
+
+const HoverSvg = styled(Box)(() => ({
+  cursor: 'pointer',
+  maxHeight: '300px',
+  borderRadius: '16.889px',
+  filter: 'drop-shadow(0px 9px 18.5px rgba(0, 0, 0, 0.10))',
+  svg: {
+    width: { xs: '100%', md: 'auto' }
+  },
+  '.hover-svg': {
+    display: 'none'
+  },
+  ':hover': {
+    '.hover-svg': {
+      display: 'block'
+    },
+    '.default-svg': {
+      display: 'none'
+    }
+  }
 }))
 
 export default function Home() {
@@ -166,14 +215,15 @@ function Section1() {
         width: '100%',
         maxWidth: { xs: 'aut', md: '1440px' },
         margin: 'auto',
-        padding: { xs: '16px', md: '72px 64px 95px 64px' },
+        padding: { xs: '32px 16px', md: '70px 128px 150px 64px' },
         display: 'flex',
+        gap: { xs: 20, md: 0 },
         flexDirection: { xs: 'column', md: 'row' },
         alignItems: { xs: 'center', md: 'unset' },
         justifyContent: 'space-between'
       }}
     >
-      <Box>
+      <Box paddingTop={{ xs: 0, md: 10 }}>
         <Typography
           sx={{
             color: '#252525',
@@ -196,56 +246,27 @@ function Section1() {
             fontSize: '18px',
             fontWeight: '400',
             maxWidth: 586,
-            mt: 10,
+            minHeight: { xs: 'unset', md: 58 },
+            mt: { xs: 10, md: 30 },
             mb: 45
           }}
         >
           For projects and holders alike, Ladder unlocks new avenues of monetization for in-game assets.{' '}
         </Typography>
         <ExternalLink href="https://ladder-alltoken.netlify.app/swap">
-          <Button
-            variant="contained"
-            sx={{
-              display: 'inline-flex',
-              paddingLeft: '25px',
-              alignItems: 'center',
-              gap: '11px',
-              borderRadius: '200px',
-              background: '#252525',
-              height: '46px',
-              fontFamily: 'Sora',
-              width: 175,
-              border: '1px solid #000',
-              textTransform: 'capitalize',
-              fontWeight: '600',
-              fontSize: '16px',
-              '&:hover': {
-                boxShadow: 'none',
-                background: '#fff',
-                color: '#252525',
-                gap: '19px',
-                svg: {
-                  path: {
-                    fill: '#000'
-                  }
-                }
-              }
-            }}
-            endIcon={<ArrowRight />}
-          >
+          <ButtonStyle variant="contained" endIcon={<ArrowRight />}>
             Trade Now
-          </Button>
+          </ButtonStyle>
         </ExternalLink>
       </Box>
-      <Box
-        sx={{
-          svg: {
-            width: { xs: '100%', md: 'auto' }
-          }
-        }}
-      >
-        <Section1CardIcon />
-      </Box>
+      <HoverSvg>
+        <Box className="hover-svg">
+          <Section1CardHoverIcon />
+        </Box>
+        <Box className="default-svg">
+          <Section1CardIcon />
+        </Box>
+      </HoverSvg>
     </Box>
   )
 }
@@ -360,13 +381,13 @@ function Section4() {
       }}
     >
       <Stack
-        spacing={{ xs: '36px', md: '58px' }}
+        spacing={{ xs: '30px', md: '58px' }}
         sx={{
           width: '100%',
           maxWidth: '1440px',
           margin: 'auto',
           alignItems: 'center',
-          padding: { xs: '16px', md: '118px 64px 135px' }
+          padding: { xs: '32px 16px', md: '118px 64px 135px' }
         }}
       >
         <SectionTitle maxWidth={'507px'}>Our Values</SectionTitle>
