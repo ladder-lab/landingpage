@@ -1,8 +1,7 @@
 import { useState, useCallback, useEffect } from 'react'
-import { AppBar, Box, Button, styled, IconButton } from '@mui/material'
+import { AppBar, Box, Button, styled, IconButton, useTheme } from '@mui/material'
 import { ReactComponent as Ladder } from 'assets/svg/ladder.svg'
 import { ReactComponent as LadderSm } from 'assets/svg/ladder-sm.svg'
-import { ReactComponent as ArrowUpRight } from 'assets/svg/arrow-up-right.svg'
 import { ReactComponent as MenuIcon } from 'assets/svg/menu.svg'
 import { routes } from 'constants/routes'
 import { NavLink, useLocation } from 'react-router-dom'
@@ -10,7 +9,7 @@ import useBreakpoint from 'hooks/useBreakpoint'
 import ExternalLink from 'components/ExternalLink'
 import MobileMenu from './MobileMenu'
 import { ReactComponent as CloseIcon } from 'assets/svg/close.svg'
-import { DocLink } from 'constants/index'
+// import { DocLink } from 'constants/index'
 
 interface Tab {
   title: string
@@ -19,43 +18,52 @@ interface Tab {
 }
 
 export const Tabs: Tab[] = [
-  { title: 'Home', route: routes.home },
-  { title: 'About', route: routes.about },
-  { title: 'Docs', link: DocLink },
-  { title: 'Community', route: routes.community }
+  // { title: 'Home', route: routes.home },
+  // { title: 'About', route: routes.about },
+  // { title: 'Docs', link: DocLink },
+  // { title: 'Community', route: routes.community },
+  { title: 'About', route: '#about' },
+  { title: 'Tech', route: '#tech' },
+  { title: 'Values', route: '#values' },
+  { title: 'Community', route: '#community' }
 ]
 
 const StyledAppBar = styled(AppBar)({
+  padding: '38px 30px 0',
   background: 'transparent',
-  borderBottom: '1px solid #E8E8E8',
-  justifyContent: 'space-between',
   flexDirection: 'row',
-  height: 109,
   boxShadow: 'none'
 })
 
 const StyledMobileAppBar = styled(AppBar)({
-  background: 'transparent',
-  borderBottom: '1px solid #E8E8E8',
-  height: 88,
+  background: 'rgba(255,255,255,0.5)',
+  // borderBottom: '1px solid #E8E8E8',
+  height: 67,
   boxShadow: 'none',
-  width: '100%'
+  width: '100%',
+  padding: '0 16px'
 })
 
-const StyledNavLink = styled(NavLink)({
-  color: '#FFFFFF',
-  lineHeight: '109px',
+const StyledNavLink = styled('a')({
   textDecoration: 'none',
-  fontSize: 16,
-  fontWeight: 500,
+  color: '#252525',
+  fontFamily: 'Sora',
+  fontSize: '16px',
+  fontWeight: '400',
+  textTransform: 'capitalize',
+  lineHeight: '43px',
   '&:hover': {
     textDecoration: 'line-through'
   }
 })
 
 const StyledExternalLink = styled(ExternalLink)({
-  color: '#FFFFFF',
-  lineHeight: '109px',
+  color: '#252525',
+  fontFamily: 'Sora',
+  fontSize: '16px',
+  fontWeight: '400',
+  textTransform: 'capitalize',
+  lineHeight: '43px',
   '&:hover': {
     textDecoration: 'line-through'
   }
@@ -88,29 +96,57 @@ export default function Header() {
 
   return (
     <StyledAppBar position="absolute">
-      <BrandLogo />
       <Box
         sx={{
+          maxWidth: '1440px',
           width: '100%',
-          display: 'flex',
-          aligmItems: 'center',
-          gap: 100,
-          justifyContent: 'center'
+          margin: 'auto',
+          padding: '0 30px'
         }}
       >
-        {Tabs.map(({ title, route, link }, idx) =>
-          route ? (
-            <StyledNavLink key={idx} to={route}>
-              {title}
-            </StyledNavLink>
-          ) : link ? (
-            <StyledExternalLink key={idx} href={link}>
-              {title}
-            </StyledExternalLink>
-          ) : null
-        )}
+        <Box
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            width: '100%',
+            borderRadius: '100px',
+            background: 'rgba(255,255,255,0.5)',
+            height: '72px',
+            alignItems: 'center',
+            padding: '0 28px 0 34px'
+          }}
+        >
+          <BrandLogo />
+          <Box
+            sx={{
+              display: 'flex',
+              gap: '120px'
+            }}
+          >
+            <Box
+              sx={{
+                display: 'flex',
+                aligmItems: 'center',
+                gap: 96,
+                justifyContent: 'center'
+              }}
+            >
+              {Tabs.map(({ title, route, link }, idx) =>
+                route ? (
+                  <StyledNavLink key={idx} href={route}>
+                    {title}
+                  </StyledNavLink>
+                ) : link ? (
+                  <StyledExternalLink key={idx} href={link}>
+                    {title}
+                  </StyledExternalLink>
+                ) : null
+              )}
+            </Box>
+            <LaunchApp />
+          </Box>
+        </Box>
       </Box>
-      <LaunchApp />
     </StyledAppBar>
   )
 }
@@ -124,12 +160,15 @@ function MobileHeader({ isOpen, onDismiss, onClick }: { isOpen: boolean; onDismi
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            height: '100%'
+            height: '100%',
+            alignItems: 'center'
           }}
         >
           <BrandLogo />
-          <LaunchApp />
-          <MenuBtn isOpen={isOpen} onClick={onClick} />
+          <Box display={'flex'} gap={20}>
+            <LaunchApp />
+            <MenuBtn isOpen={isOpen} onClick={onClick} />
+          </Box>
         </Box>
       </StyledMobileAppBar>
     </>
@@ -141,24 +180,13 @@ function BrandLogo() {
 
   return (
     <Box
-      width={80}
       sx={{
         height: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRight: '1px solid #E8E8E8',
-        padding: '37px 45px',
-        width: {
-          xs: 80,
-          md: 230
-        },
-        background: {
-          xs: '#00000026',
-          md: 'transparent'
-        },
-        '&:hover': {
-          background: '#000000'
+        a: {
+          display: 'flex'
         }
       }}
     >
@@ -168,25 +196,40 @@ function BrandLogo() {
 }
 
 function LaunchApp() {
+  const theme = useTheme()
   return (
     <ExternalLink href="https://test.ladder.top/airdrop">
       <Button
         variant="contained"
         sx={{
-          height: '100%',
-          width: {
-            md: 230
-          },
-          borderRadius: 0,
-          background: 'linear-gradient(0deg, #FE1A5E, #FE1A5E), #D9D9D9;',
-          boxShadow: 'none',
-          flexGrow: 1,
+          height: '43px',
+          display: 'inline-flex',
+          padding: '0 23px',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '4px',
+          borderRadius: '200px',
+          background: '#252525',
+          color: '#FFF',
+          fontFamily: 'Poppins',
+          fontSize: '16px',
+          fontWeight: '600',
+          textTransform: 'capitalize',
+          border: '1px solid #252525',
           '&:hover': {
             boxShadow: 'none',
-            background: 'linear-gradient(0deg, #000000, #000000), #000000;'
+            background: '#fff',
+            color: '#252525'
+          },
+          [theme.breakpoints.down('md')]: {
+            height: 32,
+            width: '130px',
+            borderRadius: '148px',
+            fontSize: '11.848px',
+            padding: '0',
+            fontFamily: 'Sora'
           }
         }}
-        endIcon={<ArrowUpRight />}
       >
         Launch Testnet
       </Button>
@@ -198,16 +241,19 @@ function MenuBtn({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) 
   return (
     <Box
       sx={{
-        borderLeft: '1px solid #E8E8E8',
-        width: 80,
+        // borderLeft: '1px solid #E8E8E8',
+        // width: 80,
         height: '100%',
-        background: '#3BBDAC',
+        // background: '#3BBDAC',
+        background: 'transparent',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
       }}
     >
-      <IconButton onClick={onClick}>{isOpen ? <CloseIcon /> : <MenuIcon />}</IconButton>
+      <IconButton sx={{ padding: 0 }} onClick={onClick}>
+        {isOpen ? <CloseIcon /> : <MenuIcon />}
+      </IconButton>
     </Box>
   )
 }

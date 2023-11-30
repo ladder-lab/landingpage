@@ -1,11 +1,11 @@
 import TwitterLogo1 from 'assets/svg/twitter.svg'
-import TwitterLogo2 from 'assets/image/twitter-colorful.png'
+import TwitterLogo2 from 'assets/svg/twitter-black.svg'
 import DiscordLogo1 from 'assets/svg/discord.svg'
-import DiscordLogo2 from 'assets/image/discord-colorful.png'
+import DiscordLogo2 from 'assets/svg/discord-black.svg'
 import MediumLogo1 from 'assets/svg/medium.svg'
-import MediumLogo2 from 'assets/image/medium-colorful.png'
+import MediumLogo2 from 'assets/svg/medium-black.svg'
 import TelegramLogo1 from 'assets/svg/telegram.svg'
-import TelegramLogo2 from 'assets/image/telegram-colorful.png'
+import TelegramLogo2 from 'assets/svg/telegram-black.svg'
 
 export const SocialLinks = {
   TWITTER: 'https://twitter.com/Ladder_NFT',

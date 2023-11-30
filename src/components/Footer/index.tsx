@@ -3,27 +3,49 @@ import { Socials } from 'constants/index'
 import ExternalLink from 'components/ExternalLink'
 import Image from 'components/Image'
 import useBreakpoint from 'hooks/useBreakpoint'
+import { ReactComponent as LadderFooter } from 'assets/svg/ladder-footer.svg'
 
 export default function Footer({ height, copyright }: { height?: string | number; copyright?: string }) {
   const isDownSm = useBreakpoint('sm')
 
   return (
     <Box
+      id="community"
       sx={{
-        pt: { xs: 90, md: 144 },
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'column',
-        height
+        height,
+        overflow: 'hidden',
+        background: '#fff'
       }}
     >
-      <Typography
-        sx={{ fontSize: { xs: 24, md: 40 }, fontWeight: 700, mb: { xs: 32, md: 45 }, textAlign: 'center' }}
-        variant="h5"
+      <Box
+        sx={{
+          pt: { xs: 90, md: 61 },
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'column',
+          height,
+          position: 'relative',
+          bottom: 0,
+          left: 0,
+          zIndex: 99
+        }}
       >
-        Join Ladder community!
-      </Typography>
-      <Typography
+        <LadderFooter />
+        <Typography
+          sx={{
+            color: '#252525',
+            fontFamily: 'Sora',
+            letterSpacing: '-1.92px',
+            fontSize: { xs: 24, md: 48 },
+            fontWeight: 600,
+            textAlign: 'center',
+            mt: 19
+          }}
+          variant="h5"
+        >
+          Join Ladder community !
+        </Typography>
+        {/* <Typography
         sx={{
           fontSize: {
             xs: 16,
@@ -39,44 +61,61 @@ export default function Footer({ height, copyright }: { height?: string | number
         variant="h5"
       >
         Ladder community is an ecosystem of non-fungible and fungible users, developers
-      </Typography>
-      <Box display="flex" gap={31} alignItems="center" mt={63}>
-        {Object.keys(Socials).map((key, idx) => {
-          return (
-            <ExternalLink
-              key={idx}
-              href={Socials[key as keyof typeof Socials].link}
-              sx={{
-                transform: 'rotate3d(0)',
-                '&:hover': {
-                  transform: 'rotate3d(0,1,0,180deg)'
-                }
-              }}
-            >
-              <Image
-                src={Socials[key as keyof typeof Socials].logo2}
-                alt={`social-media-link-${Socials[key as keyof typeof Socials].title}-bg`}
-                style={{
-                  width: isDownSm ? 80 : 94
+      </Typography> */}
+        <Box display="flex" gap={22.5} alignItems="center" mt={32}>
+          {Object.keys(Socials).map((key, idx) => {
+            return (
+              <ExternalLink
+                key={idx}
+                href={Socials[key as keyof typeof Socials].link}
+                sx={{
+                  transform: 'rotate3d(0)',
+                  '&:hover': {
+                    transform: 'rotate3d(0,1,0,180deg)'
+                  }
                 }}
-              />
-            </ExternalLink>
-          )
-        })}
+              >
+                <Image
+                  src={Socials[key as keyof typeof Socials].logo2}
+                  alt={`social-media-link-${Socials[key as keyof typeof Socials].title}-bg`}
+                  style={{
+                    width: isDownSm ? 32 : 32
+                  }}
+                />
+              </ExternalLink>
+            )
+          })}
+        </Box>
+        {copyright && <CopyWriting text={copyright} sx={{ mt: '40px' }} />}
       </Box>
-      {copyright && (
-        <CopyWriting
-          text={copyright}
-          sx={{ position: 'absolute', left: { xs: 16, md: 'auto' }, bottom: { xs: 47, md: 80 } }}
-        />
-      )}
+      <Box
+        sx={{
+          width: '100%',
+          height: ' 309.6px',
+          borderRadius: '1508px',
+          background: '#A5FFE6',
+          filter: 'blur(175px)',
+          position: 'relative',
+          transform: 'translateY(-50px)',
+          zIndex: 0
+        }}
+      />
     </Box>
   )
 }
 
 export function CopyWriting({ text, sx }: { text: String; sx?: SxProps }) {
   return (
-    <Typography fontSize={16} fontWeight={400} sx={{ opacity: 0.8, ...sx }}>
+    <Typography
+      sx={{
+        color: '#444',
+        fontFamily: 'Poppins',
+        fontSize: '14px',
+        fontWeight: '400',
+        textTransform: 'capitalize',
+        ...sx
+      }}
+    >
       {text}
     </Typography>
   )

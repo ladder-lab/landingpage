@@ -35,7 +35,9 @@ export default function About() {
             paddingBottom: 72,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: ' center'
+            alignItems: ' center',
+            position: 'relative',
+            zIndex: 99
           }}
         >
           <Typography fontSize={42} color="#000000" mb={50} variant="h1">

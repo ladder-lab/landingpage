@@ -1,91 +1,163 @@
-import { useRef } from 'react'
-import { Box, Typography } from '@mui/material'
+// import { useRef } from 'react'
+import { Box, Typography, Button, Stack, styled } from '@mui/material'
 import Banner from 'components/Banner'
 import { Socials } from 'constants/index'
 import ExternalLink from 'components/ExternalLink'
 import Image from 'components/Image'
-import { ReactComponent as CoverImage } from 'assets/svg/cover.svg'
-import { ReactComponent as Figure3 } from 'assets/svg/figure3.svg'
-import { ReactComponent as Underline } from 'assets/svg/underline.svg'
-import ReadWhitepaper from 'components/Button/ReadWhitepaper'
-import {
-  CompositeFigure0,
-  CompositeFigure1,
-  CompositeFigure2,
-  AboutCards1,
-  AboutCards2,
-  AboutCards0
-} from 'pages/About'
+import { ReactComponent as Section3CardIcon1 } from 'assets/svg/section3-card-icon1.svg'
+import Section1CardIcon from 'assets/svg/section1-right-bg.svg'
+import Section1CardHoverIcon from 'assets/svg/section1-right-hover-bg.svg'
+import Section3Bg from 'assets/image/section3-bg.png'
+import { ReactComponent as ArrowRight } from 'assets/svg/arrow-right.svg'
+// import ReadWhitepaper from 'components/Button/ReadWhitepaper'
+// import { CompositeFigure2, AboutCards2 } from 'pages/About'
 import Footer from 'components/Footer'
+import { Section2Card } from './children/Section2Card'
+import { Section4Cards } from './children/Section4Card'
 import useBreakpoint from 'hooks/useBreakpoint'
-import { useInViewport } from 'hooks/useInViewport'
+// import { useInViewport } from 'hooks/useInViewport'
+
+const SectionTitle = styled(Typography)(({ theme }) => ({
+  color: '#252525',
+  fontFamily: 'Sora',
+  fontSize: 52,
+  fontWeight: '600',
+  textAlign: 'center',
+  lineHeight: '66px',
+  letterSpacing: '-2.08px',
+  [theme.breakpoints.down('md')]: {
+    fontSize: 36,
+    lineHeight: 'normal'
+  }
+}))
+
+const Section3TextStyle = styled(Typography)(() => ({
+  color: '#444',
+  fontFamily: 'Poppins',
+  fontSize: '16px',
+  fontWeight: '400'
+}))
+
+const ButtonStyle = styled(Button)(() => ({
+  display: 'inline-flex',
+  paddingLeft: '25px',
+  alignItems: 'center',
+  gap: '11px',
+  borderRadius: '200px',
+  background: '#252525',
+  height: '46px',
+  fontFamily: 'Sora',
+  width: 175,
+  border: '1px solid #000',
+  textTransform: 'capitalize',
+  fontWeight: '600',
+  fontSize: '16px',
+  '&:hover': {
+    boxShadow: 'none',
+    background: '#fff',
+    color: '#252525',
+    gap: '19px',
+    svg: {
+      path: {
+        fill: '#000'
+      }
+    }
+  }
+}))
+
+const HoverSvg = styled(Box)(() => ({
+  cursor: 'pointer',
+  maxHeight: '300px',
+  borderRadius: '16.889px',
+  filter: 'drop-shadow(0px 9px 18.5px rgba(0, 0, 0, 0.10))',
+  '.hover-svg': {
+    display: 'none'
+  },
+  img: {
+    width: '100%'
+  },
+  ':hover': {
+    img: {
+      width: '100% !important'
+    },
+    '.hover-svg': {
+      display: 'inline-block'
+    },
+    '.default-svg': {
+      display: 'none'
+    }
+  }
+}))
 
 export default function Home() {
-  const isDownMd = useBreakpoint('md')
-  const figure3 = useRef(null)
-  const isFigure3InView = useInViewport(figure3, '180px')
-  const Year = new Date(Date.now()).getFullYear()
+  // const isDownMd = useBreakpoint('md')
+  // const figure3 = useRef(null)
+  // const isFigure3InView = useInViewport(figure3, '180px')
+  // const Year = new Date(Date.now()).getFullYear()
 
   return (
     <Box position="relative" overflow="hidden">
       <Banner>
         <Box
           sx={{
+            maxWidth: '1440px',
+            margin: 'auto',
             padding: {
               xs: '153px 16px 44px',
-              md: '190px 0 196px'
+              md: '358px 64px 80px'
             },
             display: 'flex',
             flexDirection: 'column',
-            alignItems: { xs: 'flex-start', md: 'center' }
+            alignItems: { xs: 'flex-start', md: 'start' },
+            position: 'relative',
+            zIndex: 999
           }}
         >
           <Typography
             sx={{
               fontSize: {
                 xs: 27,
-                md: 42
+                md: 82
               },
-              color: '#000000',
-              textAlign: {
-                xs: 'left',
-                md: 'center'
-              },
-              maxWidth: 880
+              fontFamily: 'Sora',
+              fontWeight: '600',
+              letterSpacing: { xs: 0, md: '-3.28px' },
+              color: '#252525',
+              maxWidth: 756
             }}
             variant="h1"
           >
-            Providing Liquidity
-            {!isDownMd && <br />} for your NFT swaps
+            Instant liquidity for your NFTs
           </Typography>
           <Typography
             sx={{
               fontSize: { xs: 16, md: 20 },
-              color: '#000000',
+              color: '#333',
+              fontFamily: 'Poppins',
+              fontWeight: 500,
               textAlign: {
                 xs: 'left',
                 md: 'center'
               },
               margin: {
                 xs: '16px 0 41px',
-                md: '28px 0 41px'
+                md: '22px 0 40px'
               }
             }}
           >
-            Swap NFT instant AMM liquidity mix liquidity between
-            {!isDownMd && <br />} NFT and ERC-20 Build an economy around NFT
+            Swap NFTs instantly, through our AMM liquidity pools.
           </Typography>
           <SocialsSection />
         </Box>
       </Banner>
       <Box display="flex" flexDirection="column" alignItems="center">
-        {!isDownMd && <CoverImage style={{ transform: 'translateY(-120px)' }} />}
+        {/* {!isDownMd && <CoverImage style={{ transform: 'translateY(-120px)' }} />} */}
 
         <About />
       </Box>
-      <Footer height={750} copyright={`Copyright©${Year || '2023'} Ladder Dao`} />
+      <Footer height={360} copyright={`© Ladder All rights reserved`} />
 
-      <Figure3
+      {/* <Figure3
         style={{
           position: 'absolute',
           right: 0,
@@ -94,14 +166,14 @@ export default function Home() {
           transition: '0.5s'
         }}
         ref={figure3}
-      />
+      /> */}
     </Box>
   )
 }
 
 function SocialsSection() {
   return (
-    <Box display="flex" gap={40} alignItems="center">
+    <Box display="flex" gap={28} alignItems="center">
       {Object.keys(Socials).map((key, idx) => {
         return (
           <ExternalLink key={idx} href={Socials[key as keyof typeof Socials].link}>
@@ -124,174 +196,240 @@ function SocialsSection() {
 function About() {
   return (
     <Box
-      width="100%"
-      position="relative"
-      padding="0 45px"
       sx={{
-        padding: {
-          xs: '45px 16px',
-          md: '0 45px'
-        }
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        background: '#fff'
       }}
     >
-      <Box display="flex" justifyContent="space-between" alignItems="center" mb={86}>
-        <Typography sx={{ fontSize: { xs: 24, md: 40 }, fontWeight: 700 }} variant="h5">
-          About
-        </Typography>
-        <ReadWhitepaper />
-      </Box>
-
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 60, md: 174 }, width: '100%' }}>
-        <Section0 />
-        <Section1 />
-        <Section2 />
-      </Box>
-    </Box>
-  )
-}
-
-function Section0() {
-  return (
-    <Box width="100%">
-      <SectionHeader
-        title={'ERC-721'}
-        description={
-          'ERC-721 is the token standard that gave birth to NFTs - unique tokens to be managed, owned and traded.'
-        }
-      />
-
-      <Box
-        sx={{
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          flexDirection: {
-            xs: 'column',
-            md: 'row-reverse'
-          },
-          mt: {
-            xs: 32,
-            md: 60
-          },
-          gap: {
-            xs: 60,
-            md: 0
-          }
-        }}
-      >
-        <AboutCards0 sx={{ maxWidth: { md: 680 }, width: '100%' }} />
-        <Box sx={{ width: '100%', position: 'relative', height: { xs: 300, sm: 550 } }}>
-          <CompositeFigure0 sx={{ right: 0, top: 0 }} />
-        </Box>
-      </Box>
+      <Section1 />
+      <Section2 />
+      <Section3 />
+      <Section4 />
     </Box>
   )
 }
 
 function Section1() {
   return (
-    <Box width="100%">
-      <SectionHeader
-        title={'ERC-1155'}
-        description={
-          'ERC-1155 is a token standard that enables the efficient transfer for fungible and non-fungible tokens in a single transaction.'
-        }
-      />
-      <Box
-        sx={{
-          width: '100%',
-          display: 'flex',
-          alignItems: {
-            xs: 'center',
-            md: 'flex-start'
-          },
-          justifyContent: 'space-between',
-          flexDirection: {
-            xs: 'column',
-            md: 'row'
-          },
-          mt: {
-            xs: 32,
-            md: 60
-          },
-          gap: {
-            xs: 60,
-            md: 0
-          }
-        }}
-      >
-        <AboutCards1 sx={{ maxWidth: { md: 680 }, width: '100%' }} />
-        <Box sx={{ width: '100%', position: 'relative', height: { xs: 300, sm: 550 } }}>
-          <CompositeFigure1 sx={{ right: 0, top: 0 }} />
-        </Box>
+    <Box
+      sx={{
+        width: '100%',
+        maxWidth: { xs: 'aut', md: '1440px' },
+        margin: 'auto',
+        padding: { xs: '32px 16px', md: '70px 128px 150px 64px' },
+        display: 'flex',
+        gap: { xs: 20, md: 0 },
+        flexDirection: { xs: 'column', md: 'row' },
+        alignItems: { xs: 'center', md: 'unset' },
+        justifyContent: 'space-between'
+      }}
+    >
+      <Box paddingTop={{ xs: 0, md: 10 }}>
+        <Typography
+          sx={{
+            color: '#252525',
+            fontFamily: 'Poppins',
+            fontSize: '20px',
+            fontWeight: '500',
+            maxWidth: 735
+          }}
+        >
+          Ladder is a decentralized automated market maker protocol (AMM) that uses liquidity pools to provide instant
+          swaps for NFTs.
+          <br />
+          While Ladder targets primarily the GameFi niche, we support every major token standard (i.e. ERC-721,
+          ERC-1155, ERC-3525, ERC-20, etc.).
+        </Typography>
+        <Typography
+          sx={{
+            color: '#252525',
+            fontFamily: 'Poppins',
+            fontSize: '18px',
+            fontWeight: '400',
+            maxWidth: 586,
+            minHeight: { xs: 'unset', md: 58 },
+            mt: { xs: 10, md: 30 },
+            mb: 45
+          }}
+        >
+          For projects and holders alike, Ladder unlocks new avenues of monetization for in-game assets.{' '}
+        </Typography>
+        <ExternalLink href="https://ladder-alltoken.netlify.app/swap">
+          <ButtonStyle variant="contained" endIcon={<ArrowRight />}>
+            Trade Now
+          </ButtonStyle>
+        </ExternalLink>
       </Box>
+      <HoverSvg>
+        <Image src={Section1CardIcon} alt="png" className="default-svg" />
+        <Image src={Section1CardHoverIcon} alt="png" className="hover-svg" />
+      </HoverSvg>
     </Box>
   )
 }
 
 function Section2() {
   return (
-    <Box>
-      <SectionHeader
-        title={'Ladder AMM'}
-        description={
-          'Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike the traditional AMM where paired assets are all ERC-20, Ladder AMM supports non-fungible asset like ERC-721 & ERC-1155 as the pair option.'
-        }
-      />
+    <Stack
+      id="about"
+      spacing={{ xs: 30, md: 48 }}
+      width="100%"
+      sx={{
+        maxWidth: '1440px',
+        margin: 'auto',
+        alignItems: 'center',
+        padding: { xs: '16px', md: '0 64px' }
+      }}
+    >
+      <Stack spacing={6}>
+        <Typography
+          sx={{
+            color: '#333',
+            fontFamily: 'Sora',
+            fontSize: { xs: 18, md: '26px' },
+            fontWeight: '400',
+            textAlign: 'center',
+            lineHeight: { xs: 'normal', md: '24px' }
+          }}
+        >
+          Value Proposition
+        </Typography>
+        <SectionTitle maxWidth={'632px'}>Level up your web3 game with ladder</SectionTitle>
+      </Stack>
+      <Section2Card />
+    </Stack>
+  )
+}
 
+function Section3() {
+  const isDownMd = useBreakpoint('md')
+  return (
+    <Box
+      id="tech"
+      sx={{
+        width: '100%',
+        height: { xs: 'auto', md: 660 },
+        backgroundImage: `url(${Section3Bg})`,
+        backgroundSize: '100% 100%',
+        mt: { xs: 30, md: 140 }
+      }}
+    >
       <Box
         sx={{
-          width: '100%',
+          maxWidth: '1440px',
+          margin: 'auto',
           display: 'flex',
-          alignItems: 'center',
+          flexDirection: { xs: 'column', md: 'row' },
+          alignItems: { xs: 'center', md: 'unset' },
           justifyContent: 'space-between',
-          flexDirection: {
-            xs: 'column',
-            md: 'row-reverse'
-          },
-          mt: {
-            xs: 32,
-            md: 60
-          },
-          gap: {
-            xs: 60,
-            md: 0
+          gap: { xs: '20px', md: 0 },
+          padding: { xs: '20px', md: '110px 150px 115px 65px' },
+          svg: {
+            width: { xs: '100%', md: 'auto' }
           }
         }}
       >
-        <AboutCards2 sx={{ maxWidth: { md: 680 }, width: '100%' }} />
-        <Box sx={{ width: '100%', position: 'relative', height: { xs: 300, sm: 550 } }}>
-          <CompositeFigure2 />
-        </Box>
+        <Stack spacing={isDownMd ? 30 : 45}>
+          <Stack spacing={14}>
+            <Typography
+              sx={{
+                color: '#252525',
+                fontFamily: 'Sora',
+                fontSize: '16px',
+                fontWeight: '400'
+              }}
+            >
+              How does Ladder work?
+            </Typography>
+            <SectionTitle
+              sx={{
+                color: '#252525',
+                maxWidth: '533px',
+                textAlign: 'left'
+              }}
+            >
+              Unlock the <tr /> true potential of NFTs
+            </SectionTitle>
+          </Stack>
+          <Stack spacing={28}>
+            <Section3TextStyle maxWidth={507}>
+              Ladder is an AMM protocol for NFTs, which means that users buy from or sell into liquidity pools instead
+              of trading peer-to-peer. One can think of it as the Uniswap for NFTs, with a profound GameFi focus.
+            </Section3TextStyle>
+            <Section3TextStyle maxWidth={534}>
+              Ladder AMM is a hybrid AMM combining fungible and non-fungible tokens. Unlike a traditional AMM where
+              paired assets are all ERC-20, Ladder AMM supports non-fungible asset like ERC-721 & ERC-1155 as the pair
+              option.
+            </Section3TextStyle>
+          </Stack>
+        </Stack>
+        <Section3CardIcon1 />
       </Box>
     </Box>
   )
 }
 
-function SectionHeader({ title, description }: { title: string; description: string }) {
-  const isDownMd = useBreakpoint('md')
-
+function Section4() {
   return (
     <Box
+      id="values"
       sx={{
-        width: '100%',
-        display: 'flex',
-        gap: 17.82,
-        flexDirection: { xs: 'column', md: 'row' },
-        alignItems: 'flex-start'
+        width: '100%'
       }}
     >
-      <Box display="flex" alignItems="center">
-        <Typography sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mr: 12.82 }} variant="h5">
-          {title}
-        </Typography>
-        {!isDownMd && <Underline />}
-      </Box>
-      <Typography sx={{ fontSize: { xs: 16, md: 20 }, fontWeight: 400, maxWidth: 640 }} variant="h5">
-        {' '}
-        {description}
-      </Typography>
+      <Stack
+        spacing={{ xs: '30px', md: '58px' }}
+        sx={{
+          width: '100%',
+          maxWidth: '1440px',
+          margin: 'auto',
+          alignItems: 'center',
+          padding: { xs: '32px 16px', md: '118px 64px 135px' }
+        }}
+      >
+        <SectionTitle maxWidth={'507px'}>Our Values</SectionTitle>
+        <Box
+          sx={{
+            width: '100%',
+            margin: 'auto',
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '24px',
+            justifyContent: 'center'
+          }}
+        >
+          <Section4Cards />
+        </Box>
+      </Stack>
     </Box>
   )
 }
+
+// function SectionHeader({ title, description }: { title: string; description: string }) {
+//   const isDownMd = useBreakpoint('md')
+
+//   return (
+//     <Box
+//       sx={{
+//         width: '100%',
+//         display: 'flex',
+//         gap: 17.82,
+//         flexDirection: { xs: 'column', md: 'row' },
+//         alignItems: 'flex-start'
+//       }}
+//     >
+//       <Box display="flex" alignItems="center">
+//         <Typography sx={{ fontSize: { xs: 24, md: 32 }, fontWeight: 700, mr: 12.82 }} variant="h5">
+//           {title}
+//         </Typography>
+//         {!isDownMd && <Underline />}
+//       </Box>
+//       <Typography sx={{ fontSize: { xs: 16, md: 20 }, fontWeight: 400, maxWidth: 640 }} variant="h5">
+//         {' '}
+//         {description}
+//       </Typography>
+//     </Box>
+//   )
+// }

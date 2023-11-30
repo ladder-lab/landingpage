@@ -97,7 +97,7 @@ export default function InfoCard({
       {/* {type !== 'lower' && ( */}
       <Box height="100%" sx={{ padding: { xs: '5px 16px 28px', md: '5px 20px 36px' } }}>
         <Typography
-          sx={{ fontSize: { xs: 16, lg: 18 }, fontWeight: 400, lineHeight: 1.2 }}
+          sx={{ fontSize: { xs: 16, lg: 18 }, fontWeight: 400, lineHeight: 1.2, color: '#fff' }}
           variant="h5"
           textAlign={'center'}
         >
