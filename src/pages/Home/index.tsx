@@ -1,5 +1,5 @@
 // import { useRef } from 'react'
-import { Box, Typography, Button, Stack, styled, useTheme } from '@mui/material'
+import { Box, Typography, Button, Stack, styled, useTheme, Popper } from '@mui/material'
 import Banner from 'components/Banner'
 import { Socials } from 'constants/index'
 import ExternalLink from 'components/ExternalLink'
@@ -7,6 +7,7 @@ import Image from 'components/Image'
 import { ReactComponent as Section3CardIcon1 } from 'assets/svg/section3-card-icon1.svg'
 import Section1CardIcon from 'assets/svg/section1-right-bg.svg'
 import Section1CardHoverIcon from 'assets/svg/section1-right-hover-bg.svg'
+import Section1CardHoverMenu from 'assets/svg/hover_menu.svg'
 import Section3Bg from 'assets/image/section3-bg.png'
 import { ReactComponent as ArrowRight } from 'assets/svg/arrow-right.svg'
 // import ReadWhitepaper from 'components/Button/ReadWhitepaper'
@@ -21,6 +22,7 @@ import BrcDots from 'assets/image/dots.svg'
 import ShareIcon from 'assets/image/share.svg'
 import BoxUsdIcon from 'assets/image/box-usd.svg'
 import RefreshIcon from 'assets/image/box-usd.svg'
+import { useState } from 'react'
 // import { useInViewport } from 'hooks/useInViewport'
 
 const SectionTitle = styled(Typography)(({ theme }) => ({
@@ -73,19 +75,24 @@ const ButtonStyle = styled(Button)(() => ({
 
 const HoverSvg = styled(Box)(() => ({
   cursor: 'pointer',
-  maxHeight: '300px',
+  height: '380px',
+  width: '533px',
   borderRadius: '16.889px',
   filter: 'drop-shadow(0px 9px 18.5px rgba(0, 0, 0, 0.10))',
   '.hover-svg': {
     display: 'none'
   },
-  img: {
-    width: '100%'
+  '.default-svg': {
+    marginTop: '20px',
+    marginLeft: '20px'
   },
+  // img: {
+  //   width: '100%'
+  // },
   ':hover': {
-    img: {
-      width: '100% !important'
-    },
+    // img: {
+    //   width: '100% !important'
+    // },
     '.hover-svg': {
       display: 'inline-block'
     },
@@ -346,13 +353,24 @@ function About() {
 }
 
 function Section1() {
+  const [isPopperOpen, setPopperOpen] = useState(false)
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
+
+  const handleMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
+    setPopperOpen(true)
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleMouseLeave = () => {
+    setPopperOpen(false)
+  }
   return (
     <Box
       sx={{
         width: '100%',
         maxWidth: { xs: 'aut', md: '1440px' },
         margin: 'auto',
-        padding: { xs: '32px 16px', md: '70px 128px 150px 64px' },
+        padding: { xs: '32px 16px', md: '70px 88px 150px 64px' },
         display: 'flex',
         gap: { xs: 20, md: 0 },
         flexDirection: { xs: 'column', md: 'row' },
@@ -396,7 +414,7 @@ function Section1() {
           </ButtonStyle>
         </ExternalLink>
       </Box>
-      <HoverSvg>
+      <HoverSvg onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <Image src={Section1CardIcon} alt='png' className='default-svg' />
         <Image src={Section1CardHoverIcon} alt='png' className='hover-svg' />
       </HoverSvg>

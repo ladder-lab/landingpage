@@ -56,7 +56,7 @@ const StyledNavLink = styled('a')({
   textTransform: 'capitalize',
   lineHeight: '43px',
   '&:hover': {
-    textDecoration: 'line-through'
+    textDecoration: 'underline'
   }
 })
 
