@@ -1,5 +1,5 @@
 // import { useRef } from 'react'
-import { Box, Typography, Button, Stack, styled } from '@mui/material'
+import { Box, Typography, Button, Stack, styled, useTheme } from '@mui/material'
 import Banner from 'components/Banner'
 import { Socials } from 'constants/index'
 import ExternalLink from 'components/ExternalLink'
@@ -15,6 +15,12 @@ import Footer from 'components/Footer'
 import { Section2Card } from './children/Section2Card'
 import { Section4Cards } from './children/Section4Card'
 import useBreakpoint from 'hooks/useBreakpoint'
+import BrcBg from 'assets/image/brc-bg.svg'
+import BrcText from 'assets/image/BRC.svg'
+import BrcDots from 'assets/image/dots.svg'
+import ShareIcon from 'assets/image/share.svg'
+import BoxUsdIcon from 'assets/image/box-usd.svg'
+import RefreshIcon from 'assets/image/box-usd.svg'
 // import { useInViewport } from 'hooks/useInViewport'
 
 const SectionTitle = styled(Typography)(({ theme }) => ({
@@ -96,15 +102,16 @@ export default function Home() {
   // const Year = new Date(Date.now()).getFullYear()
 
   return (
-    <Box position="relative" overflow="hidden">
+    <Box position='relative' overflow='hidden'>
       <Banner>
         <Box
           sx={{
             maxWidth: '1440px',
+            height: '720px',
             margin: 'auto',
             padding: {
               xs: '153px 16px 44px',
-              md: '358px 64px 80px'
+              md: '200px 64px 80px'
             },
             display: 'flex',
             flexDirection: 'column',
@@ -119,13 +126,17 @@ export default function Home() {
                 xs: 27,
                 md: 82
               },
+              lineHeight: {
+                xs: '30px',
+                md: '103px'
+              },
               fontFamily: 'Sora',
               fontWeight: '600',
               letterSpacing: { xs: 0, md: '-3.28px' },
               color: '#252525',
               maxWidth: 756
             }}
-            variant="h1"
+            variant='h1'
           >
             Instant liquidity for your NFTs
           </Typography>
@@ -135,22 +146,24 @@ export default function Home() {
               color: '#333',
               fontFamily: 'Poppins',
               fontWeight: 500,
+              lineHeight: { xs: '20px', md: '30px' },
               textAlign: {
                 xs: 'left',
-                md: 'center'
+                md: 'left'
               },
               margin: {
                 xs: '16px 0 41px',
-                md: '22px 0 40px'
+                md: '22px 0 60px'
               }
             }}
           >
-            Swap NFTs instantly, through our AMM liquidity pools.
+            Channeling liquidity to where it matters most. Experience the<br /> pioneering NFT AMM dedicated to GameFi
+            assets and the first cross-<br />chain NFT swap in the <CardHighLight>Bitcoin Ecosystem</CardHighLight>.
           </Typography>
           <SocialsSection />
         </Box>
       </Banner>
-      <Box display="flex" flexDirection="column" alignItems="center">
+      <Box display='flex' flexDirection='column' alignItems='center'>
         {/* {!isDownMd && <CoverImage style={{ transform: 'translateY(-120px)' }} />} */}
 
         <About />
@@ -173,7 +186,7 @@ export default function Home() {
 
 function SocialsSection() {
   return (
-    <Box display="flex" gap={28} alignItems="center">
+    <Box display='flex' gap={28} alignItems='center'>
       {Object.keys(Socials).map((key, idx) => {
         return (
           <ExternalLink key={idx} href={Socials[key as keyof typeof Socials].link}>
@@ -193,6 +206,126 @@ function SocialsSection() {
   )
 }
 
+const BrcBgBox = styled(Box)`
+  background: url(${BrcBg}) center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 120px;
+  @media (max-width: 768px) {
+    padding-bottom: 300px;
+  }
+`
+
+const CardTitle = styled(Typography)`
+  font-size: 30px;
+  line-height: 34px;
+  font-weight: 600;
+`
+
+const CardHighLight = styled('span')`
+  color: #FF7209;
+`
+
+const BrcCardContent = [
+  {
+    icon: RefreshIcon,
+    title: <CardTitle>Explore <br /><CardHighLight>Seamless Swaps</CardHighLight></CardTitle>,
+    desc: 'With both Ordinals and BRC-20 tokens being non-fungible, they face similar liquidity challenges as NFTs. Ladder\'s AMM protocol addresses this by enhancing price stability and impact through robust liquidity pools.'
+  },
+  {
+    icon: BoxUsdIcon,
+    title: <CardTitle>Mine Liquidity,<br /> <CardHighLight>Reap Rewards</CardHighLight></CardTitle>,
+    desc: 'Ladder transforms liquidity provision into an additional profit opportunity for Bitcoin ecosystem supporters. Amplify your holdings and earn rewards as you contribute to the vibrant liquidity pool.'
+  }, {
+    icon: ShareIcon,
+    title: <CardTitle>Pioneer <CardHighLight>Multi-Chain</CardHighLight> Future</CardTitle>,
+    desc: 'Ladder is setting the stage for a unified multi-chain future by incorporating both Ordinals and BRC-20 tokens. Our innovative liquidity pools are designed to connect and streamline liquidity across previously isolated networks.'
+  }
+]
+
+function Brc() {
+  const isSm = useBreakpoint('sm')
+  const theme = useTheme()
+  return (
+    <BrcBgBox>
+      <Box maxWidth={1440} width={'100%'}>
+        <Box sx={{
+          position: 'relative'
+        }}>
+          <img src={BrcDots} />
+          <img src={BrcText} style={{
+            position: 'absolute',
+            left: isSm ? 16 : 60,
+            bottom: isSm ? 220 : 0,
+            width: isSm ? '80%' : 'inherit'
+          }} />
+          <Box sx={{
+            width: '640px',
+            position: 'absolute',
+            right: 30,
+            top: 100,
+            [theme.breakpoints.down('md')]: {
+              left: 16,
+              top: 30,
+              width: '100%'
+            }
+          }}>
+            <Typography fontSize={isSm ? 24 : 52} fontWeight={600} lineHeight={isSm ? '30px' : '65px'}>
+              Pioneering cross-chain swaps for <span style={{ color: '#FF7209', fontWeight: 700 }}>BRC20</span> NFTs
+            </Typography>
+            <Typography mt={28} fontSize={26} fontWeight={500} lineHeight={'32px'} color={'#FF7209'}>
+              Coming Soon...
+            </Typography>
+            <Typography mt={20} fontSize={18} lineHeight={'27px'}>
+              Bitcoin is the most battle-tested and secure blockchain, but it lacks smart contracts. We want to provide
+              liquidity for Ordinals and BRC-20 tokens, while also allowing EVM users to dive into Bitcoin’s newly found
+              ecosystem.
+            </Typography>
+          </Box>
+        </Box>
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          zIndex: 2,
+          margin: '-20px 60px 0',
+          position: 'relative',
+          [theme.breakpoints.down('md')]: {
+            flexDirection: 'column',
+            margin: '-220px 16px',
+            gap: '14px'
+          }
+        }}>
+          {BrcCardContent.map(({ icon, title, desc }) => (
+            <Box
+              sx={{
+                width: '421px',
+                height: '407px',
+                background: 'white',
+                borderRadius: '24px',
+                gap: '16px',
+                display: 'grid',
+                padding: '40px 20px',
+                transition: 'transform 0.3s ease-in-out',
+                '&:hover': {
+                  transform: 'translateY(-32px)'
+                },
+                [theme.breakpoints.down('md')]: {
+                  width: '100%'
+                }
+              }}>
+              <img src={icon} />
+              {title}
+              <Typography sx={{
+                fontSize: '16px',
+                lineHeight: '24px'
+              }}>{desc}</Typography>
+            </Box>
+          ))}</Box>
+      </Box>
+    </BrcBgBox>
+  )
+}
+
 function About() {
   return (
     <Box
@@ -203,6 +336,7 @@ function About() {
         background: '#fff'
       }}
     >
+      <Brc />
       <Section1 />
       <Section2 />
       <Section3 />
@@ -256,15 +390,15 @@ function Section1() {
         >
           For projects and holders alike, Ladder unlocks new avenues of monetization for in-game assets.{' '}
         </Typography>
-        <ExternalLink href="https://ladder-alltoken.netlify.app/swap">
-          <ButtonStyle variant="contained" endIcon={<ArrowRight />}>
+        <ExternalLink href='https://ladder-alltoken.netlify.app/swap'>
+          <ButtonStyle variant='contained' endIcon={<ArrowRight />}>
             Trade Now
           </ButtonStyle>
         </ExternalLink>
       </Box>
       <HoverSvg>
-        <Image src={Section1CardIcon} alt="png" className="default-svg" />
-        <Image src={Section1CardHoverIcon} alt="png" className="hover-svg" />
+        <Image src={Section1CardIcon} alt='png' className='default-svg' />
+        <Image src={Section1CardHoverIcon} alt='png' className='hover-svg' />
       </HoverSvg>
     </Box>
   )
@@ -273,9 +407,9 @@ function Section1() {
 function Section2() {
   return (
     <Stack
-      id="about"
+      id='about'
       spacing={{ xs: 30, md: 48 }}
-      width="100%"
+      width='100%'
       sx={{
         maxWidth: '1440px',
         margin: 'auto',
@@ -307,7 +441,7 @@ function Section3() {
   const isDownMd = useBreakpoint('md')
   return (
     <Box
-      id="tech"
+      id='tech'
       sx={{
         width: '100%',
         height: { xs: 'auto', md: 660 },
@@ -374,7 +508,7 @@ function Section3() {
 function Section4() {
   return (
     <Box
-      id="values"
+      id='values'
       sx={{
         width: '100%'
       }}

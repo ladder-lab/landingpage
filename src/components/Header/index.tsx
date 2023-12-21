@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import { AppBar, Box, Button, styled, IconButton, useTheme } from '@mui/material'
+import { AppBar, Box, Button, styled, IconButton, useTheme, Popper, Fade } from '@mui/material'
 import { ReactComponent as Ladder } from 'assets/svg/ladder.svg'
 import { ReactComponent as LadderSm } from 'assets/svg/ladder-sm.svg'
 import { ReactComponent as MenuIcon } from 'assets/svg/menu.svg'
@@ -9,12 +9,14 @@ import useBreakpoint from 'hooks/useBreakpoint'
 import ExternalLink from 'components/ExternalLink'
 import MobileMenu from './MobileMenu'
 import { ReactComponent as CloseIcon } from 'assets/svg/close.svg'
+
 // import { DocLink } from 'constants/index'
 
 interface Tab {
   title: string
   route?: string
   link?: string
+  hover?: string
 }
 
 export const Tabs: Tab[] = [
@@ -22,6 +24,7 @@ export const Tabs: Tab[] = [
   // { title: 'About', route: routes.about },
   // { title: 'Docs', link: DocLink },
   // { title: 'Community', route: routes.community },
+  { title: 'Ordinals NFT 🔥', route: '#', hover: 'coming soon...' },
   { title: 'About', route: '#about' },
   { title: 'Tech', route: '#tech' },
   { title: 'Values', route: '#values' },
@@ -73,6 +76,17 @@ export default function Header() {
   const isDownMd = useBreakpoint('md')
   const [menuOpen, setMenuOpen] = useState(false)
   const { pathname } = useLocation()
+  const [isPopperOpen, setPopperOpen] = useState(false)
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
+
+  const handleMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
+    setPopperOpen(true)
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleMouseLeave = () => {
+    setPopperOpen(false)
+  }
 
   useEffect(() => {
     setMenuOpen(false)
@@ -95,7 +109,7 @@ export default function Header() {
   }
 
   return (
-    <StyledAppBar position="absolute">
+    <StyledAppBar position='absolute'>
       <Box
         sx={{
           maxWidth: '1440px',
@@ -131,8 +145,12 @@ export default function Header() {
                 justifyContent: 'center'
               }}
             >
-              {Tabs.map(({ title, route, link }, idx) =>
-                route ? (
+              {Tabs.map(({ title, route, link, hover }, idx) =>
+                hover ? (
+                  <StyledNavLink onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} key={idx} href={route}>
+                    {title}
+                  </StyledNavLink>
+                ) : route ? (
                   <StyledNavLink key={idx} href={route}>
                     {title}
                   </StyledNavLink>
@@ -143,6 +161,17 @@ export default function Header() {
                 ) : null
               )}
             </Box>
+            <Popper
+              open={isPopperOpen}
+              anchorEl={anchorEl}
+              sx={{
+                background: 'white',
+                borderRadius: '8px',
+                padding: '8px 13px',
+                zIndex: 99
+              }}>
+              Coming soon...
+            </Popper>
             <LaunchApp />
           </Box>
         </Box>
@@ -155,7 +184,7 @@ function MobileHeader({ isOpen, onDismiss, onClick }: { isOpen: boolean; onDismi
   return (
     <>
       <MobileMenu isOpen={isOpen} onDismiss={onDismiss} />
-      <StyledMobileAppBar position="absolute">
+      <StyledMobileAppBar position='absolute'>
         <Box
           sx={{
             display: 'flex',
@@ -198,9 +227,9 @@ function BrandLogo() {
 function LaunchApp() {
   const theme = useTheme()
   return (
-    <ExternalLink href="https://test.ladder.top/airdrop">
+    <ExternalLink href='https://test.ladder.top/airdrop'>
       <Button
-        variant="contained"
+        variant='contained'
         sx={{
           height: '43px',
           display: 'inline-flex',
@@ -231,7 +260,7 @@ function LaunchApp() {
           }
         }}
       >
-        Launch Testnet
+        Launch App
       </Button>
     </ExternalLink>
   )
