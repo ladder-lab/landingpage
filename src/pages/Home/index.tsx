@@ -1,5 +1,5 @@
 // import { useRef } from 'react'
-import { Box, Typography, Button, Stack, styled, useTheme, Popper } from '@mui/material'
+import { Box, Button, Stack, styled, Typography, useTheme } from '@mui/material'
 import Banner from 'components/Banner'
 import { Socials } from 'constants/index'
 import ExternalLink from 'components/ExternalLink'
@@ -7,7 +7,6 @@ import Image from 'components/Image'
 import { ReactComponent as Section3CardIcon1 } from 'assets/svg/section3-card-icon1.svg'
 import Section1CardIcon from 'assets/svg/section1-right-bg.svg'
 import Section1CardHoverIcon from 'assets/svg/section1-right-hover-bg.svg'
-import Section1CardHoverMenu from 'assets/svg/hover_menu.svg'
 import Section3Bg from 'assets/image/section3-bg.png'
 import { ReactComponent as ArrowRight } from 'assets/svg/arrow-right.svg'
 // import ReadWhitepaper from 'components/Button/ReadWhitepaper'
@@ -22,7 +21,6 @@ import BrcDots from 'assets/image/dots.svg'
 import ShareIcon from 'assets/image/share.svg'
 import BoxUsdIcon from 'assets/image/box-usd.svg'
 import RefreshIcon from 'assets/image/box-usd.svg'
-import { useState } from 'react'
 // import { useInViewport } from 'hooks/useInViewport'
 
 const SectionTitle = styled(Typography)(({ theme }) => ({
@@ -73,7 +71,7 @@ const ButtonStyle = styled(Button)(() => ({
   }
 }))
 
-const HoverSvg = styled(Box)(() => ({
+const HoverSvg = styled(Box)(({ theme }) => ({
   cursor: 'pointer',
   height: '380px',
   width: '533px',
@@ -99,6 +97,15 @@ const HoverSvg = styled(Box)(() => ({
     '.default-svg': {
       display: 'none'
     }
+  },
+  [theme.breakpoints.down('md')]: {
+    height: 'auto',
+    width: '100%',
+    '.default-svg': {
+      width: '100%',
+      marginTop: '0px',
+      marginLeft: '0px'
+    },
   }
 }))
 
@@ -259,8 +266,8 @@ function Brc() {
         <Box sx={{
           position: 'relative'
         }}>
-          <img src={BrcDots} />
-          <img src={BrcText} style={{
+          <img src={BrcDots} alt='' />
+          <img src={BrcText} alt='' style={{
             position: 'absolute',
             left: isSm ? 16 : 60,
             bottom: isSm ? 220 : 0,
@@ -320,7 +327,7 @@ function Brc() {
                   width: '100%'
                 }
               }}>
-              <img src={icon} />
+              <img src={icon} alt='' />
               {title}
               <Typography sx={{
                 fontSize: '16px',
@@ -353,17 +360,6 @@ function About() {
 }
 
 function Section1() {
-  const [isPopperOpen, setPopperOpen] = useState(false)
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
-
-  const handleMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
-    setPopperOpen(true)
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handleMouseLeave = () => {
-    setPopperOpen(false)
-  }
   return (
     <Box
       sx={{
@@ -414,7 +410,7 @@ function Section1() {
           </ButtonStyle>
         </ExternalLink>
       </Box>
-      <HoverSvg onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <HoverSvg>
         <Image src={Section1CardIcon} alt='png' className='default-svg' />
         <Image src={Section1CardHoverIcon} alt='png' className='hover-svg' />
       </HoverSvg>

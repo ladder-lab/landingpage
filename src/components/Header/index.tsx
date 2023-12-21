@@ -1,5 +1,5 @@
-import { useState, useCallback, useEffect } from 'react'
-import { AppBar, Box, Button, styled, IconButton, useTheme, Popper, Fade } from '@mui/material'
+import { useCallback, useEffect, useState } from 'react'
+import { AppBar, Box, Button, IconButton, Popper, styled, useTheme } from '@mui/material'
 import { ReactComponent as Ladder } from 'assets/svg/ladder.svg'
 import { ReactComponent as LadderSm } from 'assets/svg/ladder-sm.svg'
 import { ReactComponent as MenuIcon } from 'assets/svg/menu.svg'
