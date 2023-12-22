@@ -20,7 +20,7 @@ import BrcText from 'assets/image/BRC.svg'
 import BrcDots from 'assets/image/dots.svg'
 import ShareIcon from 'assets/image/share.svg'
 import BoxUsdIcon from 'assets/image/box-usd.svg'
-import RefreshIcon from 'assets/image/box-usd.svg'
+import RefreshIcon from 'assets/image/swap.svg'
 // import { useInViewport } from 'hooks/useInViewport'
 
 const SectionTitle = styled(Typography)(({ theme }) => ({
