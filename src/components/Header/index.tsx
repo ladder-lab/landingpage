@@ -109,7 +109,7 @@ export default function Header() {
   }
 
   return (
-    <StyledAppBar position='absolute'>
+    <StyledAppBar position="absolute">
       <Box
         sx={{
           maxWidth: '1440px',
@@ -169,7 +169,8 @@ export default function Header() {
                 borderRadius: '8px',
                 padding: '8px 13px',
                 zIndex: 99
-              }}>
+              }}
+            >
               Coming soon...
             </Popper>
             <LaunchApp />
@@ -184,7 +185,7 @@ function MobileHeader({ isOpen, onDismiss, onClick }: { isOpen: boolean; onDismi
   return (
     <>
       <MobileMenu isOpen={isOpen} onDismiss={onDismiss} />
-      <StyledMobileAppBar position='absolute'>
+      <StyledMobileAppBar position="absolute">
         <Box
           sx={{
             display: 'flex',
@@ -227,42 +228,80 @@ function BrandLogo() {
 function LaunchApp() {
   const theme = useTheme()
   return (
-    <ExternalLink href='https://test.ladder.top/airdrop'>
-      <Button
-        variant='contained'
-        sx={{
-          height: '43px',
-          display: 'inline-flex',
-          padding: '0 23px',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '4px',
-          borderRadius: '200px',
-          background: '#252525',
-          color: '#FFF',
-          fontFamily: 'Poppins',
-          fontSize: '16px',
-          fontWeight: '600',
-          textTransform: 'capitalize',
-          border: '1px solid #252525',
-          '&:hover': {
-            boxShadow: 'none',
-            background: '#fff',
-            color: '#252525'
-          },
-          [theme.breakpoints.down('md')]: {
-            height: 32,
-            width: '130px',
-            borderRadius: '148px',
-            fontSize: '11.848px',
-            padding: '0',
-            fontFamily: 'Sora'
-          }
-        }}
-      >
-        Launch App
-      </Button>
-    </ExternalLink>
+    <Box display={'flex'} gap={20}>
+      <ExternalLink href="https://app.ladder.top/swap">
+        <Button
+          variant="contained"
+          sx={{
+            height: '43px',
+            display: 'inline-flex',
+            padding: '0 23px',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '4px',
+            borderRadius: '200px',
+            background: '#252525',
+            color: '#FFF',
+            fontFamily: 'Poppins',
+            fontSize: '16px',
+            fontWeight: '600',
+            textTransform: 'capitalize',
+            border: '1px solid #252525',
+            '&:hover': {
+              boxShadow: 'none',
+              background: '#fff',
+              color: '#252525'
+            },
+            [theme.breakpoints.down('md')]: {
+              height: 32,
+              width: '130px',
+              borderRadius: '148px',
+              fontSize: '11.848px',
+              padding: '0',
+              fontFamily: 'Sora'
+            }
+          }}
+        >
+          Launch App
+        </Button>
+      </ExternalLink>
+      <ExternalLink href="https://test.ladder.top/airdrop">
+        <Button
+          variant="contained"
+          sx={{
+            height: '43px',
+            display: 'inline-flex',
+            padding: '0 23px',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '4px',
+            borderRadius: '200px',
+            background: '#252525',
+            color: '#FFF',
+            fontFamily: 'Poppins',
+            fontSize: '16px',
+            fontWeight: '600',
+            textTransform: 'capitalize',
+            border: '1px solid #252525',
+            '&:hover': {
+              boxShadow: 'none',
+              background: '#fff',
+              color: '#252525'
+            },
+            [theme.breakpoints.down('md')]: {
+              height: 32,
+              width: '130px',
+              borderRadius: '148px',
+              fontSize: '11.848px',
+              padding: '0',
+              fontFamily: 'Sora'
+            }
+          }}
+        >
+          Testnet
+        </Button>
+      </ExternalLink>
+    </Box>
   )
 }
 
