@@ -134,15 +134,15 @@ export default function Header() {
           <Box
             sx={{
               display: 'flex',
-              gap: '120px'
+              gap: '70px'
             }}
           >
             <Box
               sx={{
                 display: 'flex',
-                aligmItems: 'center',
-                gap: 96,
-                justifyContent: 'center'
+                alignItems: 'center',
+                gap: 50,
+                maxHeight: 50
               }}
             >
               {Tabs.map(({ title, route, link, hover }, idx) =>
