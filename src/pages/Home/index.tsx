@@ -404,7 +404,7 @@ function Section1() {
         >
           For projects and holders alike, Ladder unlocks new avenues of monetization for in-game assets.{' '}
         </Typography>
-        <ExternalLink href='https://ladder-alltoken.netlify.app/swap'>
+        <ExternalLink href='https://app.ladder.top/swap'>
           <ButtonStyle variant='contained' endIcon={<ArrowRight />}>
             Trade Now
           </ButtonStyle>
