@@ -265,7 +265,7 @@ function LaunchApp() {
           Launch App
         </Button>
       </ExternalLink>
-      <ExternalLink href="https://test.ladder.top/airdrop">
+      <ExternalLink href="https://test.v2.ladder.top/airdrop">
         <Button
           variant="contained"
           sx={{
